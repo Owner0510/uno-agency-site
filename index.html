@@ -1,0 +1,1461 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>UNO Agency — Meta Ads, TikTok Ads, SMM | Маркетингова агенція</title>
+<meta name="description" content="UNO Agency — маркетингова агенція. Meta Ads, TikTok Ads та SMM для бізнесів у Канаді, США, Європі, Україні та по всьому світу."/>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+/* ─── TOKENS ─── */
+:root{
+  --o:#C8521A;
+  --o2:#e05e1e;
+  --dark:#17181A;
+  --dark2:#1E1F22;
+  --dark3:#252628;
+  --light:#F4F3F0;
+  --light2:#ECEAE7;
+  --border-d:rgba(255,255,255,.08);
+  --border-l:rgba(23,24,26,.1);
+  --muted-d:rgba(255,255,255,.48);
+  --muted-l:rgba(23,24,26,.55);
+  --r:12px;
+  --W:1280px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:'Inter',sans-serif;background:var(--dark);color:#fff;line-height:1.65;font-size:16px}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+
+/* ─── LAYOUT ─── */
+.W{max-width:var(--W);margin:0 auto;padding:0 5%}
+section{padding:96px 0}
+
+/* ─── DARK sections (default) ─── */
+section.dark{background:var(--dark)}
+section.dark2{background:var(--dark2)}
+
+/* ─── LIGHT sections ─── */
+section.light{background:var(--light);color:var(--dark)}
+section.light h2,section.light h3{color:var(--dark)}
+section.light p{color:var(--muted-l)}
+section.light .eyebrow{color:var(--o)}
+section.light a{color:var(--dark)}
+
+/* ─── TYPOGRAPHY ─── */
+h1{font-size:clamp(34px,4.8vw,62px);font-weight:900;line-height:1.08;letter-spacing:-0.025em;color:#fff}
+h2{font-size:clamp(26px,3vw,40px);font-weight:800;line-height:1.12;letter-spacing:-0.02em}
+h3{font-size:clamp(16px,1.8vw,19px);font-weight:700;line-height:1.3}
+p{line-height:1.7}
+
+/* ─── UTILS ─── */
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--o);margin-bottom:14px}
+.sec-sub{max-width:520px;font-size:17px;margin-top:12px;line-height:1.65}
+.dark .sec-sub,.dark2 .sec-sub{color:var(--muted-d)}
+.light .sec-sub{color:var(--muted-l)}
+
+/* ─── NAV ─── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:64px;background:rgba(23,24,26,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border-d);transition:box-shadow .3s}
+.nav-logo{font-weight:900;font-size:19px;letter-spacing:-0.02em;color:#fff}
+.nav-logo span{color:var(--o)}
+.nav-r{display:flex;align-items:center;gap:20px}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:14px;font-weight:500;color:var(--muted-d);transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-cta{background:var(--o);color:#fff;padding:9px 20px;border-radius:8px;font-size:14px;font-weight:700;transition:background .2s}
+.nav-cta:hover{background:var(--o2)}
+.lang-btn{background:none;border:1px solid rgba(255,255,255,.15);color:var(--muted-d);padding:7px 12px;border-radius:7px;font-size:12px;font-weight:600;letter-spacing:.04em;font-family:inherit;cursor:pointer;transition:.2s}
+.lang-btn:hover{border-color:rgba(255,255,255,.4);color:#fff}
+
+/* ─── BUTTONS ─── */
+.btn-p{display:inline-block;background:var(--o);color:#fff;padding:15px 30px;border-radius:10px;font-size:16px;font-weight:700;transition:background .2s;white-space:nowrap}
+.btn-p:hover{background:var(--o2)}
+.btn-g{display:inline-block;background:transparent;color:#fff;padding:15px 30px;border-radius:10px;font-size:16px;font-weight:700;border:1.5px solid rgba(255,255,255,.2);transition:.2s;white-space:nowrap}
+.btn-g:hover{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.04)}
+.btn-g-dark{display:inline-block;background:transparent;color:var(--dark);padding:15px 30px;border-radius:10px;font-size:16px;font-weight:700;border:1.5px solid rgba(23,24,26,.25);transition:.2s;white-space:nowrap}
+.btn-g-dark:hover{border-color:rgba(23,24,26,.5);background:rgba(23,24,26,.06)}
+
+
+/* ─── MODAL ─── */
+.modal-overlay{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .25s}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal-box{background:var(--dark2);border:1px solid var(--border-d);border-radius:20px;padding:48px;width:100%;max-width:480px;position:relative;transform:translateY(20px);transition:transform .25s;max-height:90vh;overflow-y:auto}
+.modal-overlay.open .modal-box{transform:none}
+.modal-close{position:absolute;top:16px;right:16px;background:none;border:none;color:var(--muted-d);font-size:22px;cursor:pointer;width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:8px;transition:.2s;font-family:inherit;line-height:1}
+.modal-close:hover{background:rgba(255,255,255,.08);color:#fff}
+.modal-box h3{font-size:24px;color:#fff;margin-bottom:8px}
+.modal-box .modal-sub{font-size:15px;color:var(--muted-d);margin-bottom:32px}
+.modal-social{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}
+.modal-soc{display:inline-flex;align-items:center;gap:7px;padding:9px 16px;border-radius:8px;font-size:13px;font-weight:600;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.12);color:#fff;text-decoration:none;transition:.2s}
+.modal-soc:hover{background:rgba(255,255,255,.13)}
+.modal-divider{display:flex;align-items:center;gap:12px;margin:24px 0;color:rgba(255,255,255,.2);font-size:12px}
+.modal-divider::before,.modal-divider::after{content:'';flex:1;height:1px;background:var(--border-d)}
+
+/* ─── 1. HERO ─── */
+#hero{min-height:100vh;display:flex;align-items:flex-start;background:var(--dark);position:relative;overflow:hidden;padding-top:64px}
+.hero-l{position:relative;z-index:2;padding:52px 5% 40px;width:100%;max-width:var(--W);margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(200,82,26,.1);border:1px solid rgba(200,82,26,.28);color:var(--o);padding:6px 14px;border-radius:100px;font-size:12px;font-weight:700;letter-spacing:.04em;margin-bottom:32px}
+.hero-badge-dot{width:6px;height:6px;background:var(--o);border-radius:50%;animation:pulse 2s infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+#hero h1{max-width:680px;margin-bottom:24px}
+.hero-sub{max-width:520px;font-size:17px;color:var(--muted-d);line-height:1.65;margin-bottom:44px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:64px}
+.hero-stats{display:flex;gap:52px;padding-top:48px;border-top:1px solid var(--border-d);flex-wrap:wrap}
+.hstat-val{font-size:32px;font-weight:900;color:#fff;line-height:1;margin-bottom:5px;letter-spacing:-0.02em}
+.hstat-lbl{font-size:13px;color:var(--muted-d);line-height:1.4;max-width:140px}
+/* Hero photo */
+.hero-r{position:absolute;right:0;top:0;bottom:0;width:50%;overflow:hidden}
+.hero-r img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.hero-r::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,var(--dark) 0%,rgba(23,24,26,.55) 38%,transparent 62%)}
+.hero-r::after{content:'';position:absolute;bottom:0;left:0;right:0;height:180px;z-index:1;background:linear-gradient(0deg,var(--dark),transparent)}
+
+/* ─── 2. SERVICES (light) ─── */
+.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--border-l);border-radius:16px;overflow:hidden;margin-top:48px}
+.svc-card{background:var(--light);padding:44px 40px;transition:background .2s}
+.svc-card:hover{background:var(--light2)}
+.svc-icon{font-size:28px;margin-bottom:20px}
+.svc-card h3{color:var(--dark);margin-bottom:12px;font-size:19px}
+.svc-card p{font-size:15px;color:var(--muted-l);line-height:1.65;max-width:380px}
+.svc-price{margin-top:20px;font-size:13px;color:var(--o);font-weight:700}
+
+/* ─── 3. WHY TRUST (dark) ─── */
+.trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border-d);border-radius:16px;overflow:hidden;margin-top:48px}
+.trust-card{background:var(--dark);padding:36px 32px;transition:background .15s}
+.trust-card:hover{background:rgba(255,255,255,.025)}
+.trust-ico{width:34px;height:34px;background:rgba(200,82,26,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:17px}
+.trust-card h3{font-size:16px;color:#fff;margin-bottom:8px;line-height:1.35}
+.trust-card p{font-size:14px;color:var(--muted-d);line-height:1.6}
+.split-deal{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;border-radius:16px;overflow:hidden;border:1px solid var(--border-l);position:relative}
+.split-you{padding:52px 56px;background:var(--light2)}
+.split-us{padding:52px 56px;background:var(--o);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.split-arrow{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:40px;height:40px;background:var(--light2);border:2px solid var(--border-l);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--o);z-index:2;pointer-events:none}
+.split-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px;opacity:.75}
+.split-you .split-label{color:var(--o)}
+.split-us .split-label{color:rgba(255,255,255,.75)}
+.split-text{font-size:24px;font-weight:800;line-height:1.25}
+.split-you .split-text{color:var(--dark)}
+.split-us .split-text{color:#fff}
+.split-sub{font-size:14px;line-height:1.6;margin-top:12px;font-weight:400}
+.split-you .split-sub{color:var(--muted-l)}
+.ref-band{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;padding:52px 56px;background:rgba(200,82,26,.08);border:1px solid rgba(200,82,26,.2);border-radius:16px}
+.ref-band h3{font-size:28px;font-weight:800;color:#fff;margin-bottom:10px}
+.ref-band p{font-size:15px;color:var(--muted-d);max-width:480px}
+
+/* ─── 4. FOUNDERS (light) ─── */
+.founders-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:48px}
+.founder-card{border:1px solid var(--border-l);border-radius:16px;padding:40px;background:rgba(23,24,26,.03);transition:border-color .2s}
+.founder-card:hover{border-color:rgba(23,24,26,.2)}
+.founder-tag{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--o);margin-bottom:14px}
+.founder-card h3{font-size:22px;color:var(--dark);margin-bottom:6px}
+.founder-title{font-size:14px;color:var(--muted-l);margin-bottom:20px}
+.founder-facts{list-style:none;display:flex;flex-direction:column;gap:9px}
+.founder-facts li{font-size:14px;color:rgba(23,24,26,.55);padding-left:18px;position:relative;line-height:1.5}
+.founder-facts li::before{content:'—';position:absolute;left:0;color:var(--o)}
+.founder-photo{aspect-ratio:3/4;border-radius:10px;overflow:hidden;margin-bottom:24px;background:var(--light2)}
+.founder-photo img{width:100%;height:100%;object-fit:contain;object-position:center bottom}
+
+/* ─── 5. PROCESS (dark) ─── */
+.proc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:48px}
+.proc-card{padding:28px 24px;border:1px solid var(--border-d);border-radius:16px;background:rgba(255,255,255,.01)}
+.proc-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.proc-ico{font-size:28px;line-height:1}
+.proc-num{font-size:13px;font-weight:700;color:var(--o);letter-spacing:.06em}
+.proc-card h3{font-size:15px;color:#fff;margin-bottom:8px;line-height:1.3}
+.proc-card p{font-size:13px;color:var(--muted-d);line-height:1.6}
+
+/* ─── 6. CASES (dark2) ─── */
+.cs-wrap{position:relative;overflow:hidden;border-radius:20px;margin-top:48px}
+.cs-track{display:flex;transition:transform .45s cubic-bezier(.4,0,.2,1)}
+.cs-slide{min-width:100%;height:420px;display:grid;grid-template-columns:1fr 1fr;background:var(--dark3);border:1px solid var(--border-d);border-radius:20px;overflow:hidden}
+.cs-l{padding:22px 28px;display:flex;flex-direction:column;gap:0;overflow:hidden}
+.cs-tag{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--o);margin-bottom:6px}
+.cs-slide h3{font-size:clamp(14px,1.4vw,19px);color:#fff;line-height:1.25;margin:0 0 6px;font-weight:800}
+.cs-desc{font-size:12px;color:var(--muted-d);line-height:1.5;margin:0 0 10px}
+.cs-kpi{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:10px}
+.cs-kpi-row{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:7px 10px;display:flex;flex-direction:column;gap:2px}
+.cs-kpi-lbl{font-size:9px;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.07em}
+.cs-kpi-val{font-size:clamp(14px,1.3vw,18px);font-weight:800;color:#fff;letter-spacing:-.02em;line-height:1}
+.cs-kpi-val.acc{color:var(--o)}
+.cs-kpi-row.wide{grid-column:1/-1}
+.cs-thumb{margin-top:8px;border-radius:7px;overflow:hidden;cursor:zoom-in;position:relative;height:48px;min-height:48px;max-height:48px;border:1px solid rgba(255,255,255,.08);flex-shrink:0}
+.cs-thumb img{width:100%;height:48px;object-fit:cover;object-position:top left;display:block}
+.cs-thumb:hover img{opacity:.8}
+.cs-thumb-lbl{position:absolute;bottom:0;left:0;right:0;padding:5px 10px;background:linear-gradient(to top,rgba(0,0,0,.75),transparent);font-size:10px;font-weight:700;color:rgba(255,255,255,.65);letter-spacing:.07em;text-transform:uppercase}
+/* Right panel */
+.cs-r{position:relative;overflow:hidden}
+.cs-r img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;cursor:zoom-in}
+
+.cs-r-stat{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;background:linear-gradient(135deg,rgba(200,82,26,.06) 0%,rgba(200,82,26,.14) 100%);border-left:1px solid var(--border-d)}
+.cs-r-big{font-size:clamp(52px,7vw,88px);font-weight:900;color:var(--o);letter-spacing:-.04em;line-height:1}
+.cs-r-lbl{font-size:13px;color:rgba(255,255,255,.4);margin-top:14px;text-align:center;text-transform:uppercase;letter-spacing:.08em}
+/* Nav */
+.cs-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:20px}
+.cs-arrow{width:44px;height:44px;border-radius:50%;background:var(--dark3);border:1px solid var(--border-d);color:#fff;font-size:20px;cursor:pointer;transition:.2s;display:flex;align-items:center;justify-content:center;line-height:1}
+.cs-arrow:hover{background:var(--o);border-color:var(--o)}
+.cs-dots{display:flex;gap:8px;align-items:center}
+.cs-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.2);cursor:pointer;transition:.3s}
+.cs-dot.active{background:var(--o);width:24px;border-radius:4px}
+/* Lightbox */
+.img-lb{position:fixed;inset:0;z-index:300;background:rgba(0,0,0,.92);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .25s}
+.img-lb.open{opacity:1;pointer-events:all}
+.img-lb img{max-width:100%;max-height:92vh;object-fit:contain;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.img-lb-close{position:fixed;top:16px;right:16px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s}
+.img-lb-close:hover{background:rgba(255,255,255,.2)}
+/* Mobile */
+@media(max-width:768px){
+  .cs-slide{grid-template-columns:1fr;height:auto}
+  .cs-r,.cs-r-stat{height:240px}
+  .cs-l{padding:20px 20px}
+}
+@media(max-width:480px){.cs-r,.cs-r-stat{height:200px}}
+
+/* ─── 7. REVIEWS (light) ─── */
+.rev-controls{display:flex;gap:8px;justify-content:flex-end;margin-top:48px;margin-bottom:16px}
+.rev-btn{width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(23,24,26,.2);background:transparent;color:var(--dark);font-size:18px;cursor:pointer;transition:.2s;display:flex;align-items:center;justify-content:center;font-family:inherit;line-height:1}
+.rev-btn:hover{background:rgba(23,24,26,.08);border-color:rgba(23,24,26,.35)}
+.rev-slider{display:flex;gap:20px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;cursor:grab;scrollbar-width:none}
+.rev-slider:active{cursor:grabbing}
+.rev-slider::-webkit-scrollbar{display:none}
+.rev-card{flex-shrink:0;width:360px;scroll-snap-align:start;background:rgba(23,24,26,.04);border:1px solid var(--border-l);border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:18px;transition:border-color .2s}
+.rev-card:hover{border-color:rgba(23,24,26,.2)}
+.rev-stars{color:var(--o);font-size:14px;letter-spacing:3px}
+.rev-text{font-size:15px;color:rgba(23,24,26,.65);line-height:1.7;flex:1}
+.rev-footer{display:flex;align-items:center;gap:14px;padding-top:16px;border-top:1px solid var(--border-l)}
+.rev-ava{width:42px;height:42px;border-radius:50%;background:rgba(23,24,26,.08);border:1px solid var(--border-l);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:var(--o);flex-shrink:0}
+.rev-name{font-size:14px;font-weight:700;color:var(--dark);margin-bottom:2px}
+.rev-company{font-size:12px;color:var(--muted-l)}
+.rev-card-video{flex-shrink:0;width:480px;scroll-snap-align:start;background:rgba(23,24,26,.04);border:1px solid var(--border-l);border-radius:16px;overflow:hidden;transition:border-color .2s}
+.rev-card-video:hover{border-color:rgba(23,24,26,.2)}
+.rev-card-video video{width:100%;display:block;max-height:320px;object-fit:cover;background:#000}
+.rev-card-video-info{padding:20px 24px;display:flex;align-items:center;gap:14px}
+.rev-card-video-name{font-size:14px;font-weight:700;color:var(--dark)}
+.rev-card-video-co{font-size:12px;color:var(--muted-l);margin-top:2px}
+
+/* ─── CTA BAND ─── */
+#cta-band{background:var(--dark);padding:80px 0;text-align:center}
+#cta-band h2{color:#fff;margin-bottom:14px}
+#cta-band p{color:var(--muted-d);font-size:17px;margin-bottom:36px;max-width:520px;margin-left:auto;margin-right:auto}
+.cta-band-btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+
+/* ─── VIDEO REVIEWS ─── */
+#video-reviews{padding:96px 0}
+.vid-controls{display:flex;gap:8px;justify-content:flex-end;margin-top:48px;margin-bottom:16px}
+.vid-btn{width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(23,24,26,.2);background:transparent;color:var(--dark);font-size:18px;cursor:pointer;transition:.2s;display:flex;align-items:center;justify-content:center;font-family:inherit;line-height:1}
+.vid-btn:hover{border-color:rgba(23,24,26,.5)}
+.vid-slider{display:flex;gap:16px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;cursor:grab;scrollbar-width:none}
+.vid-slider:active{cursor:grabbing}
+.vid-slider::-webkit-scrollbar{display:none}
+.video-thumb{background:var(--dark3);border:1px solid var(--border-d);border-radius:12px;aspect-ratio:9/16;position:relative;overflow:hidden;cursor:pointer;flex:0 0 220px;scroll-snap-align:start}
+.video-thumb video{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.video-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:rgba(23,24,26,.45);transition:opacity .3s}
+.video-thumb.playing .video-overlay{opacity:0;pointer-events:none}
+.video-thumb:hover .video-overlay{background:rgba(23,24,26,.3)}
+.video-play{width:52px;height:52px;background:rgba(200,82,26,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;transition:.2s}
+.video-thumb:hover .video-play{transform:scale(1.08)}
+.video-thumb-lbl{font-size:13px;font-weight:600;color:#fff;text-align:center;padding:0 16px;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+
+/* ─── 8. FAQ (light) ─── */
+#faq{background:var(--light);padding:96px 0}
+.faq-inner{margin-top:52px}
+.faq-list{display:flex;flex-direction:column;gap:2px}
+.faq-item{border-radius:var(--r);overflow:hidden;background:rgba(23,24,26,.04);border:1px solid var(--border-l)}
+.faq-q{padding:22px 26px;font-size:16px;font-weight:600;color:var(--dark);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;user-select:none;transition:background .15s;line-height:1.4;text-align:left}
+.faq-q:hover{background:rgba(23,24,26,.04)}
+.faq-ico{font-size:18px;color:var(--o);transition:transform .25s;flex-shrink:0}
+.faq-item.open .faq-ico{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.faq-item.open .faq-a{max-height:600px}
+.faq-a-in{padding:0 26px 22px;font-size:14px;color:var(--muted-l);line-height:1.7}
+
+/* ─── 9. FORM (dark) ─── */
+#contact{background:var(--dark);padding:96px 0}
+.form-wrap{max-width:600px;margin:0 auto}
+.form-head{margin-bottom:48px}
+.form-head h2{color:#fff;margin-bottom:12px}
+.form-head p{color:var(--muted-d);font-size:17px}
+.f-stack{display:flex;flex-direction:column;gap:16px}
+.f-group{display:flex;flex-direction:column;gap:7px}
+.f-label{font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+input[type=text],input[type=tel],input[type=email]{width:100%;background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.1);border-radius:10px;padding:14px 16px;font-size:16px;color:#fff;font-family:'Inter',sans-serif;outline:none;transition:.2s}
+input::placeholder{color:rgba(255,255,255,.2)}
+input:focus{border-color:rgba(200,82,26,.6);background:rgba(255,255,255,.07)}
+.f-submit{width:100%;background:var(--o);color:#fff;border:none;padding:17px;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:background .2s;margin-top:8px}
+.f-submit:hover{background:var(--o2)}
+.f-note{text-align:center;font-size:13px;color:rgba(255,255,255,.2);margin-top:12px;line-height:1.5}
+.form-ok{display:none;text-align:center;padding:48px 24px}
+.form-ok-ico{font-size:52px;margin-bottom:16px}
+.form-ok h3{font-size:22px;color:#fff;margin-bottom:8px}
+.form-ok p{color:var(--muted-d)}
+
+/* ─── FOOTER ─── */
+footer{background:var(--dark2);padding:36px 0;border-top:1px solid var(--border-d)}
+.foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.foot-logo{font-weight:900;font-size:17px;letter-spacing:-0.02em;color:#fff}
+.foot-logo span{color:var(--o)}
+.foot-copy{font-size:13px;color:rgba(255,255,255,.25)}
+.foot-links{display:flex;gap:20px}
+.foot-links a{font-size:13px;color:rgba(255,255,255,.25);transition:color .2s}
+.foot-links a:hover{color:#fff}
+.social-links{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
+.soc-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;transition:.2s;border:1.5px solid transparent}
+.soc-btn.tg{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.12);color:#fff}
+.soc-btn.tg:hover{background:rgba(255,255,255,.13)}
+.soc-btn.ig{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.12);color:#fff}
+.soc-btn.ig:hover{background:rgba(255,255,255,.13)}
+.soc-btn.wa{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.12);color:#fff}
+.soc-btn.wa:hover{background:rgba(255,255,255,.13)}
+
+/* ─── REVEAL ─── */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}
+.reveal.visible{opacity:1;transform:none}
+.rev-slider .reveal,.vid-slider .reveal{opacity:1;transform:none}
+
+/* ─── LANGUAGE ─── */
+.en{display:none}
+body.en-mode .uk{display:none}
+body.en-mode .en{display:revert}
+body.en-mode span.en{display:inline}
+body.en-mode a.en{display:inline}
+body.en-mode .f-group.en{display:flex}
+body.en-mode .f-submit.uk,.f-submit.en{display:block}
+body:not(.en-mode) .f-submit.en{display:none}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:1024px){
+  .hero-r{width:44%}
+  .feat-case{grid-template-columns:1fr;gap:36px;padding:36px 28px}
+  .proc-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:768px){
+  section{padding:56px 0}
+  #hero{min-height:auto}
+  .hero-l{padding:40px 5% 40px}
+  .rev-controls{margin-top:24px}
+  .hero-r{width:100%;opacity:.35}
+  .hero-r::before{background:linear-gradient(90deg,var(--dark) 0%,rgba(23,24,26,.85) 60%,rgba(23,24,26,.55) 100%)}
+  .hero-stats{gap:20px}
+  .nav-links,.nav-cta{display:none}
+  /* Grids → 1 column */
+  .svc-grid,.trust-grid,.founders-grid,.cases-grid{grid-template-columns:1fr}
+  /* Послуги */
+  .svc-grid{background:transparent;gap:0;border:1px solid var(--border-l)}
+  .svc-card{border-bottom:1px solid var(--border-l);padding:28px 20px}
+  .svc-card:last-child{border-bottom:none}
+  /* Чому довіряють */
+  .trust-grid{background:transparent;gap:0;border:1px solid var(--border-d)}
+  .trust-card{border-bottom:1px solid var(--border-d);padding:24px 20px}
+  .trust-card:last-child{border-bottom:none}
+  /* Процес */
+  .proc-grid{grid-template-columns:1fr 1fr}
+  /* Кейси */
+  .feat-case{grid-template-columns:1fr;gap:28px;padding:28px 20px}
+  .fc-nums{grid-template-columns:1fr 1fr}
+  /* Відгуки */
+  .rev-card{width:280px}
+  /* Split блок */
+  .split-deal{grid-template-columns:1fr}
+  .split-arrow{display:none}
+  .split-you{padding:32px 24px;border-radius:0}
+  .split-us{padding:32px 24px;border-radius:0}
+  /* Реферал */
+  .ref-band{padding:36px 24px;flex-direction:column;align-items:flex-start}
+  /* Футер */
+  .foot-in{flex-direction:column;align-items:flex-start;gap:10px}
+  .foot-links{flex-wrap:wrap;gap:10px 16px}
+  /* Форма */
+  .modal-box{padding:32px 24px}
+}
+@media(max-width:480px){
+  section{padding:48px 0}
+  .proc-grid{grid-template-columns:1fr}
+  .hero-btns,.cta-band-btns{flex-direction:column;align-items:flex-start}
+  .cta-band-btns{align-items:center}
+  .btn-p,.btn-g,.btn-g-dark{width:100%;text-align:center}
+  .founders-grid{gap:16px}
+  .founder-card{padding:24px 20px}
+}
+@media(prefers-reduced-motion:reduce){
+  .reveal,.hero-badge-dot,.faq-ico,.faq-a{transition:none;animation:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ════ NAV ════ -->
+<nav id="nav">
+  <a class="nav-logo" href="#"><span>UNO</span> Agency</a>
+  <div class="nav-r">
+    <ul class="nav-links">
+      <li><a class="uk" href="#services">Послуги</a><a class="en" href="#services">Services</a></li>
+      <li><a class="uk" href="#cases">Кейси</a><a class="en" href="#cases">Cases</a></li>
+      <li><a class="uk" href="#founders">Команда</a><a class="en" href="#founders">Team</a></li>
+      <li><a class="uk" href="#contact">Контакти</a><a class="en" href="#contact">Contact</a></li>
+    </ul>
+    <button class="lang-btn" onclick="toggleLang()">EN / UA</button>
+    <button class="nav-cta uk" onclick="openModal()">Залишити заявку</button>
+    <button class="nav-cta en" onclick="openModal()">Get in touch</button>
+  </div>
+</nav>
+
+<!-- ════ 1. HERO (dark) ════ -->
+<section id="hero">
+  <div class="hero-l">
+    <h1>
+      <span class="uk">Залучаємо клієнтів та збільшуємо продажі через рекламу та контент в соціальних мережах</span>
+      <span class="en">We attract clients and increase sales through social media advertising and content</span>
+    </h1>
+
+    <p class="hero-sub uk">Meta ADS, TikTok ADS та SMM для бізнесів по всьому світу — залишайте заявку, щоб отримати безкоштовну консультацію</p>
+    <p class="hero-sub en">Meta ADS, TikTok ADS and SMM for businesses worldwide — leave a request for a free consultation</p>
+
+    <div class="hero-btns">
+      <button class="btn-p uk" onclick="openModal()">Залишити заявку</button>
+      <button class="btn-p en" onclick="openModal()">Leave a request</button>
+      <a class="btn-g uk" href="#cases">Переглянути кейси</a>
+      <a class="btn-g en" href="#cases">View cases</a>
+    </div>
+
+    <div class="hero-stats">
+      <div>
+        <div class="hstat-val">$2M+</div>
+        <div class="hstat-lbl uk">рекламного бюджету під управлінням</div>
+        <div class="hstat-lbl en">ad budget managed</div>
+      </div>
+      <div>
+        <div class="hstat-val">$7M+</div>
+        <div class="hstat-lbl uk">виручки для клієнтів</div>
+        <div class="hstat-lbl en">revenue for clients</div>
+      </div>
+      <div>
+        <div class="hstat-val">70%</div>
+        <div class="hstat-lbl uk">клієнтів приходять за рекомендацією</div>
+        <div class="hstat-lbl en">clients come via referral</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-r">
+    <img src="team.jpg" alt="Юлія та Сергій Гатлан — UNO Agency"/>
+  </div>
+</section>
+
+<!-- ════ 2. SERVICES (light) ════ -->
+<section id="services" class="light">
+  <div class="W">
+    <p class="eyebrow uk">Послуги</p>
+    <p class="eyebrow en">Services</p>
+    <h2 class="uk">Що ми робимо для вашого бізнесу</h2>
+    <h2 class="en">What we do for your business</h2>
+
+    <div class="svc-grid">
+      <div class="svc-card reveal">
+        <div class="svc-icon">📊</div>
+        <h3>Meta ADS</h3>
+        <p class="uk">Таргетована реклама в Facebook та Instagram. Запускаємо, тестуємо та масштабуємо кампанії для стабільного потоку заявок і продажів — під будь-яку ціль і нішу.</p>
+        <p class="en">Targeted advertising on Facebook and Instagram. We launch, test and scale campaigns for a steady flow of leads and sales — for any goal and niche.</p>
+      </div>
+
+      <div class="svc-card reveal">
+        <div class="svc-icon">🎬</div>
+        <h3>TikTok ADS</h3>
+        <p class="uk">Таргетована реклама в TikTok для виходу на нову аудиторію. Нативні відеоформати, тестування, оптимізація та щотижнева звітність.</p>
+        <p class="en">Targeted advertising on TikTok to reach new audiences. Native video formats, testing, optimization and weekly reporting.</p>
+      </div>
+
+      <div class="svc-card reveal">
+        <div class="svc-icon">✍️</div>
+        <h3 class="uk">SMM — повне ведення та упаковка</h3>
+        <h3 class="en">SMM — full management &amp; packaging</h3>
+        <p class="uk">Ведення Instagram, TikTok та Facebook з нуля або перезапуск акаунту. Стратегія, Reels, сторіз, пости, UGC, інфлюенс-маркетинг, аналітика.</p>
+        <p class="en">Managing Instagram, TikTok and Facebook from scratch or account relaunch. Strategy, Reels, stories, posts, UGC, influencer marketing, analytics.</p>
+      </div>
+
+      <div class="svc-card reveal">
+        <div class="svc-icon">🎯</div>
+        <h3 class="uk">SMM — супровід</h3>
+        <h3 class="en">SMM — consulting &amp; support</h3>
+        <p class="uk">Для тих, хто веде соцмережі самостійно. Розробляємо стратегію, контент-план, сценарії для Reels, даємо рекомендації та контролюємо результат.</p>
+        <p class="en">For those who manage social media themselves. We develop strategy, content plan, Reels scripts, provide recommendations and monitor results.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ 3. WHY TRUST (dark) ════ -->
+<section id="why" class="dark">
+  <div class="W">
+    <p class="eyebrow uk">Чому нам довіряють</p>
+    <p class="eyebrow en">Why clients trust us</p>
+    <h2 class="uk">Маркетинг, який базується на цифрах</h2>
+    <h2 class="en">Marketing that is based on numbers</h2>
+
+    <div class="trust-grid">
+      <div class="trust-card reveal">
+        <div class="trust-ico">📈</div>
+        <h3 class="uk">70%+ клієнтів — за рекомендацією</h3>
+        <h3 class="en">70%+ clients via referral</h3>
+        <p class="uk">Найкраща оцінка нашої роботи — коли клієнти рекомендують нас своїм партнерам і знайомим.</p>
+        <p class="en">The best assessment of our work is when clients recommend us to their partners and contacts.</p>
+      </div>
+
+      <div class="trust-card reveal">
+        <div class="trust-ico">🌍</div>
+        <h3 class="uk">Канада, США, Європа, Україна, Австралія та інші</h3>
+        <h3 class="en">Canada, USA, Europe, Ukraine, Australia and beyond</h3>
+        <p class="uk">Маємо досвід роботи з різними рекламними ринками та аудиторіями — від Північної Америки до Азії. Знаємо, чим відрізняється поведінка покупців у різних країнах.</p>
+        <p class="en">We have experience with diverse ad markets and audiences — from North America to Asia. We know how buyer behavior differs across countries.</p>
+      </div>
+
+      <div class="trust-card reveal">
+        <div class="trust-ico">🔗</div>
+        <h3 class="uk">Реклама та контент — єдина система</h3>
+        <h3 class="en">Ads and content — one system</h3>
+        <p class="uk">Не окремі послуги, а скоординований маркетинг із єдиним вектором росту для вашого бізнесу.</p>
+        <p class="en">Not separate services, but coordinated marketing with a single growth vector for your business.</p>
+      </div>
+
+      <div class="trust-card reveal">
+        <div class="trust-ico">📋</div>
+        <h3 class="uk">Прозора звітність і доступ до даних</h3>
+        <h3 class="en">Transparent reporting and data access</h3>
+        <p class="uk">Щоденні, щотижневі і щомісячні звіти, доступ до рекламних кабінетів і чіткі відповіді на питання «куди йдуть гроші».</p>
+        <p class="en">Daily, weekly and monthly reports, access to ad accounts and clear answers to "where does the money go."</p>
+      </div>
+
+      <div class="trust-card reveal">
+        <div class="trust-ico">🏪</div>
+        <h3 class="uk">Від локального бізнесу до&nbsp;e-commerce</h3>
+        <h3 class="en">From local business to&nbsp;e-commerce</h3>
+        <p class="uk">Досвід у 50+ нішах: салони краси, ресторани, будівництво, нерухомість, авто та детейлінг, онлайн-освіта, інтернет-магазини, особисті бренди та інші.</p>
+        <p class="en">Experience in 50+ niches: beauty salons, restaurants, construction, real estate, auto and detailing, online education, e-commerce, personal brands and others.</p>
+      </div>
+
+      <div class="trust-card reveal">
+        <div class="trust-ico">💰</div>
+        <h3 class="uk">Фокус на прибутку, а не на лайках</h3>
+        <h3 class="en">Focus on profit, not likes</h3>
+        <p class="uk">Відстежуємо ROAS, вартість заявки чи покупки та реальну виручку. Ми заробляємо тоді — коли заробляє ваш бізнес.</p>
+        <p class="en">We track ROAS, cost per lead or purchase and real revenue. We earn when your business earns.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ════ 4. FOUNDERS (light) ════ -->
+<section id="founders" class="light">
+  <div class="W">
+    <p class="eyebrow uk">Команда</p>
+    <p class="eyebrow en">Team</p>
+    <h2 class="uk">Засновники агенції</h2>
+    <h2 class="en">Agency founders</h2>
+    <p class="sec-sub uk">Стратегія, контроль і ключові рішення — завжди за засновниками. Ви працюєте з людьми, які особисто відповідають за результат.</p>
+    <p class="sec-sub en">Strategy, control and key decisions are always with the founders. You work with people who are personally responsible for the result.</p>
+
+    <div class="founders-grid">
+      <div class="founder-card reveal">
+        <div class="founder-photo" id="fp-s"><img src="Сайт UNO/Фото засновників/Сергій.png" alt="Сергій Гатлан"/></div>
+        <div class="founder-tag uk">Співзасновник</div>
+        <div class="founder-tag en">Co-founder</div>
+        <h3>Сергій Гатлан</h3>
+        <div class="founder-title uk">Відповідальний за відділ таргетованої реклами</div>
+        <div class="founder-title en">Head of targeted advertising department</div>
+        <ul class="founder-facts">
+          <li class="uk">7+ років досвіду в таргетованій рекламі</li><li class="en">7+ years experience in targeted advertising</li>
+          <li class="uk">$1M+ реалізованого рекламного бюджету</li><li class="en">$1M+ in managed ad budgets</li>
+          <li class="uk">473 учні навчені таргетованій рекламі по всьому світу</li><li class="en">473 students trained in targeted advertising worldwide</li>
+          <li class="uk">40+ ніш</li><li class="en">40+ niches</li>
+        </ul>
+      </div>
+
+      <div class="founder-card reveal">
+        <div class="founder-photo" id="fp-y"><img src="Сайт UNO/Фото засновників/Юля.JPG" alt="Юлія Гатлан"/></div>
+        <div class="founder-tag uk">Співзасновниця</div>
+        <div class="founder-tag en">Co-founder</div>
+        <h3>Юлія Гатлан</h3>
+        <div class="founder-title uk">Маркетологиня та SMM-спеціаліст</div>
+        <div class="founder-title en">Marketing specialist &amp; SMM expert</div>
+        <ul class="founder-facts">
+          <li class="uk">7+ років досвіду в SMM та 10+ років в онлайн-продажах</li><li class="en">7+ years in SMM and 10+ years in online sales</li>
+          <li class="uk">600+ студентів навчені SMM та контент-маркетингу</li><li class="en">600+ students trained in SMM and content marketing</li>
+          <li class="uk">35+ ніш</li><li class="en">35+ niches</li>
+          <li class="uk">Авторський блог — 52K підписників</li><li class="en">Personal blog — 52K followers</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ 5. PROCESS (dark) ════ -->
+<section id="process" class="dark">
+  <div class="W">
+    <p class="eyebrow uk">Як ми працюємо</p>
+    <p class="eyebrow en">How we work</p>
+    <h2 class="uk">Від договору до масштабування</h2>
+    <h2 class="en">From contract to scaling</h2>
+
+    <div class="proc-grid">
+      <div class="proc-card reveal">
+        <div class="proc-head"><div class="proc-ico">📝</div><div class="proc-num">01</div></div>
+        <h3 class="uk">Укладаємо договір</h3>
+        <h3 class="en">Sign a contract</h3>
+        <p class="uk">Фіксуємо цілі, бюджет, строки та зони відповідальності. Прозорі умови роботи з першого дня.</p>
+        <p class="en">We fix goals, budget, timeline and responsibilities. Transparent working conditions from day one.</p>
+      </div>
+
+      <div class="proc-card reveal">
+        <div class="proc-head"><div class="proc-ico">🔍</div><div class="proc-num">02</div></div>
+        <h3 class="uk">Аудит</h3>
+        <h3 class="en">Audit</h3>
+        <p class="uk">Вивчаємо бізнес, ринок, конкурентів та поточну маркетингову ситуацію. Знаходимо точки росту.</p>
+        <p class="en">We study your business, market, competitors and current marketing situation. We find growth points.</p>
+      </div>
+
+      <div class="proc-card reveal">
+        <div class="proc-head"><div class="proc-ico">🗺️</div><div class="proc-num">03</div></div>
+        <h3 class="uk">Стратегія</h3>
+        <h3 class="en">Strategy</h3>
+        <p class="uk">Формуємо план залучення клієнтів: аудиторія, офери, канали, формати та ключові метрики.</p>
+        <p class="en">We form a client acquisition plan: audience, offers, channels, formats and key metrics.</p>
+      </div>
+
+      <div class="proc-card reveal">
+        <div class="proc-head"><div class="proc-ico">🚀</div><div class="proc-num">04</div></div>
+        <h3 class="uk">Запуск</h3>
+        <h3 class="en">Launch</h3>
+        <p class="uk">Для реклами — налаштовуємо кабінет, запускаємо тести, перші дані вже через тиждень. Для SMM — готуємо перший контент, вивчаємо реакцію аудиторії та будуємо стратегію наступного місяця.</p>
+        <p class="en">For ads — we set up the account, launch tests, first data within a week. For SMM — we prepare the first content, study audience reactions and build next month's strategy.</p>
+      </div>
+
+      <div class="proc-card reveal">
+        <div class="proc-head"><div class="proc-ico">📈</div><div class="proc-num">05</div></div>
+        <h3 class="uk">Масштабування</h3>
+        <h3 class="en">Scaling</h3>
+        <p class="uk">Оптимізуємо кампанії та контент на основі даних. Масштабуємо те, що працює, відключаємо те, що не дає результату.</p>
+        <p class="en">We optimize campaigns and content based on data. Scale what works, cut what doesn't deliver results.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════ SPLIT: З вас / З нас (light) ════ -->
+<section class="light" style="padding:80px 0">
+  <div class="W">
+    <div class="split-deal reveal">
+      <div class="split-you">
+        <div class="split-label uk">З вас</div>
+        <div class="split-label en">From you</div>
+        <div class="split-text uk">Продукт або послуга,<br>яка користується попитом</div>
+        <div class="split-text en">A product or service<br>that people actually want</div>
+        <div class="split-sub uk">Якщо людям потрібне те, що ви пропонуєте — ми знайдемо цих людей і приведемо до вас.</div>
+        <div class="split-sub en">If people need what you offer — we'll find them and bring them to you.</div>
+      </div>
+      <div class="split-arrow">→</div>
+      <div class="split-us">
+        <div class="split-label uk">З нас</div>
+        <div class="split-label en">From us</div>
+        <div class="split-text uk">Продажі та заявки<br>в необмеженій кількості у&nbsp;KPI</div>
+        <div class="split-text en">Sales and leads<br>in unlimited volume within KPIs</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ 6. CASES (dark2) ════ -->
+<section id="cases" class="dark2">
+  <div class="W">
+    <p class="eyebrow uk">Кейси</p>
+    <p class="eyebrow en">Case studies</p>
+    <h2 class="uk">Результати, які можна виміряти</h2>
+    <h2 class="en">Results that can be measured</h2>
+
+    <!-- Case Slider -->
+    <div class="cs-wrap reveal">
+      <div class="cs-track" id="csTrack">
+
+        <!-- 1: Дитячі іграшки (E-commerce, UA) -->
+        <!-- 1: Дитячі іграшки — E-commerce · UA -->
+        <div class="cs-slide">
+          <div class="cs-l">
+            <div class="cs-tag">🛍 Meta Ads · E-commerce · Україна 🇺🇦</div>
+            <h3 class="uk">Магазин дитячих іграшок</h3>
+            <h3 class="en">Children's Toy Store</h3>
+            <p class="cs-desc uk">Системна робота протягом 2 років: глибокий аналіз аудиторій, A/B тестування креативів і масштабування переможних зв'язок на постійній основі.</p>
+            <p class="cs-desc en">Systematic work over 2 years: deep audience analysis, A/B creative testing, and continuous scaling of winning ad combinations.</p>
+            <div class="cs-kpi">
+              <div class="cs-kpi-row"><span class="cs-kpi-lbl">Бюджет</span><span class="cs-kpi-val">$24,780</span></div>
+              <div class="cs-kpi-row"><span class="cs-kpi-lbl">Покупок</span><span class="cs-kpi-val">14,468</span></div>
+              <div class="cs-kpi-row"><span class="cs-kpi-lbl">Ціна покупки</span><span class="cs-kpi-val">$1.71</span></div>
+              <div class="cs-kpi-row"><span class="cs-kpi-lbl">ROAS</span><span class="cs-kpi-val acc">1366%</span></div>
+              <div class="cs-kpi-row wide"><span class="cs-kpi-lbl">Виручка</span><span class="cs-kpi-val acc">$379,564</span></div>
+            </div>
+          </div>
+          <div class="cs-r">
+            <img src="Сайт UNO/cases/images/stocks/stock_toys.jpg" alt="Магазин іграшок" loading="lazy" onclick="openImg('Сайт UNO/cases/images/stocks/stock_toys.jpg')">
+
+          </div>
+        </div>
+
+        <!-- 2: Cool Cat Fence — Leadgen · USA -->
+        <div class="cs-slide">
+          <div class="cs-l">
+            <div class="cs-tag">🏠 Meta Ads · Leadgeneration · USA 🇺🇸</div>
+            <h3 class="uk">Cool Cat Fence — встановлення парканів</h3>
+            <h3 class="en">Cool Cat Fence — Fence Installation</h3>
+            <p class="cs-desc uk">Штат Вашингтон, США. Замінили хаотичні бусти на повноцінну рекламну систему — стабільний потік заявок з прогнозованою ціною.</p>
+            <p class="cs-desc en">Washington state, USA. Replaced chaotic boosts with a full ad system — stable, predictable lead flow at consistent cost.</p>
+            <div class="cs-kpi">
+              <div class="cs-kpi-row"><span class="cs-kpi-lbl">Бюджет</span><span class="cs-kpi-val">$18,931</span></div>
+              <div class="cs-kpi-row"><span class="cs-kpi-lbl">Лідів</span><span class="cs-kpi-val">496</span></div>
+              <div class="cs-kpi-row"><span class="cs-kpi-lbl">Ціна ліда</span><span class="cs-kpi-val">$37.08</span></div>
+              <div class="cs-kpi-row"><span class="cs-kpi-lbl">ROAS</span><span class="cs-kpi-val acc">280%</span></div>
+              <div class="cs-kpi-row wide"><span class="cs-kpi-lbl">Виручка</span><span class="cs-kpi-val acc">$93,941</span></div>
+            </div>
+          </div>
+          <div class="cs-r">
+            <img src="Сайт UNO/cases/images/stocks/stock_fence.jpg" alt="Cool Cat Fence" loading="lazy" onclick="openImg('Сайт UNO/cases/images/stocks/stock_fence.jpg')">
+
+          </div>
+        </div>
+
+        <!-- 3: Мікроблейдинг — Beauty · Canada -->
+        <div class="cs-slide">
+          <div class="cs-l">
+            <div class="cs-tag">💋 Meta Ads · Beauty · Canada 🇨🇦</div>
+            <h3 class="uk">Перманентний макіяж — салон у Канаді</h3>
+            <h3 class="en">Permanent Makeup — Canadian Salon</h3>
+            <p class="cs-desc uk">Відмовились від трафіку і конверсій на сайт, зробили ставку на ціль «Повідомлення» — і отримали ×26 на вкладення.</p>
+            <p class="cs-desc en">Dropped traffic and site conversions, went all-in on "Messages" objective — and got ×26 return on ad spend.</p>
+            <div class="cs-kpi">
+              <div class="cs-kpi-row"><span class="cs-kpi-lbl">Бюджет</span><span class="cs-kpi-val">$1,104</span></div>
+              <div class="cs-kpi-row"><span class="cs-kpi-lbl">Лідів (запитів)</span><span class="cs-kpi-val">169</span></div>
+              <div class="cs-kpi-row"><span class="cs-kpi-lbl">Покупок</span><span class="cs-kpi-val">42</span></div>
+              <div class="cs-kpi-row"><span class="cs-kpi-lbl">ROAS</span><span class="cs-kpi-val acc">2646%</span></div>
+              <div class="cs-kpi-row wide"><span class="cs-kpi-lbl">Заробіток</span><span class="cs-kpi-val acc">$29,225</span></div>
+            </div>
+          </div>
+          <div class="cs-r">
+            <img src="Сайт UNO/cases/images/stocks/stock_microblading.jpg" alt="Мікроблейдинг" loading="lazy" onclick="openImg('Сайт UNO/cases/images/stocks/stock_microblading.jpg')">
+
+          </div>
+        </div>
+
+        <!-- 4: Товари для вій — E-commerce · UA -->
+        <div class="cs-slide">
+          <div class="cs-l">
+            <div class="cs-tag">💄 Meta Ads · E-commerce · Україна 🇺🇦</div>
+            <h3 class="uk">Товари для нарощення та ламінування вій</h3>
+            <h3 class="en">Lash Extension & Lamination Products</h3>
+            <p class="cs-desc uk">Профматеріали для б'юті-майстрів. Ключ до результату — ретаргетинг лояльних клієнтів і постійна робота з повторними покупками.</p>
+            <p class="cs-desc en">Pro beauty supplies for lash masters. The key to results — retargeting loyal customers and constant focus on repeat purchases.</p>
+            <div class="cs-kpi">
+              <div class="cs-kpi-row"><span class="cs-kpi-lbl">Бюджет</span><span class="cs-kpi-val">$23,296</span></div>
+              <div class="cs-kpi-row"><span class="cs-kpi-lbl">Запитів</span><span class="cs-kpi-val">8,892</span></div>
+              <div class="cs-kpi-row"><span class="cs-kpi-lbl">Ціна запиту</span><span class="cs-kpi-val">$2.62</span></div>
+              <div class="cs-kpi-row"><span class="cs-kpi-lbl">ROAS</span><span class="cs-kpi-val acc">1411%</span></div>
+            </div>
+          </div>
+          <div class="cs-r">
+            <img src="Сайт UNO/cases/images/stocks/stock_lashes.jpg" alt="Товари для вій" loading="lazy" onclick="openImg('Сайт UNO/cases/images/stocks/stock_lashes.jpg')">
+
+          </div>
+        </div>
+
+        <!-- 5: Дизайн-радіатори — E-commerce · UA -->
+        <div class="cs-slide">
+          <div class="cs-l">
+            <div class="cs-tag uk">🏡 Meta Ads · E-commerce · Україна 🇺🇦 · 44 міс LTV</div>
+            <div class="cs-tag en">🏡 Meta Ads · E-commerce · Ukraine 🇺🇦 · 44 mo LTV</div>
+            <h3 class="uk">Дизайн-радіатори та рушникосушки</h3>
+            <h3 class="en">Designer Radiators & Towel Warmers</h3>
+            <p class="cs-desc uk">Преміальний B2C — найдовша співпраця в портфоліо. Проєкт з нульовими результатами перетворили на масштабований бізнес.</p>
+            <p class="cs-desc en">Premium B2C — our longest partnership. Turned a zero-result project into a scalable, consistently growing business.</p>
+            <div class="cs-kpi">
+              <div class="cs-kpi-row"><span class="cs-kpi-lbl">Бюджет</span><span class="cs-kpi-val">$5,130</span></div>
+              <div class="cs-kpi-row"><span class="cs-kpi-lbl">Лідів</span><span class="cs-kpi-val">1,371</span></div>
+              <div class="cs-kpi-row"><span class="cs-kpi-lbl">Ціна ліда</span><span class="cs-kpi-val">$3.74</span></div>
+              <div class="cs-kpi-row"><span class="cs-kpi-lbl">ROAS</span><span class="cs-kpi-val acc">1088%</span></div>
+              <div class="cs-kpi-row wide"><span class="cs-kpi-lbl">Виручка</span><span class="cs-kpi-val acc">₴2,090,534</span></div>
+            </div>
+          </div>
+          <div class="cs-r">
+            <img src="Сайт UNO/cases/images/stocks/stock_radiator.jpg" alt="Дизайн-радіатори" loading="lazy" onclick="openImg('Сайт UNO/cases/images/stocks/stock_radiator.jpg')">
+
+          </div>
+        </div>
+
+        <!-- 6: Продаж котеджів — Real Estate · UA -->
+        <div class="cs-slide">
+          <div class="cs-l">
+            <div class="cs-tag uk">🏘 Meta Ads · Нерухомість · Україна 🇺🇦</div>
+            <div class="cs-tag en">🏘 Meta Ads · Real Estate · Ukraine 🇺🇦</div>
+            <h3 class="uk">Продаж котеджів — нерухомість в Україні</h3>
+            <h3 class="en">Cottage Sales — Real Estate in Ukraine</h3>
+            <p class="cs-desc uk">Нерухомість — довгий цикл рішення. Побудували воронку від першого прогріву до фінального звернення: виключно через Meta Ads.</p>
+            <p class="cs-desc en">Real estate means long decision cycles. We built a full funnel from first warm-up to final inquiry — exclusively through Meta Ads.</p>
+            <div class="cs-kpi">
+              <div class="cs-kpi-row"><span class="cs-kpi-lbl">Бюджет</span><span class="cs-kpi-val">$1,684</span></div>
+              <div class="cs-kpi-row"><span class="cs-kpi-lbl">Лідів</span><span class="cs-kpi-val">298</span></div>
+              <div class="cs-kpi-row"><span class="cs-kpi-lbl">Ціна ліда</span><span class="cs-kpi-val">$5.65</span></div>
+              <div class="cs-kpi-row"><span class="cs-kpi-lbl">Продажів</span><span class="cs-kpi-val">2</span></div>
+              <div class="cs-kpi-row wide"><span class="cs-kpi-lbl">Ціна 1 продажу</span><span class="cs-kpi-val">$842</span></div>
+              <div class="cs-kpi-row wide"><span class="cs-kpi-lbl">Сума продажів</span><span class="cs-kpi-val acc">$210,000</span></div>
+            </div>
+          </div>
+          <div class="cs-r">
+            <img src="Сайт UNO/cases/images/stocks/stock_cottage.jpg" alt="Продаж котеджів" loading="lazy" onclick="openImg('Сайт UNO/cases/images/stocks/stock_cottage.jpg')">
+
+          </div>
+        </div>
+
+        <!-- 7: Салон краси — Beauty · Canada -->
+        <div class="cs-slide">
+          <div class="cs-l">
+            <div class="cs-tag">💇 Meta Ads · Beauty · Canada 🇨🇦</div>
+            <h3 class="uk">HairHub — салон краси, Торонто</h3>
+            <h3 class="en">HairHub Beauty Salon, Toronto</h3>
+            <p class="cs-desc uk">Стабільний потік нових клієнтів на запис. Масштабування через сегментацію холодної аудиторії, ретаргетинг і постійне тестування форматів.</p>
+            <p class="cs-desc en">Consistent stream of new client bookings. Scaling through cold audience segmentation, retargeting, and ongoing format testing.</p>
+            <div class="cs-kpi">
+              <div class="cs-kpi-row"><span class="cs-kpi-lbl">Бюджет</span><span class="cs-kpi-val">$41,664</span></div>
+              <div class="cs-kpi-row"><span class="cs-kpi-lbl">Переписок</span><span class="cs-kpi-val">5,864</span></div>
+              <div class="cs-kpi-row"><span class="cs-kpi-lbl">Ціна переписки</span><span class="cs-kpi-val">$7.10</span></div>
+              <div class="cs-kpi-row"><span class="cs-kpi-lbl">LTV клієнта</span><span class="cs-kpi-val acc">29 міс</span></div>
+            </div>
+          </div>
+          <div class="cs-r">
+            <img src="Сайт UNO/cases/images/stocks/stock_hairsalon.jpg" alt="Салон краси" loading="lazy" onclick="openImg('Сайт UNO/cases/images/stocks/stock_hairsalon.jpg')">
+
+          </div>
+        </div>
+
+        <!-- 8: Школа англійської — EdTech · Poland -->
+        <div class="cs-slide">
+          <div class="cs-l">
+            <div class="cs-tag">📚 Meta Ads · EdTech · Польща 🇵🇱</div>
+            <h3 class="uk">Школа англійської мови — Польща</h3>
+            <h3 class="en">English Language School — Poland</h3>
+            <p class="cs-desc uk">Старт з нуля — без сайту, сторінок і кабінету. Відео «з лицем» + безкоштовний перший урок = найкращий лід-магніт для мовних шкіл.</p>
+            <p class="cs-desc en">Started from zero — no website, pages, or ad account. Talking-head video + free first lesson = the best lead magnet for language schools.</p>
+            <div class="cs-kpi">
+              <div class="cs-kpi-row"><span class="cs-kpi-lbl">Бюджет</span><span class="cs-kpi-val">$3,919</span></div>
+              <div class="cs-kpi-row"><span class="cs-kpi-lbl">Лідів</span><span class="cs-kpi-val">1,124</span></div>
+              <div class="cs-kpi-row wide"><span class="cs-kpi-lbl">Ціна ліда</span><span class="cs-kpi-val acc">$3.48</span></div>
+            </div>
+          </div>
+          <div class="cs-r">
+            <img src="Сайт UNO/cases/images/stocks/stock_school.jpg" alt="Школа англійської" loading="lazy" onclick="openImg('Сайт UNO/cases/images/stocks/stock_school.jpg')">
+
+          </div>
+        </div>
+
+      </div><!-- /cs-track -->
+
+      <div class="cs-nav">
+        <button class="cs-arrow" onclick="csMove(-1)">←</button>
+        <div class="cs-dots" id="csDots"></div>
+        <button class="cs-arrow" onclick="csMove(1)">→</button>
+      </div>
+    </div><!-- /cs-wrap -->
+
+  </div>
+</section>
+
+<!-- ════ 7. REVIEWS (light) ════ -->
+<section id="reviews" class="light">
+  <div class="W">
+    <p class="eyebrow uk">Відгуки</p>
+    <p class="eyebrow en">Reviews</p>
+    <h2 class="uk">Що кажуть клієнти</h2>
+    <h2 class="en">What clients say</h2>
+
+    <div class="rev-controls">
+      <button class="rev-btn" onclick="revScroll(-1)" aria-label="Назад">←</button>
+      <button class="rev-btn" onclick="revScroll(1)" aria-label="Вперед">→</button>
+    </div>
+
+    <div class="rev-slider" id="revSlider">
+
+      <div class="rev-card reveal">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text uk">«Завдяки тобі наші сторіс і пости почали набувати сенсу та естетики. Таргет таргетом, але я ще й отримала конкретні поради, як зробити профіль візуально привабливим. Впевнена, що разом ми вийдемо не лише на 10+, але й на 50+ замовлень — ти орієнтований на результат, а це найважливіше ✨»</p>
+        <p class="rev-text en">"Thanks to you our stories and posts started making real sense aesthetically. Beyond targeting, I got specific advice on making the profile visually appealing. I'm confident we'll reach not just 10+ but 50+ orders — you're results-oriented and that matters most ✨"</p>
+        <div class="rev-footer">
+          <div class="rev-ava">Ю</div>
+          <div>
+            <div class="rev-name">Надія</div>
+            <div class="rev-company uk">Інстаграм-магазин ювелірних прикраз · Україна</div>
+            <div class="rev-company en">Jewelry Instagram store · Ukraine</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rev-card reveal">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text uk">«Хочемо подякувати не просто за чудового таргетолога, але й за неймовірно щиру людину, яка готова допомогти на кожному етапі. Ми розпочали сторінку з нуля, і Сергій не тільки налаштовував рекламу, але й порадами допомагав нам. Протягом перших днів прийшли активні підписники та перші продажі. Ви 100% будете задоволені співпрацею та результатом!»</p>
+        <p class="rev-text en">"We want to thank not just a great targeting specialist, but an incredibly sincere person ready to help at every step. We started from zero and Serhiy not only set up ads but guided us with advice throughout. Within the first days — active followers and first sales. You'll be 100% satisfied!"</p>
+        <div class="rev-footer">
+          <div class="rev-ava">М</div>
+          <div>
+            <div class="rev-name">Микола</div>
+            <div class="rev-company uk">Інтернет-магазин дитячих піжам · Україна</div>
+            <div class="rev-company en">Children's pyjamas store · Ukraine</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rev-card reveal">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text uk">«Сергій!!! Просто не вірю, що це сталось! Сьогодні у нас 15 замовлень — це в три рази більше, ніж завжди 😊 Як ви це зробили? Готова підняти бюджет, як ви вчора і радили, бо воно того варте!»</p>
+        <p class="rev-text en">"Serhiy!!! I can't believe it! Today we have 15 orders — three times more than usual 😊 How did you do it? I'm ready to increase the budget just like you advised, because it's absolutely worth it!"</p>
+        <div class="rev-footer">
+          <div class="rev-ava">Ю</div>
+          <div>
+            <div class="rev-name">Юлія</div>
+            <div class="rev-company uk">Інтернет-магазин спідньої білизни · Україна</div>
+            <div class="rev-company en">Lingerie online store · Ukraine</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rev-card reveal">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text uk">«Запис на тату заповнений на 2 місяці вперед. Підняла ціни, але клієнтів менше не стало — навпаки, стало більше та краще.»</p>
+        <p class="rev-text en">"Tattoo bookings are filled 2 months ahead. I raised prices, but the number of clients didn't decrease — quite the opposite."</p>
+        <div class="rev-footer">
+          <div class="rev-ava">А</div>
+          <div>
+            <div class="rev-name">Alexandra</div>
+            <div class="rev-company uk">Тату-майстер · Toronto</div>
+            <div class="rev-company en">Tattoo artist · Toronto</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rev-card reveal">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text uk">«Контент-стратегія від Юлії повністю змінила те, як нас сприймає аудиторія. Бренд AMBITNA вийшов на міжнародний ринок.»</p>
+        <p class="rev-text en">"The content strategy from Yuliia completely changed how our audience perceives us. AMBITNA brand entered the international market."</p>
+        <div class="rev-footer">
+          <div class="rev-ava">А</div>
+          <div>
+            <div class="rev-name">AMBITNA</div>
+            <div class="rev-company uk">Бренд одягу · Україна</div>
+            <div class="rev-company en">Clothing brand · Ukraine</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════ CTA BAND (dark) ════ -->
+<section id="cta-band" class="dark">
+  <div class="W">
+    <h2 class="uk" style="margin-bottom:14px;text-wrap:balance;max-width:560px;margin-left:auto;margin-right:auto">Безкоштовна консультація для вашого бізнесу</h2>
+    <h2 class="en" style="margin-bottom:14px;text-wrap:balance;max-width:520px;margin-left:auto;margin-right:auto">Free consultation for your business</h2>
+    <p class="uk" style="color:var(--muted-d);font-size:17px;max-width:500px;margin:0 auto 36px">Проаналізуємо вашу нішу та конкурентів, підберемо інструменти, які підійдуть саме для вашого бізнесу</p>
+    <p class="en" style="color:var(--muted-d);font-size:17px;max-width:500px;margin:0 auto 36px">We'll analyze your niche and competitors, and select the tools that fit your business specifically</p>
+    <div class="cta-band-btns">
+      <button class="btn-p uk" onclick="openModal()">Залишити заявку</button>
+      <button class="btn-p en" onclick="openModal()">Leave a request</button>
+    </div>
+  </div>
+</section>
+
+<!-- ════ VIDEO REVIEWS (light) ════ -->
+<section id="video-reviews" class="light">
+  <div class="W">
+    <h2 class="uk">Відео відгуки наших клієнтів</h2>
+    <h2 class="en">Video reviews from our clients</h2>
+
+    <div class="vid-controls">
+      <button class="vid-btn" onclick="vidScroll(-1)" aria-label="Назад">←</button>
+      <button class="vid-btn" onclick="vidScroll(1)" aria-label="Вперед">→</button>
+    </div>
+    <div class="vid-slider" id="vidSlider">
+      <div class="video-thumb reveal" onclick="playVideo(this)">
+        <video src="Сайт UNO/Відгуки клієнтів/Легалізація в Польщі.mp4" preload="metadata" playsinline controls></video>
+        <div class="video-overlay">
+          <div class="video-play">▶</div>
+          <div class="video-thumb-lbl">Легалізація в Польщі</div>
+        </div>
+      </div>
+      <div class="video-thumb reveal" onclick="playVideo(this)">
+        <video src="Сайт UNO/Відгуки клієнтів/Інтернет-магазин іграшок.mp4" preload="metadata" playsinline controls></video>
+        <div class="video-overlay">
+          <div class="video-play">▶</div>
+          <div class="video-thumb-lbl">Інтернет-магазин іграшок</div>
+        </div>
+      </div>
+      <div class="video-thumb reveal" onclick="playVideo(this)">
+        <video src="Сайт UNO/Відгуки клієнтів/Колорист.mp4" preload="metadata" playsinline controls></video>
+        <div class="video-overlay">
+          <div class="video-play">▶</div>
+          <div class="video-thumb-lbl">Колорист</div>
+        </div>
+      </div>
+      <div class="video-thumb reveal" onclick="playVideo(this)">
+        <video src="Сайт UNO/Відгуки клієнтів/Марта фотограф Канада.mp4" preload="metadata" playsinline controls></video>
+        <div class="video-overlay">
+          <div class="video-play">▶</div>
+          <div class="video-thumb-lbl">Марта — фотограф, Канада</div>
+        </div>
+      </div>
+      <div class="video-thumb reveal" onclick="playVideo(this)">
+        <video src="Сайт UNO/Відгуки клієнтів/Ремонт кухонь Канада.mp4" preload="metadata" playsinline controls></video>
+        <div class="video-overlay">
+          <div class="video-play">▶</div>
+          <div class="video-thumb-lbl">Ремонт кухонь, Канада</div>
+        </div>
+      </div>
+      <div class="video-thumb reveal" onclick="playVideo(this)">
+        <video src="Сайт UNO/Відгуки клієнтів/Рієлтор Торонт.mp4" preload="metadata" playsinline controls></video>
+        <div class="video-overlay">
+          <div class="video-play">▶</div>
+          <div class="video-thumb-lbl">Рієлтор, Торонто</div>
+        </div>
+      </div>
+      <div class="video-thumb reveal" onclick="playVideo(this)">
+        <video src="Сайт UNO/Відгуки клієнтів/Фотостудія Торонто.mp4" preload="metadata" playsinline controls></video>
+        <div class="video-overlay">
+          <div class="video-play">▶</div>
+          <div class="video-thumb-lbl">Фотостудія, Торонто</div>
+        </div>
+      </div>
+  </div>
+  </div>
+</section>
+
+<!-- ════ REFERRAL (dark) ════ -->
+<section class="dark" style="padding:80px 0">
+  <div class="W">
+    <div class="ref-band reveal">
+      <div>
+        <h3 class="uk">Знаєте бізнес, якому потрібна реклама?</h3>
+        <h3 class="en">Know a business that needs advertising?</h3>
+        <p class="uk">Наші топ-партнери заробляють до $1,370 на місяць — просто за одне знайомство. Один дзвінок від вас, решту беремо на себе.</p>
+        <p class="en">Our top partners earn up to $1,370/month — just for one introduction. One message from you, we handle the rest.</p>
+      </div>
+      <a href="https://t.me/hatlan_serhii" target="_blank" class="btn-p uk">✈ Написати в Telegram</a>
+      <a href="https://t.me/hatlan_serhii" target="_blank" class="btn-p en">✈ Write on Telegram</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════ 8. FAQ (light) ════ -->
+<section id="faq" class="light">
+  <div class="W">
+    <p class="eyebrow uk">FAQ</p>
+    <p class="eyebrow en">FAQ</p>
+    <h2 class="uk">Часті запитання</h2>
+    <h2 class="en">Frequently asked questions</h2>
+
+    <div class="faq-inner">
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span class="uk">Коли будуть перші результати?</span>
+            <span class="en">When will the first results appear?</span>
+            <span class="faq-ico">+</span>
+          </div>
+          <div class="faq-a"><div class="faq-a-in">
+            <span class="uk">Для реклами — перші дані і заявки з'являються вже протягом першого тижня після запуску. Стабільні та оптимізовані результати — через 4–6 тижнів. Для SMM — перший контент і початкова реакція аудиторії вже в перший місяць, стійкий ріст — через 2–3 місяці.</span>
+            <span class="en">For advertising — first data and leads appear within the first week after launch. Stable and optimized results — after 4–6 weeks. For SMM — first content and initial audience reactions in the first month, steady growth — after 2–3 months.</span>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span class="uk">Ви гарантуєте результат?</span>
+            <span class="en">Do you guarantee results?</span>
+            <span class="faq-ico">+</span>
+          </div>
+          <div class="faq-a"><div class="faq-a-in">
+            <span class="uk">Конкретні цифри наперед не гарантуємо — це нечесно. Гарантуємо системну роботу: прозору аналітику, щоденні та щотижневі звіти, постійну оптимізацію. 70% клієнтів продовжують співпрацю більше 6 місяців — це краща гарантія, ніж будь-які обіцянки.</span>
+            <span class="en">We don't guarantee specific numbers upfront — that would be dishonest. We guarantee systematic work: transparent analytics, daily and weekly reports, continuous optimization. 70% of clients continue for more than 6 months — that's better than any promise.</span>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span class="uk">Чи потрібні фото і відео матеріали для роботи?</span>
+            <span class="en">Do we need to provide photo and video materials?</span>
+            <span class="faq-ico">+</span>
+          </div>
+          <div class="faq-a"><div class="faq-a-in">
+            <span class="uk">Для реклами ми самі створюємо або редагуємо креативи. Для SMM — залежить від формату. При повному веденні ми пишемо сценарії для Reels, монтуємо відео та готуємо ТЗ для зйомок. Для деяких форматів потрібні ваші фото або відео з бізнесу.</span>
+            <span class="en">For advertising, we create or edit creatives ourselves. For SMM — depends on the format. With full management we write Reels scripts, edit videos and prepare shooting briefs. For some formats we need your photos or videos from the business.</span>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span class="uk">Чи можна поєднати рекламу та SMM?</span>
+            <span class="en">Can advertising and SMM be combined?</span>
+            <span class="faq-ico">+</span>
+          </div>
+          <div class="faq-a"><div class="faq-a-in">
+            <span class="uk">Так, і це найефективніший підхід. Реклама приводить аудиторію, а якісний SMM-профіль конвертує її в клієнтів і підтримує довіру. Разом ці канали посилюють один одного і дають кращий результат, ніж кожен окремо.</span>
+            <span class="en">Yes, and this is the most effective approach. Advertising brings the audience, while a quality SMM profile converts them into clients and maintains trust. Together these channels amplify each other and deliver better results than each separately.</span>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span class="uk">Як ви звітуєте про результати?</span>
+            <span class="en">How do you report on results?</span>
+            <span class="faq-ico">+</span>
+          </div>
+          <div class="faq-a"><div class="faq-a-in">
+            <span class="uk">Щоденно: ключові метрики кампаній. Щотижня: розгорнутий звіт із аналізом результатів, висновками та планом на наступний тиждень. Щомісяця: загальний підсумок, порівняння з попереднім місяцем та коригування стратегії. Плюс — прямий доступ до рекламних кабінетів завжди.</span>
+            <span class="en">Daily: key campaign metrics. Weekly: detailed report with results analysis, conclusions and plan for the next week. Monthly: overall summary, comparison with previous month and strategy adjustments. Plus — direct access to ad accounts at all times.</span>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span class="uk">З якими країнами та нішами ви маєте досвід?</span>
+            <span class="en">What countries and niches do you have experience with?</span>
+            <span class="faq-ico">+</span>
+          </div>
+          <div class="faq-a"><div class="faq-a-in">
+            <span class="uk">Ринки: Канада, США, Україна, Польща, Австралія, Нова Зеландія та Азія. Ніші: салони краси, ресторани та кафе, будівництво та ремонт, нерухомість, авто та детейлінг, онлайн-освіта та курси, інтернет-магазини, одяг та мода, архітектура та дизайн, особисті бренди, імміграційні послуги та багато інших.</span>
+            <span class="en">Markets: Canada, USA, Ukraine, Poland, Australia, New Zealand and Asia. Niches: beauty salons, restaurants and cafes, construction and renovation, real estate, auto and detailing, online education and courses, e-commerce, clothing and fashion, architecture and design, personal brands, immigration services and many others.</span>
+          </div></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ 9. FORM (dark) ════ -->
+<section id="contact" class="dark">
+  <div class="W">
+    <div class="form-wrap">
+      <div class="form-head">
+        <p class="eyebrow uk">Контакти</p>
+        <p class="eyebrow en">Contact</p>
+        <h2 class="uk">Залишити заявку</h2>
+        <h2 class="en">Leave a request</h2>
+        <p class="uk" style="color:var(--muted-d);font-size:17px;margin-top:10px">Напишіть нам — зв'яжемося протягом 24 годин</p>
+        <p class="en" style="color:var(--muted-d);font-size:17px;margin-top:10px">Write to us — we'll get back to you within 24 hours</p>
+        <div class="social-links">
+          <a href="https://t.me/hatlan_serhii" target="_blank" class="soc-btn tg">✈ Telegram</a>
+          <a href="https://www.instagram.com/the.uno.agency/" target="_blank" class="soc-btn ig">◎ Instagram</a>
+          <a href="https://wa.me/message/HRJDQK3UE6F3F1" target="_blank" class="soc-btn wa">✆ WhatsApp</a>
+        </div>
+      </div>
+
+      <div id="formBox">
+        <div class="f-stack">
+          <div class="f-group">
+            <label class="f-label uk" for="fName">Ім'я</label>
+            <label class="f-label en" for="fName">Name</label>
+            <input type="text" id="fName" placeholder="Юлія Кожумяка"/>
+          </div>
+          <div class="f-group">
+            <label class="f-label uk" for="fPhone">Номер телефону</label>
+            <label class="f-label en" for="fPhone">Phone number</label>
+            <input type="tel" id="fPhone" placeholder="+380 50 000 0000"/>
+          </div>
+          <div class="f-group uk">
+            <label class="f-label" for="fTg">Telegram</label>
+            <input type="text" id="fTg" placeholder="@username"/>
+          </div>
+          <div class="f-group en">
+            <label class="f-label" for="fEmail">Email</label>
+            <input type="email" id="fEmail" placeholder="you@example.com"/>
+          </div>
+        </div>
+
+        <button class="f-submit uk" onclick="submitForm()" style="margin-top:24px">Залишити заявку</button>
+        <button class="f-submit en" onclick="submitForm()" style="margin-top:24px">Leave a request</button>
+        <p class="f-note uk">Натискаючи кнопку, ви погоджуєтесь з обробкою персональних даних</p>
+        <p class="f-note en">By clicking, you agree to the processing of your personal data</p>
+      </div>
+
+      <div class="form-ok" id="formOk">
+        <div class="form-ok-ico">🎉</div>
+        <h3 class="uk">Заявку отримано!</h3>
+        <h3 class="en">Request received!</h3>
+        <p class="uk">Зв'яжемося з вами протягом 24 годин.</p>
+        <p class="en">We'll get back to you within 24 hours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FOOTER ════ -->
+<footer>
+  <div class="W">
+    <div class="foot-in">
+      <div class="foot-logo"><span>UNO</span> Agency</div>
+      <div class="foot-copy">© 2026 UNO Agency</div>
+      <div class="foot-links">
+        <a href="#services" class="uk">Послуги</a><a href="#services" class="en">Services</a>
+        <a href="#cases" class="uk">Кейси</a><a href="#cases" class="en">Cases</a>
+        <a href="#contact" class="uk">Контакти</a><a href="#contact" class="en">Contact</a>
+        <a href="https://t.me/hatlan_serhii" target="_blank">Telegram</a>
+        <a href="https://www.instagram.com/the.uno.agency/" target="_blank">Instagram</a>
+        <a href="https://wa.me/message/HRJDQK3UE6F3F1" target="_blank">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ════ IMAGE LIGHTBOX ════ -->
+<div class="img-lb" id="imgLb" onclick="if(event.target===this)closeImg()">
+  <img id="imgLbImg" src="" alt="Скріншот рекламного кабінету">
+  <button class="img-lb-close" onclick="closeImg()">✕</button>
+</div>
+
+<!-- ════ MODAL ════ -->
+<div class="modal-overlay" id="modal" onclick="closeModalOutside(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()" aria-label="Закрити">✕</button>
+    <h3 class="uk">Залишити заявку</h3>
+    <h3 class="en">Leave a request</h3>
+    <p class="modal-sub uk">Зв'яжемося з вами протягом 24 годин</p>
+    <p class="modal-sub en">We'll get back to you within 24 hours</p>
+
+    <div class="modal-social">
+      <a href="https://t.me/hatlan_serhii" target="_blank" class="modal-soc">✈ Telegram</a>
+      <a href="https://www.instagram.com/the.uno.agency/" target="_blank" class="modal-soc">◎ Instagram</a>
+      <a href="https://wa.me/message/HRJDQK3UE6F3F1" target="_blank" class="modal-soc">✆ WhatsApp</a>
+    </div>
+
+    <div class="modal-divider uk">або заповніть форму</div>
+    <div class="modal-divider en">or fill the form</div>
+
+    <div id="modalFormBox">
+      <div class="f-stack">
+        <div class="f-group">
+          <label class="f-label uk" for="mName">Ім'я</label>
+          <label class="f-label en" for="mName">Name</label>
+          <input type="text" id="mName" placeholder="Юлія Кожумяка"/>
+        </div>
+        <div class="f-group">
+          <label class="f-label uk" for="mPhone">Номер телефону</label>
+          <label class="f-label en" for="mPhone">Phone number</label>
+          <input type="tel" id="mPhone" placeholder="+380 50 000 0000"/>
+        </div>
+        <div class="f-group uk">
+          <label class="f-label" for="mTg">Telegram</label>
+          <input type="text" id="mTg" placeholder="@username"/>
+        </div>
+        <div class="f-group en">
+          <label class="f-label" for="mEmail">Email</label>
+          <input type="email" id="mEmail" placeholder="you@example.com"/>
+        </div>
+      </div>
+      <button class="f-submit uk" onclick="submitModal()" style="margin-top:20px">Залишити заявку</button>
+      <button class="f-submit en" onclick="submitModal()" style="margin-top:20px">Leave a request</button>
+      <p class="f-note uk" style="margin-top:10px">Натискаючи кнопку, ви погоджуєтесь з обробкою персональних даних</p>
+      <p class="f-note en" style="margin-top:10px">By clicking, you agree to the processing of your personal data</p>
+    </div>
+    <div class="form-ok" id="modalOk">
+      <div class="form-ok-ico">🎉</div>
+      <h3 class="uk">Заявку отримано!</h3>
+      <h3 class="en">Request received!</h3>
+      <p class="uk">Зв'яжемося з вами протягом 24 годин.</p>
+      <p class="en">We'll get back to you within 24 hours.</p>
+    </div>
+  </div>
+</div>
+
+
+<script>
+
+// ── MODAL ──
+function openModal(){
+  const m=document.getElementById('modal');
+  m.classList.add('open');
+  document.body.style.overflow='hidden';
+  // reset form
+  document.getElementById('modalFormBox').style.display='';
+  document.getElementById('modalOk').style.display='none';
+  document.getElementById('mName').value='';
+  document.getElementById('mPhone').value='';
+  if(document.getElementById('mTg')) document.getElementById('mTg').value='';
+  if(document.getElementById('mEmail')) document.getElementById('mEmail').value='';
+}
+function closeModal(){
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow='';
+}
+function closeModalOutside(e){
+  if(e.target===document.getElementById('modal')) closeModal();
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeModal();closeImg();}});
+
+// ── Case Slider ──────────────────────────────────────────────────
+var csIdx=0;
+var csSlides=document.querySelectorAll('.cs-slide');
+var csTotal=csSlides.length;
+
+function csMove(dir){
+  csIdx=(csIdx+dir+csTotal)%csTotal;
+  csUpdate();
+}
+function csGo(i){csIdx=i;csUpdate();}
+function csUpdate(){
+  document.getElementById('csTrack').style.transform='translateX(-'+csIdx*100+'%)';
+  document.querySelectorAll('.cs-dot').forEach(function(d,i){d.classList.toggle('active',i===csIdx);});
+}
+
+// Build dots
+(function(){
+  var el=document.getElementById('csDots');
+  if(!el) return;
+  for(var i=0;i<csTotal;i++){
+    var d=document.createElement('div');
+    d.className='cs-dot'+(i===0?' active':'');
+    (function(idx){d.onclick=function(){csGo(idx);};})(i);
+    el.appendChild(d);
+  }
+  // Touch swipe
+  var track=document.getElementById('csTrack');
+  var startX=0;
+  if(track){
+    track.addEventListener('touchstart',function(e){startX=e.touches[0].clientX;},{passive:true});
+    track.addEventListener('touchend',function(e){
+      var dx=e.changedTouches[0].clientX-startX;
+      if(Math.abs(dx)>50) csMove(dx>0?-1:1);
+    });
+  }
+})();
+
+// ── Image Lightbox ───────────────────────────────────────────────
+function openImg(src){
+  document.getElementById('imgLbImg').src=src;
+  document.getElementById('imgLb').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeImg(){
+  document.getElementById('imgLb').classList.remove('open');
+  document.body.style.overflow='';
+}
+function submitModal(){
+  const n=document.getElementById('mName').value.trim();
+  const p=document.getElementById('mPhone').value.trim();
+  const isEn=document.body.classList.contains('en-mode');
+  if(!n){alert(isEn?"Please enter your name":"Введіть ваше ім'я");return;}
+  if(!p){alert(isEn?"Please enter phone number":"Введіть номер телефону");return;}
+  document.getElementById('modalFormBox').style.display='none';
+  document.getElementById('modalOk').style.display='block';
+}
+
+// ── PLACEHOLDER LANGUAGE SWAP ──
+function updatePlaceholders(){
+  const isEn=document.body.classList.contains('en-mode');
+  const namePh=isEn?'Julia Smith':'Юлія Кожумяка';
+  const phonePh=isEn?'+1 416 000 0000':'+380 50 000 0000';
+  ['fName','mName'].forEach(id=>{const el=document.getElementById(id);if(el)el.placeholder=namePh;});
+  ['fPhone','mPhone'].forEach(id=>{const el=document.getElementById(id);if(el)el.placeholder=phonePh;});
+}
+// ── LANGUAGE ──
+function toggleLang(){
+  const isEn=document.body.classList.toggle('en-mode');
+  localStorage.setItem('uno-lang',isEn?'en':'uk');
+  updatePlaceholders();
+}
+(function(){
+  if(localStorage.getItem('uno-lang')==='en') document.body.classList.add('en-mode');
+  updatePlaceholders();
+})();
+
+// ── FAQ ──
+function toggleFaq(q){
+  const item=q.closest('.faq-item');
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+  if(!isOpen) item.classList.add('open');
+}
+
+// ── FORM ──
+function submitForm(){
+  const n=document.getElementById('fName').value.trim();
+  const p=document.getElementById('fPhone').value.trim();
+  const isEn=document.body.classList.contains('en-mode');
+  if(!n){alert(isEn?'Please enter your name':'Введіть ваше ім\'я');return;}
+  if(!p){alert(isEn?"Please enter phone number":"Введіть номер телефону");return;}
+  document.getElementById('formBox').style.display='none';
+  document.getElementById('formOk').style.display='block';
+}
+
+// ── REVIEWS SLIDER ──
+function playVideo(thumb){
+  const vid=thumb.querySelector('video');
+  if(!vid) return;
+  if(thumb.classList.contains('playing')){
+    vid.pause();
+    thumb.classList.remove('playing');
+  } else {
+    document.querySelectorAll('.video-thumb.playing').forEach(t=>{
+      t.querySelector('video').pause();
+      t.classList.remove('playing');
+    });
+    vid.play();
+    thumb.classList.add('playing');
+  }
+}
+function revScroll(dir){
+  const s=document.getElementById('revSlider');
+  if(s) s.scrollBy({left:dir*380,behavior:'smooth'});
+}
+function vidScroll(dir){
+  const s=document.getElementById('vidSlider');
+  if(s) s.scrollBy({left:dir*240,behavior:'smooth'});
+}
+// Зупиняємо всі інші відео при запуску будь-якого (через нативні controls)
+document.addEventListener('DOMContentLoaded',()=>{
+  document.querySelectorAll('.video-thumb video').forEach(vid=>{
+    vid.addEventListener('play',()=>{
+      document.querySelectorAll('.video-thumb video').forEach(other=>{
+        if(other!==vid){other.pause();other.closest('.video-thumb').classList.remove('playing');}
+      });
+      vid.closest('.video-thumb').classList.add('playing');
+    });
+    vid.addEventListener('pause',()=>vid.closest('.video-thumb').classList.remove('playing'));
+  });
+});
+
+
+// Вертикальний скрол над слайдерами → передаємо сторінці
+['revSlider','vidSlider'].forEach(id=>{
+  const el=document.getElementById(id);
+  if(!el) return;
+  el.addEventListener('wheel',function(e){
+    if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){
+      e.preventDefault();
+      window.scrollBy({top:e.deltaY,behavior:'auto'});
+    }
+  },{passive:false});
+});
+// ── REVEAL ON SCROLL ──
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}
+  });
+},{threshold:.06,rootMargin:'0px 0px -36px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// ── NAV SHADOW ──
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').style.boxShadow=
+    window.scrollY>10?'0 1px 24px rgba(0,0,0,.45)':'none';
+},{passive:true});
+</script>
+</body>
+</html>
