@@ -1160,14 +1160,14 @@ body:not(.en-mode) .f-submit.en{display:none}
       <div id="formBox">
         <div class="f-stack">
           <div class="f-group">
-            <label class="f-label uk" for="fName">Ім'я</label>
-            <label class="f-label en" for="fName">Name</label>
-            <input type="text" id="fName" placeholder="Юлія Кожумяка" oninput="this.value=this.value.replace(/[^a-zA-Zа-яА-ЯіІїЇєЄґҐёЁ'\- ]/g,'')"/>
+            <label class="f-label uk" for="fName">Ім'я <span style="color:var(--o)">*</span></label>
+            <label class="f-label en" for="fName">Name <span style="color:var(--o)">*</span></label>
+            <input type="text" id="fName" placeholder="Юлія Кожумяка" required oninput="this.value=this.value.replace(/[^a-zA-Zа-яА-ЯіІїЇєЄґҐёЁ'\- ]/g,'')"/>
           </div>
           <div class="f-group">
-            <label class="f-label uk" for="fPhone">Номер телефону</label>
-            <label class="f-label en" for="fPhone">Phone number</label>
-            <input type="tel" id="fPhone" placeholder="+380 50 000 0000" oninput="this.value=this.value.replace(/[^0-9+\- ()]/g,'')"/>
+            <label class="f-label uk" for="fPhone">Номер телефону <span style="color:var(--o)">*</span></label>
+            <label class="f-label en" for="fPhone">Phone number <span style="color:var(--o)">*</span></label>
+            <input type="tel" id="fPhone" placeholder="+380 50 000 0000" required oninput="this.value=this.value.replace(/[^0-9+\- ()]/g,'')"/>
           </div>
           <div class="f-group uk">
             <label class="f-label" for="fTg">Telegram</label>
@@ -1241,14 +1241,14 @@ body:not(.en-mode) .f-submit.en{display:none}
     <div id="modalFormBox">
       <div class="f-stack">
         <div class="f-group">
-          <label class="f-label uk" for="mName">Ім'я</label>
-          <label class="f-label en" for="mName">Name</label>
-          <input type="text" id="mName" placeholder="Юлія Кожумяка" oninput="this.value=this.value.replace(/[^a-zA-Zа-яА-ЯіІїЇєЄґҐёЁ'\- ]/g,'')"/>
+          <label class="f-label uk" for="mName">Ім'я <span style="color:var(--o)">*</span></label>
+          <label class="f-label en" for="mName">Name <span style="color:var(--o)">*</span></label>
+          <input type="text" id="mName" placeholder="Юлія Кожумяка" required oninput="this.value=this.value.replace(/[^a-zA-Zа-яА-ЯіІїЇєЄґҐёЁ'\- ]/g,'')"/>
         </div>
         <div class="f-group">
-          <label class="f-label uk" for="mPhone">Номер телефону</label>
-          <label class="f-label en" for="mPhone">Phone number</label>
-          <input type="tel" id="mPhone" placeholder="+380 50 000 0000" oninput="this.value=this.value.replace(/[^0-9+\- ()]/g,'')"/>
+          <label class="f-label uk" for="mPhone">Номер телефону <span style="color:var(--o)">*</span></label>
+          <label class="f-label en" for="mPhone">Phone number <span style="color:var(--o)">*</span></label>
+          <input type="tel" id="mPhone" placeholder="+380 50 000 0000" required oninput="this.value=this.value.replace(/[^0-9+\- ()]/g,'')"/>
         </div>
         <div class="f-group uk">
           <label class="f-label" for="mTg">Telegram</label>
