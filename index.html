@@ -1346,12 +1346,26 @@ function closeImg(){
   document.getElementById('imgLb').classList.remove('open');
   document.body.style.overflow='';
 }
+async function sendLead(name, phone, tg){
+  const date = new Date().toLocaleString("uk-UA",{timeZone:"Europe/Kiev"});
+  const text = `🔥 *Новий лід з сайту!*\n\n👤 ${name}\n📞 ${phone}${tg?'\n✈️ '+tg:''}\n🕐 ${date}`;
+  try {
+    await fetch('https://api.telegram.org/bot8387737114:AAGlW30Dx96-q3RxETOpg7kj_h-LiBS9GU4/sendMessage',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({chat_id:'-1003970612016',message_thread_id:1088,text,parse_mode:'Markdown'})
+    });
+  } catch(e){}
+}
+
 function submitModal(){
   const n=document.getElementById('mName').value.trim();
   const p=document.getElementById('mPhone').value.trim();
+  const t=document.getElementById('mTg')?document.getElementById('mTg').value.trim():'';
   const isEn=document.body.classList.contains('en-mode');
   if(!n){alert(isEn?"Please enter your name":"Введіть ваше ім'я");return;}
   if(!p){alert(isEn?"Please enter phone number":"Введіть номер телефону");return;}
+  sendLead(n,p,t);
   document.getElementById('modalFormBox').style.display='none';
   document.getElementById('modalOk').style.display='block';
 }
@@ -1387,9 +1401,11 @@ function toggleFaq(q){
 function submitForm(){
   const n=document.getElementById('fName').value.trim();
   const p=document.getElementById('fPhone').value.trim();
+  const t=document.getElementById('fTg')?document.getElementById('fTg').value.trim():'';
   const isEn=document.body.classList.contains('en-mode');
   if(!n){alert(isEn?'Please enter your name':'Введіть ваше ім\'я');return;}
   if(!p){alert(isEn?"Please enter phone number":"Введіть номер телефону");return;}
+  sendLead(n,p,t);
   document.getElementById('formBox').style.display='none';
   document.getElementById('formOk').style.display='block';
 }
