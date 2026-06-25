@@ -1346,10 +1346,11 @@ function closeImg(){
   document.getElementById('imgLb').classList.remove('open');
   document.body.style.overflow='';
 }
-async function sendLead(name, phone, tg){
+async function sendLead(name, phone, tg, email){
   const date = new Date().toLocaleString("uk-UA",{timeZone:"Europe/Kiev"});
   // Telegram — миттєво
-  const text = `🔥 *Новий лід з сайту!*\n\n👤 ${name}\n📞 ${phone}${tg?'\n✈️ '+tg:''}\n🕐 ${date}`;
+  const contact = tg ? `\n✈️ ${tg}` : (email ? `\n📧 ${email}` : '');
+  const text = `🔥 *Новий лід з сайту!*\n\n👤 ${name}\n📞 ${phone}${contact}\n🕐 ${date}`;
   try {
     await fetch('https://api.telegram.org/bot8387737114:AAGlW30Dx96-q3RxETOpg7kj_h-LiBS9GU4/sendMessage',{
       method:'POST',
@@ -1370,11 +1371,12 @@ async function sendLead(name, phone, tg){
 function submitModal(){
   const n=document.getElementById('mName').value.trim();
   const p=document.getElementById('mPhone').value.trim();
-  const t=document.getElementById('mTg')?document.getElementById('mTg').value.trim():'';
   const isEn=document.body.classList.contains('en-mode');
+  const t=!isEn?(document.getElementById('mTg')?document.getElementById('mTg').value.trim():''):'';
+  const e=isEn?(document.getElementById('mEmail')?document.getElementById('mEmail').value.trim():''):'';
   if(!n){alert(isEn?"Please enter your name":"Введіть ваше ім'я");return;}
   if(!p){alert(isEn?"Please enter phone number":"Введіть номер телефону");return;}
-  sendLead(n,p,t);
+  sendLead(n,p,t,e);
   document.getElementById('modalFormBox').style.display='none';
   document.getElementById('modalOk').style.display='block';
 }
@@ -1410,11 +1412,12 @@ function toggleFaq(q){
 function submitForm(){
   const n=document.getElementById('fName').value.trim();
   const p=document.getElementById('fPhone').value.trim();
-  const t=document.getElementById('fTg')?document.getElementById('fTg').value.trim():'';
   const isEn=document.body.classList.contains('en-mode');
+  const t=!isEn?(document.getElementById('fTg')?document.getElementById('fTg').value.trim():''):'';
+  const e=isEn?(document.getElementById('fEmail')?document.getElementById('fEmail').value.trim():''):'';
   if(!n){alert(isEn?'Please enter your name':'Введіть ваше ім\'я');return;}
   if(!p){alert(isEn?"Please enter phone number":"Введіть номер телефону");return;}
-  sendLead(n,p,t);
+  sendLead(n,p,t,e);
   document.getElementById('formBox').style.display='none';
   document.getElementById('formOk').style.display='block';
 }
