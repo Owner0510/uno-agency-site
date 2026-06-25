@@ -1162,16 +1162,16 @@ body:not(.en-mode) .f-submit.en{display:none}
           <div class="f-group">
             <label class="f-label uk" for="fName">Ім'я</label>
             <label class="f-label en" for="fName">Name</label>
-            <input type="text" id="fName" placeholder="Юлія Кожумяка"/>
+            <input type="text" id="fName" placeholder="Юлія Кожумяка" oninput="this.value=this.value.replace(/[^a-zA-Zа-яА-ЯіІїЇєЄґҐёЁ'\- ]/g,'')"/>
           </div>
           <div class="f-group">
             <label class="f-label uk" for="fPhone">Номер телефону</label>
             <label class="f-label en" for="fPhone">Phone number</label>
-            <input type="tel" id="fPhone" placeholder="+380 50 000 0000"/>
+            <input type="tel" id="fPhone" placeholder="+380 50 000 0000" oninput="this.value=this.value.replace(/[^0-9+\- ()]/g,'')"/>
           </div>
           <div class="f-group uk">
             <label class="f-label" for="fTg">Telegram</label>
-            <input type="text" id="fTg" placeholder="@username"/>
+            <input type="text" id="fTg" placeholder="@username" oninput="this.value=this.value.replace(/[^@a-zA-Z0-9_]/g,'')"/>
           </div>
           <div class="f-group en">
             <label class="f-label" for="fEmail">Email</label>
@@ -1243,16 +1243,16 @@ body:not(.en-mode) .f-submit.en{display:none}
         <div class="f-group">
           <label class="f-label uk" for="mName">Ім'я</label>
           <label class="f-label en" for="mName">Name</label>
-          <input type="text" id="mName" placeholder="Юлія Кожумяка"/>
+          <input type="text" id="mName" placeholder="Юлія Кожумяка" oninput="this.value=this.value.replace(/[^a-zA-Zа-яА-ЯіІїЇєЄґҐёЁ'\- ]/g,'')"/>
         </div>
         <div class="f-group">
           <label class="f-label uk" for="mPhone">Номер телефону</label>
           <label class="f-label en" for="mPhone">Phone number</label>
-          <input type="tel" id="mPhone" placeholder="+380 50 000 0000"/>
+          <input type="tel" id="mPhone" placeholder="+380 50 000 0000" oninput="this.value=this.value.replace(/[^0-9+\- ()]/g,'')"/>
         </div>
         <div class="f-group uk">
           <label class="f-label" for="mTg">Telegram</label>
-          <input type="text" id="mTg" placeholder="@username"/>
+          <input type="text" id="mTg" placeholder="@username" oninput="this.value=this.value.replace(/[^@a-zA-Z0-9_]/g,'')"/>
         </div>
         <div class="f-group en">
           <label class="f-label" for="mEmail">Email</label>
@@ -1348,12 +1348,21 @@ function closeImg(){
 }
 async function sendLead(name, phone, tg){
   const date = new Date().toLocaleString("uk-UA",{timeZone:"Europe/Kiev"});
+  // Telegram — миттєво
   const text = `🔥 *Новий лід з сайту!*\n\n👤 ${name}\n📞 ${phone}${tg?'\n✈️ '+tg:''}\n🕐 ${date}`;
   try {
     await fetch('https://api.telegram.org/bot8387737114:AAGlW30Dx96-q3RxETOpg7kj_h-LiBS9GU4/sendMessage',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({chat_id:'-1003970612016',message_thread_id:1088,text,parse_mode:'Markdown'})
+    });
+  } catch(e){}
+  // Google Sheets — через GitHub Action
+  try {
+    await fetch('https://api.github.com/repos/Owner0510/uno-agency-site/dispatches',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Authorization':'token ghp_placeholder'},
+      body:JSON.stringify({event_type:'new-lead',client_payload:{name,phone,tg:tg||''}})
     });
   } catch(e){}
 }
