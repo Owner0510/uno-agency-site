@@ -322,8 +322,9 @@ body.en-mode .en{display:revert}
 body.en-mode span.en{display:inline}
 body.en-mode a.en{display:inline}
 body.en-mode .f-group.en{display:flex}
-body.en-mode .f-submit.uk,.f-submit.en{display:block}
+body.en-mode .f-submit.en{display:block}
 body:not(.en-mode) .f-submit.en{display:none}
+body:not(.en-mode) .f-submit.uk{display:block}
 
 /* ─── RESPONSIVE ─── */
 @media(max-width:1024px){
@@ -684,7 +685,8 @@ body:not(.en-mode) .f-submit.en{display:none}
         <!-- 1: Дитячі іграшки — E-commerce · UA -->
         <div class="cs-slide">
           <div class="cs-l">
-            <div class="cs-tag">🛍 Meta Ads · E-commerce · Україна 🇺🇦</div>
+            <div class="cs-tag uk">🛍 Meta Ads · E-commerce · Україна 🇺🇦</div>
+            <div class="cs-tag en">🛍 Meta Ads · E-commerce · Ukraine 🇺🇦</div>
             <h3 class="uk">Магазин дитячих іграшок</h3>
             <h3 class="en">Children's Toy Store</h3>
             <p class="cs-desc uk">Системна робота протягом 2 років: глибокий аналіз аудиторій, A/B тестування креативів і масштабування переможних зв'язок на постійній основі.</p>
@@ -706,7 +708,7 @@ body:not(.en-mode) .f-submit.en{display:none}
         <!-- 2: Cool Cat Fence — Leadgen · USA -->
         <div class="cs-slide">
           <div class="cs-l">
-            <div class="cs-tag">🏠 Meta Ads · Leadgeneration · USA 🇺🇸</div>
+            <div class="cs-tag">🏠 Meta Ads · Lead Generation · USA 🇺🇸</div>
             <h3 class="uk">Cool Cat Fence — встановлення парканів</h3>
             <h3 class="en">Cool Cat Fence — Fence Installation</h3>
             <p class="cs-desc uk">Штат Вашингтон, США. Замінили хаотичні бусти на повноцінну рекламну систему — стабільний потік заявок з прогнозованою ціною.</p>
@@ -729,6 +731,7 @@ body:not(.en-mode) .f-submit.en{display:none}
         <div class="cs-slide">
           <div class="cs-l">
             <div class="cs-tag">💋 Meta Ads · Beauty · Canada 🇨🇦</div>
+
             <h3 class="uk">Перманентний макіяж — салон у Канаді</h3>
             <h3 class="en">Permanent Makeup — Canadian Salon</h3>
             <p class="cs-desc uk">Відмовились від трафіку і конверсій на сайт, зробили ставку на ціль «Повідомлення» — і отримали ×26 на вкладення.</p>
@@ -750,7 +753,8 @@ body:not(.en-mode) .f-submit.en{display:none}
         <!-- 4: Товари для вій — E-commerce · UA -->
         <div class="cs-slide">
           <div class="cs-l">
-            <div class="cs-tag">💄 Meta Ads · E-commerce · Україна 🇺🇦</div>
+            <div class="cs-tag uk">💄 Meta Ads · E-commerce · Україна 🇺🇦</div>
+            <div class="cs-tag en">💄 Meta Ads · E-commerce · Ukraine 🇺🇦</div>
             <h3 class="uk">Товари для нарощення та ламінування вій</h3>
             <h3 class="en">Lash Extension & Lamination Products</h3>
             <p class="cs-desc uk">Профматеріали для б'юті-майстрів. Ключ до результату — ретаргетинг лояльних клієнтів і постійна робота з повторними покупками.</p>
@@ -819,6 +823,7 @@ body:not(.en-mode) .f-submit.en{display:none}
         <div class="cs-slide">
           <div class="cs-l">
             <div class="cs-tag">💇 Meta Ads · Beauty · Canada 🇨🇦</div>
+
             <h3 class="uk">HairHub — салон краси, Торонто</h3>
             <h3 class="en">HairHub Beauty Salon, Toronto</h3>
             <p class="cs-desc uk">Стабільний потік нових клієнтів на запис. Масштабування через сегментацію холодної аудиторії, ретаргетинг і постійне тестування форматів.</p>
@@ -839,7 +844,8 @@ body:not(.en-mode) .f-submit.en{display:none}
         <!-- 8: Школа англійської — EdTech · Poland -->
         <div class="cs-slide">
           <div class="cs-l">
-            <div class="cs-tag">📚 Meta Ads · EdTech · Польща 🇵🇱</div>
+            <div class="cs-tag uk">📚 Meta Ads · EdTech · Польща 🇵🇱</div>
+            <div class="cs-tag en">📚 Meta Ads · EdTech · Poland 🇵🇱</div>
             <h3 class="uk">Школа англійської мови — Польща</h3>
             <h3 class="en">English Language School — Poland</h3>
             <p class="cs-desc uk">Старт з нуля — без сайту, сторінок і кабінету. Відео «з лицем» + безкоштовний перший урок = найкращий лід-магніт для мовних шкіл.</p>
@@ -1389,15 +1395,39 @@ function updatePlaceholders(){
   ['fName','mName'].forEach(id=>{const el=document.getElementById(id);if(el)el.placeholder=namePh;});
   ['fPhone','mPhone'].forEach(id=>{const el=document.getElementById(id);if(el)el.placeholder=phonePh;});
 }
+// ── KPI LABELS TRANSLATION ──
+const KPI_TRANS = {
+  'Бюджет':'Budget','Покупок':'Purchases','Ціна покупки':'Cost/Purchase',
+  'Виручка':'Revenue','Лідів':'Leads','Ціна ліда':'Cost/Lead',
+  'Лідів (запитів)':'Leads (inquiries)','Заробіток':'Revenue',
+  'Запитів':'Inquiries','Ціна запиту':'Cost/Inquiry',
+  'Переписок':'Conversations','Ціна переписки':'Cost/Conv.',
+  'LTV клієнта':'Client LTV','Продажів':'Sales',
+  'Ціна 1 продажу':'Cost/Sale','Сума продажів':'Total Sales',
+  'Заявок':'Inquiries'
+};
+function translateKpi(toEn){
+  document.querySelectorAll('.cs-kpi-lbl').forEach(el=>{
+    if(toEn){
+      if(!el.dataset.uk) el.dataset.uk=el.textContent;
+      el.textContent=KPI_TRANS[el.dataset.uk]||el.dataset.uk;
+    } else {
+      if(el.dataset.uk) el.textContent=el.dataset.uk;
+    }
+  });
+}
 // ── LANGUAGE ──
 function toggleLang(){
   const isEn=document.body.classList.toggle('en-mode');
   localStorage.setItem('uno-lang',isEn?'en':'uk');
   updatePlaceholders();
+  translateKpi(isEn);
 }
 (function(){
-  if(localStorage.getItem('uno-lang')==='en') document.body.classList.add('en-mode');
+  const isEn=localStorage.getItem('uno-lang')==='en';
+  if(isEn) document.body.classList.add('en-mode');
   updatePlaceholders();
+  if(isEn) translateKpi(true);
 })();
 
 // ── FAQ ──
