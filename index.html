@@ -1448,6 +1448,7 @@ async function sha256(str){
 }
 async function sendLead(name, phone, tg, email){
   const date = new Date().toLocaleString("uk-UA",{timeZone:"Europe/Kiev"});
+  const eventId = 'lead_' + Date.now() + '_' + Math.random().toString(36).slice(2,8);
   // Telegram — миттєво
   const contact = tg ? `\n✈️ ${tg}` : (email ? `\n📧 ${email}` : '');
   const text = `🔥 *Новий лід з сайту!*\n\n👤 ${name}\n📞 ${phone}${contact}\n🕐 ${date}`;
@@ -1457,7 +1458,7 @@ async function sendLead(name, phone, tg, email){
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({chat_id:'-1003970612016',message_thread_id:1088,text,parse_mode:'Markdown'})
     });
-    if(typeof fbq === 'function') fbq('track', 'Lead');
+    if(typeof fbq === 'function') fbq('track', 'Lead', {}, {eventID: eventId});
   } catch(e){}
   // Meta Conversions API (server-side)
   try {
@@ -1479,6 +1480,7 @@ async function sendLead(name, phone, tg, email){
         event_time:Math.floor(Date.now()/1000),
         action_source:'website',
         event_source_url:'https://uno-agency.com/',
+        event_id:eventId,
         user_data:userData
       }]})
     });
