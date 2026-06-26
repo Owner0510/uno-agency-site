@@ -1502,7 +1502,7 @@ function submitModal(){
   const t=!isEn?(document.getElementById('mTg')?document.getElementById('mTg').value.trim():''):'';
   const e=isEn?(document.getElementById('mEmail')?document.getElementById('mEmail').value.trim():''):'';
   if(!n){alert(isEn?"Please enter your name":"Введіть ваше ім'я");return;}
-  if(!p||p.replace(/\D/g,'').length<7){alert(isEn?"Please enter a valid phone number (min 7 digits)":"Введіть коректний номер телефону (мін. 7 цифр)");return;}
+  if(!p||!/^[0-9+\-]{7,}$/.test(p.replace(/\s/g,''))||p.replace(/\D/g,'').length<7){alert(isEn?"Please enter a valid phone number (digits, + and - only, min 7 digits)":"Введіть коректний номер телефону (лише цифри, + та -, мін. 7 цифр)");return;}
   sendLead(n,p,t,e);
   document.getElementById('modalFormBox').style.display='none';
   document.getElementById('modalOk').style.display='block';
@@ -1567,7 +1567,7 @@ function submitForm(){
   const t=!isEn?(document.getElementById('fTg')?document.getElementById('fTg').value.trim():''):'';
   const e=isEn?(document.getElementById('fEmail')?document.getElementById('fEmail').value.trim():''):'';
   if(!n){alert(isEn?'Please enter your name':'Введіть ваше ім\'я');return;}
-  if(!p||p.replace(/\D/g,'').length<7){alert(isEn?"Please enter a valid phone number (min 7 digits)":"Введіть коректний номер телефону (мін. 7 цифр)");return;}
+  if(!p||!/^[0-9+\-]{7,}$/.test(p.replace(/\s/g,''))||p.replace(/\D/g,'').length<7){alert(isEn?"Please enter a valid phone number (digits, + and - only, min 7 digits)":"Введіть коректний номер телефону (лише цифри, + та -, мін. 7 цифр)");return;}
   sendLead(n,p,t,e);
   document.getElementById('formBox').style.display='none';
   document.getElementById('formOk').style.display='block';
