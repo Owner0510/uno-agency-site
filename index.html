@@ -1442,6 +1442,10 @@ function closeImg(){
   document.getElementById('imgLb').classList.remove('open');
   document.body.style.overflow='';
 }
+async function sha256(str){
+  const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(str.trim().toLowerCase()));
+  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
 async function sendLead(name, phone, tg, email){
   const date = new Date().toLocaleString("uk-UA",{timeZone:"Europe/Kiev"});
   // Telegram — миттєво
@@ -1454,6 +1458,30 @@ async function sendLead(name, phone, tg, email){
       body:JSON.stringify({chat_id:'-1003970612016',message_thread_id:1088,text,parse_mode:'Markdown'})
     });
     if(typeof fbq === 'function') fbq('track', 'Lead');
+  } catch(e){}
+  // Meta Conversions API (server-side)
+  try {
+    const phoneClean = phone.replace(/\D/g,'');
+    const userData = {
+      client_user_agent: navigator.userAgent,
+      ph: await sha256(phoneClean),
+    };
+    if(email) userData.em = await sha256(email);
+    const fbp = document.cookie.split(';').map(c=>c.trim()).find(c=>c.startsWith('_fbp='));
+    const fbc = document.cookie.split(';').map(c=>c.trim()).find(c=>c.startsWith('_fbc='));
+    if(fbp) userData.fbp = fbp.split('=')[1];
+    if(fbc) userData.fbc = fbc.split('=')[1];
+    await fetch('https://graph.facebook.com/v19.0/1307400098210403/events?access_token=EAAOS9HjAE5oBRwBmddAud7bHuivn19pLf0sOTwCNfrTY0K7g20isJcBa02JNFfxglBstWxRYwk3i9c222vZB787wrCaxJSOduffUVhMOZCbrlDinpyTaQxU2uiD3MeaVSzsUZCryZAJHsaLlidQbQgzjHCzxrnvTz8vSPevGUe3S4ye9JZBjPQCMd8hU6MQZDZD',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({data:[{
+        event_name:'Lead',
+        event_time:Math.floor(Date.now()/1000),
+        action_source:'website',
+        event_source_url:'https://uno-agency.com/',
+        user_data:userData
+      }]})
+    });
   } catch(e){}
   // Google Sheets — через GitHub Action
   try {
