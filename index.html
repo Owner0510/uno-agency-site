@@ -1543,19 +1543,10 @@ function translateKpi(toEn){
 }
 // ── LANGUAGE ──
 function toggleLang(){
-  const isEn=document.body.classList.toggle('en-mode');
-  localStorage.setItem('uno-lang',isEn?'en':'uk');
-  history.pushState(null,'',isEn?'/eng':'/');
-  updatePlaceholders();
-  translateKpi(isEn);
+  window.location.href='/eng';
 }
 (function(){
-  const pathEn=location.pathname.startsWith('/eng');
-  const isEn=pathEn||localStorage.getItem('uno-lang')==='en';
-  if(isEn) document.body.classList.add('en-mode');
-  localStorage.setItem('uno-lang',isEn?'en':'uk');
   updatePlaceholders();
-  if(isEn) translateKpi(true);
 })();
 
 // ── FAQ ──
