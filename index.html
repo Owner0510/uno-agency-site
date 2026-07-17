@@ -1545,12 +1545,15 @@ function translateKpi(toEn){
 function toggleLang(){
   const isEn=document.body.classList.toggle('en-mode');
   localStorage.setItem('uno-lang',isEn?'en':'uk');
+  history.pushState(null,'',isEn?'/eng':'/');
   updatePlaceholders();
   translateKpi(isEn);
 }
 (function(){
-  const isEn=localStorage.getItem('uno-lang')==='en';
+  const pathEn=location.pathname.startsWith('/eng');
+  const isEn=pathEn||localStorage.getItem('uno-lang')==='en';
   if(isEn) document.body.classList.add('en-mode');
+  localStorage.setItem('uno-lang',isEn?'en':'uk');
   updatePlaceholders();
   if(isEn) translateKpi(true);
 })();
