@@ -352,11 +352,9 @@ input:focus{border-color:rgba(200,82,26,.6);background:rgba(255,255,255,.07)}
 .f-submit{width:100%;background:var(--o);color:#fff;border:none;padding:17px;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:background .2s;margin-top:8px}
 .f-submit:hover{background:var(--o2)}
 .f-note{text-align:center;font-size:13px;color:rgba(255,255,255,.2);margin-top:12px;line-height:1.5}
-.f-radio-group{display:flex;flex-direction:column;gap:8px;margin-top:4px}
-.f-radio{display:flex;align-items:center;gap:9px;font-size:14px;color:rgba(255,255,255,.75);cursor:pointer;padding:10px 14px;border-radius:8px;border:1.5px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);transition:.15s}
-.f-radio:hover{border-color:rgba(200,82,26,.4);background:rgba(200,82,26,.05)}
-.f-radio input[type=radio]{accent-color:var(--o);width:15px;height:15px;flex-shrink:0}
-.f-radio:has(input:checked){border-color:rgba(200,82,26,.6);background:rgba(200,82,26,.08);color:#fff}
+.f-select{width:100%;padding:12px 14px;border-radius:8px;border:1.5px solid rgba(255,255,255,.12);background:#1a1b1e;color:#fff;font-size:14px;font-family:inherit;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;transition:.15s}
+.f-select:focus{outline:none;border-color:rgba(200,82,26,.6)}
+.f-select option{background:#1a1b1e;color:#fff}
 /* Modal radio same style, but on dark bg already same */
 .form-ok{display:none;text-align:center;padding:48px 24px}
 .form-ok-ico{font-size:52px;margin-bottom:16px}
@@ -1270,28 +1268,30 @@ src="https://www.facebook.com/tr?id=1307400098210403&ev=PageView&noscript=1"
             <input type="tel" id="fPhone" placeholder="+380 50 000 0000" required oninput="this.value=this.value.replace(/[^0-9+\- ()]/g,'')"/>
           </div>
           <div class="f-group uk">
-            <label class="f-label" for="fTg">Telegram <span style="color:var(--o)">*</span></label>
-            <input type="text" id="fTg" placeholder="@username (нік — рекомендую або номер телефону)" required oninput="this.value=this.value.replace(/[^@a-zA-Z0-9_+\-\s()]/g,'')"/>
+            <label class="f-label" for="fTg">Ваш Телеграм (нік або номер телефону) <span style="color:var(--o)">*</span></label>
+            <input type="text" id="fTg" placeholder="@username або +380..." required oninput="this.value=this.value.replace(/[^@a-zA-Z0-9_+\-\s()]/g,'')"/>
           </div>
           <div class="f-group en">
             <label class="f-label" for="fEmail">Email</label>
             <input type="email" id="fEmail" placeholder="you@example.com"/>
           </div>
           <div class="f-group uk">
-            <label class="f-label">Яка послуга Вас цікавить? <span style="color:var(--o)">*</span></label>
-            <div class="f-radio-group" id="fService">
-              <label class="f-radio"><input type="radio" name="fSvc" value="Таргетована реклама"/> Таргетована реклама</label>
-              <label class="f-radio"><input type="radio" name="fSvc" value="SMM"/> SMM</label>
-              <label class="f-radio"><input type="radio" name="fSvc" value="Таргетована реклама + SMM"/> Таргетована реклама + SMM</label>
-            </div>
+            <label class="f-label" for="fSvcSelect">Яка послуга Вас цікавить? <span style="color:var(--o)">*</span></label>
+            <select id="fSvcSelect" class="f-select">
+              <option value="">— Оберіть послугу —</option>
+              <option value="Таргетована реклама">Таргетована реклама</option>
+              <option value="SMM">SMM</option>
+              <option value="Таргетована реклама + SMM">Таргетована реклама + SMM</option>
+            </select>
           </div>
           <div class="f-group en">
-            <label class="f-label">What are you interested in?</label>
-            <div class="f-radio-group" id="fServiceEn">
-              <label class="f-radio"><input type="radio" name="fSvcEn" value="Targeted Advertising"/> Targeted Advertising</label>
-              <label class="f-radio"><input type="radio" name="fSvcEn" value="SMM"/> SMM</label>
-              <label class="f-radio"><input type="radio" name="fSvcEn" value="Targeted Advertising + SMM"/> Targeted Advertising + SMM</label>
-            </div>
+            <label class="f-label" for="fSvcSelectEn">What are you interested in?</label>
+            <select id="fSvcSelectEn" class="f-select">
+              <option value="">— Select a service —</option>
+              <option value="Targeted Advertising">Targeted Advertising</option>
+              <option value="SMM">SMM</option>
+              <option value="Targeted Advertising + SMM">Targeted Advertising + SMM</option>
+            </select>
           </div>
         </div>
 
@@ -1374,28 +1374,30 @@ src="https://www.facebook.com/tr?id=1307400098210403&ev=PageView&noscript=1"
           <input type="tel" id="mPhone" placeholder="+380 50 000 0000" required oninput="this.value=this.value.replace(/[^0-9+\- ()]/g,'')"/>
         </div>
         <div class="f-group uk">
-          <label class="f-label" for="mTg">Telegram <span style="color:var(--o)">*</span></label>
-          <input type="text" id="mTg" placeholder="@username (нік — рекомендую або номер телефону)" required oninput="this.value=this.value.replace(/[^@a-zA-Z0-9_+\-\s()]/g,'')"/>
+          <label class="f-label" for="mTg">Ваш Телеграм (нік або номер телефону) <span style="color:var(--o)">*</span></label>
+          <input type="text" id="mTg" placeholder="@username або +380..." required oninput="this.value=this.value.replace(/[^@a-zA-Z0-9_+\-\s()]/g,'')"/>
         </div>
         <div class="f-group en">
           <label class="f-label" for="mEmail">Email</label>
           <input type="email" id="mEmail" placeholder="you@example.com"/>
         </div>
         <div class="f-group uk">
-          <label class="f-label">Яка послуга Вас цікавить? <span style="color:var(--o)">*</span></label>
-          <div class="f-radio-group" id="mService">
-            <label class="f-radio"><input type="radio" name="mSvc" value="Таргетована реклама"/> Таргетована реклама</label>
-            <label class="f-radio"><input type="radio" name="mSvc" value="SMM"/> SMM</label>
-            <label class="f-radio"><input type="radio" name="mSvc" value="Таргетована реклама + SMM"/> Таргетована реклама + SMM</label>
-          </div>
+          <label class="f-label" for="mSvcSelect">Яка послуга Вас цікавить? <span style="color:var(--o)">*</span></label>
+          <select id="mSvcSelect" class="f-select">
+            <option value="">— Оберіть послугу —</option>
+            <option value="Таргетована реклама">Таргетована реклама</option>
+            <option value="SMM">SMM</option>
+            <option value="Таргетована реклама + SMM">Таргетована реклама + SMM</option>
+          </select>
         </div>
         <div class="f-group en">
-          <label class="f-label">What are you interested in?</label>
-          <div class="f-radio-group" id="mServiceEn">
-            <label class="f-radio"><input type="radio" name="mSvcEn" value="Targeted Advertising"/> Targeted Advertising</label>
-            <label class="f-radio"><input type="radio" name="mSvcEn" value="SMM"/> SMM</label>
-            <label class="f-radio"><input type="radio" name="mSvcEn" value="Targeted Advertising + SMM"/> Targeted Advertising + SMM</label>
-          </div>
+          <label class="f-label" for="mSvcSelectEn">What are you interested in?</label>
+          <select id="mSvcSelectEn" class="f-select">
+            <option value="">— Select a service —</option>
+            <option value="Targeted Advertising">Targeted Advertising</option>
+            <option value="SMM">SMM</option>
+            <option value="Targeted Advertising + SMM">Targeted Advertising + SMM</option>
+          </select>
         </div>
       </div>
       <button class="f-submit uk" onclick="submitModal()" style="margin-top:20px">Залишити заявку</button>
@@ -1428,7 +1430,8 @@ function openModal(){
   document.getElementById('mPhone').value='';
   if(document.getElementById('mTg')) document.getElementById('mTg').value='';
   if(document.getElementById('mEmail')) document.getElementById('mEmail').value='';
-  document.querySelectorAll('input[name="mSvc"],input[name="mSvcEn"]').forEach(r=>r.checked=false);
+  if(document.getElementById('mSvcSelect')) document.getElementById('mSvcSelect').value='';
+  if(document.getElementById('mSvcSelectEn')) document.getElementById('mSvcSelectEn').value='';
 }
 function closeModal(){
   document.getElementById('modal').classList.remove('open');
@@ -1546,8 +1549,7 @@ function submitModal(){
   const isEn=document.body.classList.contains('en-mode');
   const t=!isEn?(document.getElementById('mTg')?document.getElementById('mTg').value.trim():''):'';
   const e=isEn?(document.getElementById('mEmail')?document.getElementById('mEmail').value.trim():''):'';
-  const svcRadio=document.querySelector('input[name="mSvc"]:checked')||document.querySelector('input[name="mSvcEn"]:checked');
-  const svc=svcRadio?svcRadio.value:'';
+  const svc=isEn?(document.getElementById('mSvcSelectEn')?document.getElementById('mSvcSelectEn').value:''):(document.getElementById('mSvcSelect')?document.getElementById('mSvcSelect').value:'');
   if(!n){alert(isEn?"Please enter your name":"Введіть ваше ім'я");return;}
   if(!p||!/^[0-9+\-]{7,}$/.test(p.replace(/\s/g,''))||p.replace(/\D/g,'').length<7){alert(isEn?"Please enter a valid phone number":"Введіть коректний номер телефону");return;}
   if(!isEn&&!t){alert("Введіть Telegram (нік або номер телефону)");return;}
@@ -1609,8 +1611,7 @@ function submitForm(){
   const isEn=document.body.classList.contains('en-mode');
   const t=!isEn?(document.getElementById('fTg')?document.getElementById('fTg').value.trim():''):'';
   const e=isEn?(document.getElementById('fEmail')?document.getElementById('fEmail').value.trim():''):'';
-  const svcRadio=document.querySelector('input[name="fSvc"]:checked')||document.querySelector('input[name="fSvcEn"]:checked');
-  const svc=svcRadio?svcRadio.value:'';
+  const svc=isEn?(document.getElementById('fSvcSelectEn')?document.getElementById('fSvcSelectEn').value:''):(document.getElementById('fSvcSelect')?document.getElementById('fSvcSelect').value:'');
   if(!n){alert(isEn?'Please enter your name':'Введіть ваше ім\'я');return;}
   if(!p||!/^[0-9+\-]{7,}$/.test(p.replace(/\s/g,''))||p.replace(/\D/g,'').length<7){alert(isEn?"Please enter a valid phone number":"Введіть коректний номер телефону");return;}
   if(!isEn&&!t){alert("Введіть Telegram (нік або номер телефону)");return;}
