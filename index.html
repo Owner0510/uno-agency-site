@@ -352,6 +352,12 @@ input:focus{border-color:rgba(200,82,26,.6);background:rgba(255,255,255,.07)}
 .f-submit{width:100%;background:var(--o);color:#fff;border:none;padding:17px;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:background .2s;margin-top:8px}
 .f-submit:hover{background:var(--o2)}
 .f-note{text-align:center;font-size:13px;color:rgba(255,255,255,.2);margin-top:12px;line-height:1.5}
+.f-radio-group{display:flex;flex-direction:column;gap:8px;margin-top:4px}
+.f-radio{display:flex;align-items:center;gap:9px;font-size:14px;color:rgba(255,255,255,.75);cursor:pointer;padding:10px 14px;border-radius:8px;border:1.5px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);transition:.15s}
+.f-radio:hover{border-color:rgba(200,82,26,.4);background:rgba(200,82,26,.05)}
+.f-radio input[type=radio]{accent-color:var(--o);width:15px;height:15px;flex-shrink:0}
+.f-radio:has(input:checked){border-color:rgba(200,82,26,.6);background:rgba(200,82,26,.08);color:#fff}
+/* Modal radio same style, but on dark bg already same */
 .form-ok{display:none;text-align:center;padding:48px 24px}
 .form-ok-ico{font-size:52px;margin-bottom:16px}
 .form-ok h3{font-size:22px;color:#fff;margin-bottom:8px}
@@ -465,6 +471,7 @@ t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '1307400098210403');
+fbq('init', '1233816318503732');
 fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none"
@@ -1263,12 +1270,28 @@ src="https://www.facebook.com/tr?id=1307400098210403&ev=PageView&noscript=1"
             <input type="tel" id="fPhone" placeholder="+380 50 000 0000" required oninput="this.value=this.value.replace(/[^0-9+\- ()]/g,'')"/>
           </div>
           <div class="f-group uk">
-            <label class="f-label" for="fTg">Telegram</label>
-            <input type="text" id="fTg" placeholder="@username" oninput="this.value=this.value.replace(/[^@a-zA-Z0-9_]/g,'')"/>
+            <label class="f-label" for="fTg">Telegram <span style="color:var(--o)">*</span></label>
+            <input type="text" id="fTg" placeholder="@username (нік — рекомендую або номер телефону)" required oninput="this.value=this.value.replace(/[^@a-zA-Z0-9_+\-\s()]/g,'')"/>
           </div>
           <div class="f-group en">
             <label class="f-label" for="fEmail">Email</label>
             <input type="email" id="fEmail" placeholder="you@example.com"/>
+          </div>
+          <div class="f-group uk">
+            <label class="f-label">Що цікавить? <span style="color:var(--o)">*</span></label>
+            <div class="f-radio-group" id="fService">
+              <label class="f-radio"><input type="radio" name="fSvc" value="Таргетована реклама"/> Таргетована реклама</label>
+              <label class="f-radio"><input type="radio" name="fSvc" value="SMM"/> SMM</label>
+              <label class="f-radio"><input type="radio" name="fSvc" value="Таргетована реклама + SMM"/> Таргетована реклама + SMM</label>
+            </div>
+          </div>
+          <div class="f-group en">
+            <label class="f-label">What are you interested in?</label>
+            <div class="f-radio-group" id="fServiceEn">
+              <label class="f-radio"><input type="radio" name="fSvcEn" value="Targeted Advertising"/> Targeted Advertising</label>
+              <label class="f-radio"><input type="radio" name="fSvcEn" value="SMM"/> SMM</label>
+              <label class="f-radio"><input type="radio" name="fSvcEn" value="Targeted Advertising + SMM"/> Targeted Advertising + SMM</label>
+            </div>
           </div>
         </div>
 
@@ -1351,12 +1374,28 @@ src="https://www.facebook.com/tr?id=1307400098210403&ev=PageView&noscript=1"
           <input type="tel" id="mPhone" placeholder="+380 50 000 0000" required oninput="this.value=this.value.replace(/[^0-9+\- ()]/g,'')"/>
         </div>
         <div class="f-group uk">
-          <label class="f-label" for="mTg">Telegram</label>
-          <input type="text" id="mTg" placeholder="@username" oninput="this.value=this.value.replace(/[^@a-zA-Z0-9_]/g,'')"/>
+          <label class="f-label" for="mTg">Telegram <span style="color:var(--o)">*</span></label>
+          <input type="text" id="mTg" placeholder="@username (нік — рекомендую або номер телефону)" required oninput="this.value=this.value.replace(/[^@a-zA-Z0-9_+\-\s()]/g,'')"/>
         </div>
         <div class="f-group en">
           <label class="f-label" for="mEmail">Email</label>
           <input type="email" id="mEmail" placeholder="you@example.com"/>
+        </div>
+        <div class="f-group uk">
+          <label class="f-label">Що цікавить? <span style="color:var(--o)">*</span></label>
+          <div class="f-radio-group" id="mService">
+            <label class="f-radio"><input type="radio" name="mSvc" value="Таргетована реклама"/> Таргетована реклама</label>
+            <label class="f-radio"><input type="radio" name="mSvc" value="SMM"/> SMM</label>
+            <label class="f-radio"><input type="radio" name="mSvc" value="Таргетована реклама + SMM"/> Таргетована реклама + SMM</label>
+          </div>
+        </div>
+        <div class="f-group en">
+          <label class="f-label">What are you interested in?</label>
+          <div class="f-radio-group" id="mServiceEn">
+            <label class="f-radio"><input type="radio" name="mSvcEn" value="Targeted Advertising"/> Targeted Advertising</label>
+            <label class="f-radio"><input type="radio" name="mSvcEn" value="SMM"/> SMM</label>
+            <label class="f-radio"><input type="radio" name="mSvcEn" value="Targeted Advertising + SMM"/> Targeted Advertising + SMM</label>
+          </div>
         </div>
       </div>
       <button class="f-submit uk" onclick="submitModal()" style="margin-top:20px">Залишити заявку</button>
@@ -1389,6 +1428,7 @@ function openModal(){
   document.getElementById('mPhone').value='';
   if(document.getElementById('mTg')) document.getElementById('mTg').value='';
   if(document.getElementById('mEmail')) document.getElementById('mEmail').value='';
+  document.querySelectorAll('input[name="mSvc"],input[name="mSvcEn"]').forEach(r=>r.checked=false);
 }
 function closeModal(){
   document.getElementById('modal').classList.remove('open');
@@ -1450,12 +1490,13 @@ async function sha256(str){
   const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(str.trim().toLowerCase()));
   return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
 }
-async function sendLead(name, phone, tg, email){
+async function sendLead(name, phone, tg, email, service){
   const date = new Date().toLocaleString("uk-UA",{timeZone:"Europe/Kiev"});
   const eventId = 'lead_' + Date.now() + '_' + Math.random().toString(36).slice(2,8);
   // Telegram — миттєво
   const contact = tg ? `\n✈️ ${tg}` : (email ? `\n📧 ${email}` : '');
-  const text = `🔥 *Новий лід з сайту!*\n\n👤 ${name}\n📞 ${phone}${contact}\n🕐 ${date}`;
+  const svcLine = service ? `\n🎯 ${service}` : '';
+  const text = `🔥 *Новий лід з сайту!*\n\n👤 ${name}\n📞 ${phone}${contact}${svcLine}\n🕐 ${date}`;
   try {
     await fetch('https://api.telegram.org/bot8387737114:AAGlW30Dx96-q3RxETOpg7kj_h-LiBS9GU4/sendMessage',{
       method:'POST',
@@ -1505,9 +1546,13 @@ function submitModal(){
   const isEn=document.body.classList.contains('en-mode');
   const t=!isEn?(document.getElementById('mTg')?document.getElementById('mTg').value.trim():''):'';
   const e=isEn?(document.getElementById('mEmail')?document.getElementById('mEmail').value.trim():''):'';
+  const svcRadio=document.querySelector('input[name="mSvc"]:checked')||document.querySelector('input[name="mSvcEn"]:checked');
+  const svc=svcRadio?svcRadio.value:'';
   if(!n){alert(isEn?"Please enter your name":"Введіть ваше ім'я");return;}
-  if(!p||!/^[0-9+\-]{7,}$/.test(p.replace(/\s/g,''))||p.replace(/\D/g,'').length<7){alert(isEn?"Please enter a valid phone number (digits, + and - only, min 7 digits)":"Введіть коректний номер телефону (лише цифри, + та -, мін. 7 цифр)");return;}
-  sendLead(n,p,t,e);
+  if(!p||!/^[0-9+\-]{7,}$/.test(p.replace(/\s/g,''))||p.replace(/\D/g,'').length<7){alert(isEn?"Please enter a valid phone number":"Введіть коректний номер телефону");return;}
+  if(!isEn&&!t){alert("Введіть Telegram (нік або номер телефону)");return;}
+  if(!isEn&&!svc){alert("Оберіть, що вас цікавить");return;}
+  sendLead(n,p,t,e,svc);
   document.getElementById('modalFormBox').style.display='none';
   document.getElementById('modalOk').style.display='block';
 }
@@ -1564,9 +1609,13 @@ function submitForm(){
   const isEn=document.body.classList.contains('en-mode');
   const t=!isEn?(document.getElementById('fTg')?document.getElementById('fTg').value.trim():''):'';
   const e=isEn?(document.getElementById('fEmail')?document.getElementById('fEmail').value.trim():''):'';
+  const svcRadio=document.querySelector('input[name="fSvc"]:checked')||document.querySelector('input[name="fSvcEn"]:checked');
+  const svc=svcRadio?svcRadio.value:'';
   if(!n){alert(isEn?'Please enter your name':'Введіть ваше ім\'я');return;}
-  if(!p||!/^[0-9+\-]{7,}$/.test(p.replace(/\s/g,''))||p.replace(/\D/g,'').length<7){alert(isEn?"Please enter a valid phone number (digits, + and - only, min 7 digits)":"Введіть коректний номер телефону (лише цифри, + та -, мін. 7 цифр)");return;}
-  sendLead(n,p,t,e);
+  if(!p||!/^[0-9+\-]{7,}$/.test(p.replace(/\s/g,''))||p.replace(/\D/g,'').length<7){alert(isEn?"Please enter a valid phone number":"Введіть коректний номер телефону");return;}
+  if(!isEn&&!t){alert("Введіть Telegram (нік або номер телефону)");return;}
+  if(!isEn&&!svc){alert("Оберіть, що вас цікавить");return;}
+  sendLead(n,p,t,e,svc);
   document.getElementById('formBox').style.display='none';
   document.getElementById('formOk').style.display='block';
 }
