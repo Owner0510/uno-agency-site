@@ -1533,12 +1533,12 @@ async function sendLead(name, phone, tg, email, service){
       }]})
     });
   } catch(e){}
-  // Google Sheets — через GitHub Action
+  // Google Sheets — Apps Script
   try {
-    await fetch('https://api.github.com/repos/Owner0510/uno-agency-site/dispatches',{
+    await fetch('https://script.google.com/macros/s/AKfycbxBznFrOrj-z88Uzhaxzqf8yARueoBjPb32AWcDIXNhBcgpCcwbhC8iQnpgGzIypvR3pA/exec',{
       method:'POST',
-      headers:{'Content-Type':'application/json','Authorization':'token ghp_placeholder'},
-      body:JSON.stringify({event_type:'new-lead',client_payload:{name,phone,tg:tg||''}})
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({name,phone,tg:tg||'',email:email||'',service:service||''})
     });
   } catch(e){}
 }
