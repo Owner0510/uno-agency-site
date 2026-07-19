@@ -1535,12 +1535,8 @@ async function sendLead(name, phone, tg, email, service){
   } catch(e){}
   // Google Sheets — Apps Script
   try {
-    await fetch('https://script.google.com/macros/s/AKfycbxBznFrOrj-z88Uzhaxzqf8yARueoBjPb32AWcDIXNhBcgpCcwbhC8iQnpgGzIypvR3pA/exec',{
-      method:'POST',
-      mode:'no-cors',
-      headers:{'Content-Type':'text/plain'},
-      body:JSON.stringify({name,phone,tg:tg||'',email:email||'',service:service||''})
-    });
+    const _p=new URLSearchParams({name,phone,tg:tg||'',email:email||'',service:service||''});
+    await fetch('https://script.google.com/macros/s/AKfycbxBznFrOrj-z88Uzhaxzqf8yARueoBjPb32AWcDIXNhBcgpCcwbhC8iQnpgGzIypvR3pA/exec?'+_p,{method:'GET',mode:'no-cors'});
   } catch(e){}
 }
 
