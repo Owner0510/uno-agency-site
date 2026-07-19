@@ -1537,7 +1537,8 @@ async function sendLead(name, phone, tg, email, service){
   try {
     await fetch('https://script.google.com/macros/s/AKfycbxBznFrOrj-z88Uzhaxzqf8yARueoBjPb32AWcDIXNhBcgpCcwbhC8iQnpgGzIypvR3pA/exec',{
       method:'POST',
-      headers:{'Content-Type':'application/json'},
+      mode:'no-cors',
+      headers:{'Content-Type':'text/plain'},
       body:JSON.stringify({name,phone,tg:tg||'',email:email||'',service:service||''})
     });
   } catch(e){}
