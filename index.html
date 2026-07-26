@@ -1494,18 +1494,12 @@ async function sha256(str){
   return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
 }
 async function sendLead(name, phone, tg, email, service){
-  const date = new Date().toLocaleString("uk-UA",{timeZone:"Europe/Kiev"});
   const eventId = 'lead_' + Date.now() + '_' + Math.random().toString(36).slice(2,8);
-  // Telegram — миттєво
-  const contact = tg ? `\n✈️ ${tg}` : (email ? `\n📧 ${email}` : '');
-  const svcLine = service ? `\n🎯 ${service}` : '';
-  const text = `🔥 *Новий лід з сайту!*\n\n👤 ${name}\n📞 ${phone}${contact}${svcLine}\n🕐 ${date}`;
+  // Сповіщення в Telegram шле Google Apps Script (виклик у кінці функції) — токен
+  // бота живе там, на боці Google. Прямий виклик api.telegram.org з браузера
+  // прибрано 2026-07-25: він тримав токен у коді публічної сторінки, звідки його
+  // й зібрали — боту слали спам від нашого імені.
   try {
-    await fetch('https://api.telegram.org/bot8387737114:AAGlW30Dx96-q3RxETOpg7kj_h-LiBS9GU4/sendMessage',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({chat_id:'-1003970612016',message_thread_id:1088,text,parse_mode:'Markdown'})
-    });
     if(typeof fbq === 'function') fbq('track', 'Lead', {}, {eventID: eventId});
   } catch(e){}
   // Meta Conversions API (server-side)
