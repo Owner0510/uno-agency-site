@@ -1,2 +1,14 @@
 .DS_Store
 .github/
+
+# Сирі ассети (394 МБ: фото засновників, відео-відгуки клієнтів) — НЕ в публічний
+# репозиторій. Живуть локально / у сховищі ассетів, на сайт потрапляють обробленими.
+Сайт UNO/
+Logo – UNO.png
+UNO agency (logo black) 2.svg
+UNO_BotFather_640x360.png
+# Джерело Apps Script — містить SHEET_ID, публічному репо не потрібне
+uno-agency-leads-script.gs
+.DS_Store
+# Містить Notion API токен у коді — тримати поза git (заблоковано push protection)
+fetch_notion_cases.py
