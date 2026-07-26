@@ -1489,10 +1489,6 @@ function closeImg(){
   document.getElementById('imgLb').classList.remove('open');
   document.body.style.overflow='';
 }
-async function sha256(str){
-  const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(str.trim().toLowerCase()));
-  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
-}
 async function sendLead(name, phone, tg, email, service){
   const eventId = 'lead_' + Date.now() + '_' + Math.random().toString(36).slice(2,8);
   // Сповіщення в Telegram шле Google Apps Script (виклик у кінці функції) — токен
@@ -1502,42 +1498,28 @@ async function sendLead(name, phone, tg, email, service){
   try {
     if(typeof fbq === 'function') fbq('track', 'Lead', {}, {eventID: eventId});
   } catch(e){}
-  // Meta Conversions API (server-side)
+  // Заявка → Google Apps Script: він пише в таблицю, шле в Telegram і відправляє
+  // подію Lead у Meta Conversions API. Обидва токени живуть у Script Properties
+  // на боці Google, на сторінку не потрапляє нічого.
+  //
+  // Meta CAPI більше НЕ викликається з браузера: раніше тут лежав access_token
+  // відкритим текстом у коді публічної сторінки — його вистачало, щоб слати
+  // фейкові конверсії в наш піксель. Тепер це робить скрипт на сервері Google.
+  //
+  // fbp/fbc/ua передаємо, бо вони доступні лише в браузері, а Meta по них
+  // зіставляє подію з користувачем. event_id — щоб Meta склеїла цю подію
+  // з браузерною від fbq і не порахувала лід двічі.
   try {
-    const phoneClean = phone.replace(/\D/g,'');
-    const userData = {
-      client_user_agent: navigator.userAgent,
-      ph: await sha256(phoneClean),
-    };
-    if(email) userData.em = await sha256(email);
-    const fbp = document.cookie.split(';').map(c=>c.trim()).find(c=>c.startsWith('_fbp='));
-    const fbc = document.cookie.split(';').map(c=>c.trim()).find(c=>c.startsWith('_fbc='));
-    if(fbp) userData.fbp = fbp.split('=')[1];
-    if(fbc) userData.fbc = fbc.split('=')[1];
-    await fetch('https://graph.facebook.com/v19.0/1307400098210403/events?access_token=EAAOS9HjAE5oBRwBmddAud7bHuivn19pLf0sOTwCNfrTY0K7g20isJcBa02JNFfxglBstWxRYwk3i9c222vZB787wrCaxJSOduffUVhMOZCbrlDinpyTaQxU2uiD3MeaVSzsUZCryZAJHsaLlidQbQgzjHCzxrnvTz8vSPevGUe3S4ye9JZBjPQCMd8hU6MQZDZD',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({data:[{
-        event_name:'Lead',
-        event_time:Math.floor(Date.now()/1000),
-        action_source:'website',
-        event_source_url:'https://uno-agency.com/',
-        event_id:eventId,
-        user_data:userData
-      }]})
+    const ck = n => (document.cookie.split(';').map(c=>c.trim()).find(c=>c.startsWith(n+'=')) || '').split('=')[1] || '';
+    const _p = new URLSearchParams({
+      name, phone, tg: tg||'', email: email||'', service: service||'',
+      event_id: eventId, ua: navigator.userAgent,
+      fbp: ck('_fbp'), fbc: ck('_fbc'),
+      source_url: location.href
     });
-  } catch(e){}
-  // Заявка → релей на нашому сервері: він шле в Telegram і пише в Google Sheets.
-  // Жодних токенів на клієнті. Помилку більше не ковтаємо мовчки — попередній
-  // виклик Apps Script падав з "doGet not found" і ліди тихо зникали.
-  try {
-    const r = await fetch('https://uno-auto.com/api/lead',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({name,phone,tg:tg||'',email:email||'',service:service||''})
-    });
-    if(!r.ok) console.error('lead relay:', r.status, await r.text().catch(()=>''));
-  } catch(e){ console.error('lead relay:', e); }
+    const r = await fetch('https://script.google.com/macros/s/AKfycbzw6tHsxs-4gzgTFP99xUrw5WgW7gqMFQl4NkWZ4prpQbXJHp8YU5w66blKPwh841tlGw/exec?'+_p);
+    if(!r.ok) console.error('lead → Apps Script:', r.status);
+  } catch(e){ console.error('lead → Apps Script:', e); }
 }
 
 function submitModal(){
