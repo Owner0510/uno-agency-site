@@ -1359,6 +1359,10 @@ src="https://www.facebook.com/tr?id=1307400098210403&ev=PageView&noscript=1"
           <input type="email" id="mEmail" placeholder="you@example.com"/>
         </div>
       </div>
+      <!-- Honeypot: люди цього поля не бачать, боти заповнюють усе підряд.
+           Непорожнє значення = бот, заявка тихо відкидається на сервері. -->
+      <input type="text" id="hpField" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"
+             style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none">
       <button class="f-submit uk" onclick="submitModal()" style="margin-top:20px">Залишити заявку</button>
       <button class="f-submit en" onclick="submitModal()" style="margin-top:20px">Leave a request</button>
       <p class="f-note uk" style="margin-top:10px">Натискаючи кнопку, ви погоджуєтесь з обробкою персональних даних</p>
@@ -1459,17 +1463,27 @@ async function sendLead(name, phone, tg, email){
   // Обидва токени живуть у Script Properties на боці Google, на сторінку не
   // потрапляє нічого. Meta CAPI більше НЕ викликається з браузера — раніше тут
   // лежав access_token відкритим текстом у коді публічної сторінки.
-  try {
-    const ck = n => (document.cookie.split(';').map(c=>c.trim()).find(c=>c.startsWith(n+'=')) || '').split('=')[1] || '';
-    const _p = new URLSearchParams({
-      name, phone, tg: tg||'', email: email||'',
-      event_id: eventId, ua: navigator.userAgent,
-      fbp: ck('_fbp'), fbc: ck('_fbc'),
-      source_url: location.href
-    });
-    const r = await fetch('https://script.google.com/macros/s/AKfycbzw6tHsxs-4gzgTFP99xUrw5WgW7gqMFQl4NkWZ4prpQbXJHp8YU5w66blKPwh841tlGw/exec?'+_p);
-    if(!r.ok) console.error('lead → Apps Script:', r.status);
-  } catch(e){ console.error('lead → Apps Script:', e); }
+  const ck = n => (document.cookie.split(';').map(c=>c.trim()).find(c=>c.startsWith(n+'=')) || '').split('=')[1] || '';
+  const hp = (document.getElementById('hpField')||{}).value || '';
+  const _p = new URLSearchParams({
+    name, phone, tg: tg||'', email: email||'',
+    event_id: eventId, ua: navigator.userAgent,
+    fbp: ck('_fbp'), fbc: ck('_fbc'),
+    source_url: location.href, hp
+  });
+  const url = 'https://script.google.com/macros/s/AKfycbz4Ou8PMnnwCq27M6-DYziDtmdn58fxJl0AXraHkNE6xANWUQkaXdJOJ96waUfb_VVNZA/exec?'+_p;
+
+  // Три спроби з наростаючою паузою — одна невдала мережева спроба інакше
+  // означала мовчки втрачену заявку.
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    try {
+      const r = await fetch(url);
+      if (r.ok) return;
+      console.error('lead → Apps Script: HTTP', r.status, 'спроба', attempt);
+    } catch(e){ console.error('lead → Apps Script:', e, 'спроба', attempt); }
+    if (attempt < 3) await new Promise(res => setTimeout(res, attempt * 1500));
+  }
+  console.error('lead → Apps Script: ЗАЯВКА НЕ ДОСТАВЛЕНА після 3 спроб', {name, phone});
 }
 
 function submitModal(){
