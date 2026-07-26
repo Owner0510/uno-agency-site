@@ -1484,14 +1484,17 @@ async function sendLead(name, phone, tg, email){
       }]})
     });
   } catch(e){}
-  // Google Sheets — через GitHub Action
+  // Заявка → релей на нашому сервері: Telegram + Google Sheets, без токенів
+  // на клієнті. Замінив виклик GitHub dispatches, який стояв з літеральним
+  // 'ghp_placeholder' і ніколи не працював.
   try {
-    await fetch('https://api.github.com/repos/Owner0510/uno-agency-site/dispatches',{
+    const r = await fetch('https://uno-auto.com/api/lead',{
       method:'POST',
-      headers:{'Content-Type':'application/json','Authorization':'token ghp_placeholder'},
-      body:JSON.stringify({event_type:'new-lead',client_payload:{name,phone,tg:tg||''}})
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({name,phone,tg:tg||'',email:email||''})
     });
-  } catch(e){}
+    if(!r.ok) console.error('lead relay:', r.status, await r.text().catch(()=>''));
+  } catch(e){ console.error('lead relay:', e); }
 }
 
 function submitModal(){

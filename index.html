@@ -1527,11 +1527,17 @@ async function sendLead(name, phone, tg, email, service){
       }]})
     });
   } catch(e){}
-  // Google Sheets — Apps Script
+  // Заявка → релей на нашому сервері: він шле в Telegram і пише в Google Sheets.
+  // Жодних токенів на клієнті. Помилку більше не ковтаємо мовчки — попередній
+  // виклик Apps Script падав з "doGet not found" і ліди тихо зникали.
   try {
-    const _p=new URLSearchParams({name,phone,tg:tg||'',email:email||'',service:service||''});
-    await fetch('https://script.google.com/macros/s/AKfycbxBznFrOrj-z88Uzhaxzqf8yARueoBjPb32AWcDIXNhBcgpCcwbhC8iQnpgGzIypvR3pA/exec?'+_p,{method:'GET',mode:'no-cors'});
-  } catch(e){}
+    const r = await fetch('https://uno-auto.com/api/lead',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({name,phone,tg:tg||'',email:email||'',service:service||''})
+    });
+    if(!r.ok) console.error('lead relay:', r.status, await r.text().catch(()=>''));
+  } catch(e){ console.error('lead relay:', e); }
 }
 
 function submitModal(){
