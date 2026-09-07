@@ -12,3 +12,4 @@ uno-agency-leads-script.gs
 .DS_Store
 # Містить Notion API токен у коді — тримати поза git (заблоковано push protection)
 fetch_notion_cases.py
+.superpowers/
