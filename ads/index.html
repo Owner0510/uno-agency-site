@@ -75,6 +75,23 @@ a{color:inherit;text-decoration:none}
 .roas-block p{color:var(--dark);font-size:15px;line-height:1.6;margin-bottom:12px}
 .roas-block p:last-child{margin-bottom:0}
 .roas-block b{color:var(--o)}
+
+.cs-wrap{position:relative;overflow:hidden;margin-top:28px}
+.cs-track{display:flex;transition:transform .45s cubic-bezier(.4,0,.2,1)}
+.cs-slide{min-width:100%;border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
+.cs-shot{aspect-ratio:16/10;background:repeating-linear-gradient(45deg,#f7f6f4,#f7f6f4 10px,#efeeec 10px,#efeeec 20px);border:2px dashed var(--border);display:flex;align-items:center;justify-content:center;text-align:center;padding:20px}
+.cs-shot span{font-size:13px;color:var(--muted);font-weight:600}
+.cs-cap{padding:18px 20px}
+.cs-tag{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--o);margin-bottom:8px}
+.cs-cap p{color:var(--dark);font-size:15px;line-height:1.5}
+.cs-cap p b{color:var(--o)}
+
+.cs-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:18px}
+.cs-arrow{width:40px;height:40px;border-radius:50%;background:var(--dark);border:none;color:#fff;font-size:18px;cursor:pointer;transition:.2s;display:flex;align-items:center;justify-content:center;line-height:1}
+.cs-arrow:hover{background:var(--dark2)}
+.cs-dots{display:flex;gap:7px;align-items:center}
+.cs-dot{width:7px;height:7px;border-radius:50%;background:var(--border);cursor:pointer;transition:.3s}
+.cs-dot.active{background:var(--o);width:20px;border-radius:4px}
 </style>
 </head>
 <body>
@@ -184,6 +201,116 @@ a{color:inherit;text-decoration:none}
   </div>
 </section>
 
-<!-- SECTION:CASES -->
+<!-- ════ 4. CASES ════ -->
+<section id="cases">
+  <div class="W">
+    <h2>Результати, які можна виміряти</h2>
+
+    <div class="cs-wrap">
+      <div class="cs-track" id="csTrack">
+
+        <div class="cs-slide">
+          <div class="cs-shot"><span>Заміни на реальний скрін кейсу<br/>(Ads Manager · магазин іграшок)</span></div>
+          <div class="cs-cap">
+            <div class="cs-tag">🛍 Meta ADS · E-commerce · Україна</div>
+            <p><b>1366% ROAS.</b> Витрачено $24,780, отримано 14,468 покупок по $1.71, виручка — <b>$379,564</b></p>
+          </div>
+        </div>
+
+        <div class="cs-slide">
+          <div class="cs-shot"><span>Заміни на реальний скрін кейсу<br/>(Ads Manager · beauty, Канада)</span></div>
+          <div class="cs-cap">
+            <div class="cs-tag">💋 Meta ADS · Beauty · Канада</div>
+            <p>Відмовились від трафіку на сайт, зробили ставку на ціль «Повідомлення» — <b>2646% ROAS</b>, $29,225 заробітку з $1,104 витрат</p>
+          </div>
+        </div>
+
+        <div class="cs-slide">
+          <div class="cs-shot"><span>Заміни на реальний скрін кейсу<br/>(Ads Manager · товари для вій)</span></div>
+          <div class="cs-cap">
+            <div class="cs-tag">💄 Meta ADS · E-commerce · Україна</div>
+            <p>Ретаргетинг лояльних клієнтів і робота з повторними покупками — <b>1411% ROAS</b> при бюджеті $23,296</p>
+          </div>
+        </div>
+
+        <div class="cs-slide">
+          <div class="cs-shot"><span>Заміни на реальний скрін кейсу<br/>(Ads Manager · продаж котеджів)</span></div>
+          <div class="cs-cap">
+            <div class="cs-tag">🏡 Meta ADS · E-commerce · Україна · 44 міс LTV</div>
+            <p>Проєкт з нульовими результатами перетворили на масштабований бізнес — <b>1088% ROAS</b>, ₴2,090,534 виручки</p>
+          </div>
+        </div>
+
+        <div class="cs-slide">
+          <div class="cs-shot"><span>Заміни на реальний скрін кейсу<br/>(Ads Manager · нерухомість)</span></div>
+          <div class="cs-cap">
+            <div class="cs-tag">🏘 Meta ADS · Нерухомість · Україна</div>
+            <p>Довгий цикл рішення — побудували воронку від прогріву до заявки. З $1,684 витрат — <b>$210,000</b> суми продажів</p>
+          </div>
+        </div>
+
+        <div class="cs-slide">
+          <div class="cs-shot"><span>Заміни на реальний скрін кейсу<br/>(Ads Manager · beauty, запис)</span></div>
+          <div class="cs-cap">
+            <div class="cs-tag">💇 Meta ADS · Beauty · Канада</div>
+            <p>Стабільний потік нових клієнтів на запис через сегментацію й ретаргетинг — <b>29 міс LTV</b> клієнта, $41,664 бюджету</p>
+          </div>
+        </div>
+
+        <div class="cs-slide">
+          <div class="cs-shot"><span>Заміни на реальний скрін кейсу<br/>(Ads Manager · мовна школа)</span></div>
+          <div class="cs-cap">
+            <div class="cs-tag">📚 Meta ADS · EdTech · Польща</div>
+            <p>Старт з нуля — без сайту й кабінету. Відео «з лицем» + безкоштовний урок — <b>$3.48</b> за лід, 1,124 ліди</p>
+          </div>
+        </div>
+
+      </div><!-- /cs-track -->
+
+      <div class="cs-nav">
+        <button class="cs-arrow" onclick="csMove(-1)">←</button>
+        <div class="cs-dots" id="csDots"></div>
+        <button class="cs-arrow" onclick="csMove(1)">→</button>
+      </div>
+    </div><!-- /cs-wrap -->
+  </div>
+</section>
+
+<script>
+var csIdx=0;
+var csSlides=document.querySelectorAll('.cs-slide');
+var csTotal=csSlides.length;
+
+function csMove(dir){
+  csIdx=(csIdx+dir+csTotal)%csTotal;
+  csUpdate();
+}
+function csGo(i){csIdx=i;csUpdate();}
+function csUpdate(){
+  document.getElementById('csTrack').style.transform='translateX(-'+csIdx*100+'%)';
+  document.querySelectorAll('.cs-dot').forEach(function(d,i){d.classList.toggle('active',i===csIdx);});
+}
+(function(){
+  var el=document.getElementById('csDots');
+  if(!el) return;
+  for(var i=0;i<csTotal;i++){
+    var d=document.createElement('div');
+    d.className='cs-dot'+(i===0?' active':'');
+    (function(idx){d.onclick=function(){csGo(idx);};})(i);
+    el.appendChild(d);
+  }
+  var track=document.getElementById('csTrack');
+  var startX=0;
+  if(track){
+    track.addEventListener('touchstart',function(e){startX=e.touches[0].clientX;},{passive:true});
+    track.addEventListener('touchend',function(e){
+      var dx=e.changedTouches[0].clientX-startX;
+      if(Math.abs(dx)>50) csMove(dx>0?-1:1);
+    });
+  }
+})();
+</script>
+
+<!-- SECTION:PLATFORMS -->
 </body>
 </html>
