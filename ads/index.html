@@ -106,6 +106,22 @@ a{color:inherit;text-decoration:none}
 .sticky-cta .btn-cta{width:100%;max-width:400px;justify-content:center;background:var(--o)}
 .sticky-cta .btn-cta:hover{background:var(--o2)}
 body{padding-bottom:76px}
+
+.modal-overlay{position:fixed;inset:0;background:rgba(23,24,26,.5);display:none;align-items:center;justify-content:center;z-index:100;padding:20px}
+.modal-overlay.open{display:flex}
+.modal-box{background:#fff;border-radius:var(--r);padding:28px 24px;max-width:420px;width:100%;position:relative;max-height:90vh;overflow-y:auto}
+.modal-close{position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:50%;background:var(--light);border:none;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center}
+.modal-box h3{font-size:19px;margin-bottom:20px;padding-right:32px}
+.f-label{display:block;font-size:13px;font-weight:700;margin-bottom:6px;margin-top:16px}
+.f-label:first-of-type{margin-top:0}
+.f-input,.f-select{width:100%;padding:13px 14px;border:1.5px solid var(--border);border-radius:10px;font-size:14px;font-family:inherit;background:#fff}
+.f-input:focus,.f-select:focus{outline:none;border-color:var(--o)}
+.f-submit{width:100%;background:var(--dark);color:#fff;border:none;padding:15px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;margin-top:20px;transition:background .2s}
+.f-submit:disabled{background:var(--border);cursor:not-allowed}
+.f-submit:not(:disabled):hover{background:var(--dark2)}
+.f-note{font-size:11.5px;color:var(--muted);margin-top:10px;text-align:center}
+#leadOk{display:none;text-align:center;padding:20px 0}
+#leadOk svg{width:48px;height:48px;color:var(--green);margin:0 auto 12px}
 </style>
 </head>
 <body>
@@ -358,6 +374,109 @@ function csUpdate(){
   </button>
 </div>
 
-<!-- SECTION:MODAL -->
+<!-- ════ LEAD MODAL ════ -->
+<div class="modal-overlay" id="leadModal" onclick="if(event.target===this) closeLeadModal()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeLeadModal()">✕</button>
+    <div id="leadFormBox">
+      <h3>Заповніть форму і ми напишемо вам в Telegram</h3>
+
+      <label class="f-label" for="lTg">Ваш @нікнейм або номер в Telegram</label>
+      <input class="f-input" type="text" id="lTg" placeholder="@нікнейм або номер" oninput="updateSubmitState()"/>
+
+      <label class="f-label" for="lBudget">Який ваш місячний рекламний бюджет?</label>
+      <select class="f-select" id="lBudget" onchange="updateSubmitState()">
+        <option value="">Оберіть ваш місячний бюджет</option>
+        <option value="Не запускали рекламу раніше">Не запускали рекламу раніше</option>
+        <option value="до $1 000">до $1 000</option>
+        <option value="$1 000 – 3 000">$1 000 – 3 000</option>
+        <option value="$3 000 – 10 000">$3 000 – 10 000</option>
+        <option value="$10 000 – 30 000">$10 000 – 30 000</option>
+        <option value="$30 000+">$30 000+</option>
+      </select>
+
+      <label class="f-label" for="lNiche">Яка у вас ніша?</label>
+      <select class="f-select" id="lNiche" onchange="updateSubmitState()">
+        <option value="">Ваша ніша</option>
+        <option value="Онлайн-школа">Онлайн-школа</option>
+        <option value="Mobile Apps / SaaS">Mobile Apps / SaaS</option>
+        <option value="Нерухомість">Нерухомість</option>
+        <option value="Ecommerce">Ecommerce</option>
+        <option value="Послуги">Послуги</option>
+        <option value="Інше">Інше</option>
+      </select>
+
+      <!-- Honeypot: люди цього поля не бачать і не заповнюють, боти заповнюють усе
+           підряд. Непорожнє значення = бот, заявка тихо відкидається на сервері. -->
+      <input type="text" id="hpField" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"
+             style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none"/>
+
+      <button class="f-submit" id="lSubmit" onclick="submitLeadForm()" disabled>обговорити проєкт</button>
+      <p class="f-note">Натискаючи кнопку, ви погоджуєтесь з обробкою персональних даних</p>
+    </div>
+    <div id="leadOk">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+      <h3 style="padding-right:0">Дякуємо! Ми напишемо вам найближчим часом.</h3>
+    </div>
+  </div>
+</div>
+
+<script>
+function openLeadModal(){
+  document.getElementById('leadModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLeadModal(){
+  document.getElementById('leadModal').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape') closeLeadModal();});
+
+function updateSubmitState(){
+  var tg=document.getElementById('lTg').value.trim();
+  var budget=document.getElementById('lBudget').value;
+  var niche=document.getElementById('lNiche').value;
+  document.getElementById('lSubmit').disabled = !(tg && budget && niche);
+}
+
+async function sendLead(name, phone, tg, email, service){
+  const eventId = 'lead_' + Date.now() + '_' + Math.random().toString(36).slice(2,8);
+  try {
+    if(typeof fbq === 'function') fbq('track', 'Lead', {}, {eventID: eventId});
+  } catch(e){}
+  const ck = n => (document.cookie.split(';').map(c=>c.trim()).find(c=>c.startsWith(n+'=')) || '').split('=')[1] || '';
+  const hp = (document.getElementById('hpField')||{}).value || '';
+  const _p = new URLSearchParams({
+    name, phone, tg: tg||'', email: email||'', service: service||'',
+    event_id: eventId, ua: navigator.userAgent,
+    fbp: ck('_fbp'), fbc: ck('_fbc'),
+    source_url: location.href, hp
+  });
+  const url = 'https://script.google.com/macros/s/AKfycbxKAhhCP7qKwJ9BW4yZqgdtg_nA5bADqoT1Po_4sWKA6Zdphq_2Inq0MP_0CAJGtNthCg/exec?'+_p;
+
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    try {
+      const r = await fetch(url);
+      if (r.ok) return;
+      console.error('lead → Apps Script: HTTP', r.status, 'спроба', attempt);
+    } catch(e){ console.error('lead → Apps Script:', e, 'спроба', attempt); }
+    if (attempt < 3) await new Promise(res => setTimeout(res, attempt * 1500));
+  }
+  console.error('lead → Apps Script: ЗАЯВКА НЕ ДОСТАВЛЕНА після 3 спроб', {name, phone});
+}
+
+function submitLeadForm(){
+  var tg=document.getElementById('lTg').value.trim();
+  var budgetLabel=document.getElementById('lBudget').value;
+  var niche=document.getElementById('lNiche').value;
+  if(!tg || !budgetLabel || !niche) return;
+  var service = niche + ' · бюджет ' + budgetLabel;
+  sendLead(tg, '', tg, '', service);
+  document.getElementById('leadFormBox').style.display='none';
+  document.getElementById('leadOk').style.display='block';
+}
+</script>
+
+<!-- SECTION:END -->
 </body>
 </html>
