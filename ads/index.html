@@ -55,6 +55,21 @@ a{color:inherit;text-decoration:none}
 @media(max-width:480px){
   .hero-stat{flex-direction:column;align-items:flex-start;gap:6px}
 }
+
+.pain-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin:20px 0 0}
+.pain-list li{display:flex;align-items:flex-start;gap:10px;font-size:15px;color:var(--muted)}
+.pain-ico{width:20px;height:20px;flex-shrink:0;margin-top:1px;color:var(--o)}
+.pivot{font-size:17px;font-weight:600;margin-top:24px}
+.pivot b{color:var(--o)}
+
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.how-card{border:1px solid var(--border);border-radius:var(--r);padding:24px 20px}
+.how-card h3{margin-bottom:8px}
+.how-card p{font-size:13.5px;line-height:1.55}
+
+@media(max-width:720px){
+  .how-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
@@ -103,6 +118,36 @@ a{color:inherit;text-decoration:none}
   </div>
 </section>
 
-<!-- SECTION:PROBLEM -->
+<!-- ════ 2. PROBLEM ════ -->
+<section id="problem">
+  <div class="W">
+    <h2>Більшість бізнесів мають проблеми з рекламою:</h2>
+    <ul class="pain-list">
+      <li><svg class="pain-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>Один рекламний акаунт без системи тестування</li>
+      <li><svg class="pain-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>Креативи не оновлюються і швидко вигорають</li>
+      <li><svg class="pain-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>Ціна за лід постійно росте</li>
+      <li><svg class="pain-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>Немає чіткої аналітики — незрозуміло, що працює</li>
+      <li><svg class="pain-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>Агенція зникає одразу після підключення</li>
+    </ul>
+    <p class="pivot">Наш підхід <b>кардинально відрізняється</b> — тому ми швидко масштабуємо рекламу, зберігаючи високий ROAS.</p>
+
+    <div class="how-grid">
+      <div class="how-card">
+        <h3>Необмежена кількість креативів</h3>
+        <p>Постійно тестуємо велику кількість унікальних креативів. Навіть коли все працює добре — ми продовжуємо тестувати.</p>
+      </div>
+      <div class="how-card">
+        <h3>Повний продакшн</h3>
+        <p>Від сценарію до монтажу — все робимо самі. Вам не потрібні окремі монтажери й копірайтери.</p>
+      </div>
+      <div class="how-card">
+        <h3>База перевірених форматів</h3>
+        <p>Роками збираємо базу креативів і зв'язок, що дають результат. Стартуємо з того, що вже працює.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION:ROAS -->
 </body>
 </html>
