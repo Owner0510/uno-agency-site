@@ -433,7 +433,7 @@ Case data below is copied verbatim from the real numbers already live on the hom
         </div>
 
         <div class="cs-slide">
-          <div class="cs-shot"><span>Заміни на реальний скрін кейсу<br/>(Ads Manager · продаж котеджів)</span></div>
+          <div class="cs-shot"><span>Заміни на реальний скрін кейсу<br/>(Ads Manager · дизайн-радіатори)</span></div>
           <div class="cs-cap">
             <div class="cs-tag">🏡 Meta ADS · E-commerce · Україна · 44 міс LTV</div>
             <p>Проєкт з нульовими результатами перетворили на масштабований бізнес — <b>1088% ROAS</b>, ₴2,090,534 виручки</p>
@@ -872,7 +872,7 @@ JSON.stringify({
 })
 ```
 
-Expected: `placeholderCount: 8`, `placeholderText` contains "Заміни на реальний скрін".
+Expected: `placeholderCount: 7` (the plan's own authored case list has 7 real cases, within the spec's stated 6-8 range — not 8), `placeholderText` contains "Заміни на реальний скрін".
 
 - [ ] **Step 5: One real end-to-end form submission**
 
