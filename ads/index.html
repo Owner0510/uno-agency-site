@@ -122,6 +122,22 @@ body{padding-bottom:76px}
 .f-note{font-size:11.5px;color:var(--muted);margin-top:10px;text-align:center}
 #leadOk{display:none;text-align:center;padding:20px 0}
 #leadOk svg{width:48px;height:48px;color:var(--green);margin:0 auto 12px}
+
+/* ─── VIDEO REVIEWS ─── */
+.vid-controls{display:flex;gap:8px;justify-content:flex-end;margin-top:20px;margin-bottom:16px}
+.vid-btn{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--border);background:transparent;color:var(--dark);font-size:16px;cursor:pointer;transition:.2s;display:flex;align-items:center;justify-content:center;font-family:inherit;line-height:1}
+.vid-btn:hover{border-color:rgba(23,24,26,.5)}
+.vid-slider{display:flex;gap:14px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;cursor:grab;scrollbar-width:none}
+.vid-slider:active{cursor:grabbing}
+.vid-slider::-webkit-scrollbar{display:none}
+.video-thumb{background:var(--light);border:1px solid var(--border);border-radius:var(--r);aspect-ratio:9/16;position:relative;overflow:hidden;cursor:pointer;flex:0 0 180px;scroll-snap-align:start}
+.video-thumb video{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.video-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:rgba(23,24,26,.45);transition:opacity .3s}
+.video-thumb.playing .video-overlay{opacity:0;pointer-events:none}
+.video-thumb:hover .video-overlay{background:rgba(23,24,26,.3)}
+.video-play{width:44px;height:44px;background:rgba(200,82,26,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;transition:.2s}
+.video-thumb:hover .video-play{transform:scale(1.08)}
+.video-thumb-lbl{font-size:12px;font-weight:600;color:#fff;text-align:center;padding:0 12px;text-shadow:0 1px 4px rgba(0,0,0,.6)}
 </style>
 
 <!-- Meta Pixel Code -->
@@ -374,6 +390,68 @@ function csUpdate(){
   </div>
 </section>
 
+<!-- ════ VIDEO REVIEWS ════ -->
+<section id="video-reviews">
+  <div class="W">
+    <h2>Відео відгуки наших клієнтів</h2>
+    <div class="vid-controls">
+      <button class="vid-btn" onclick="vidScroll(-1)" aria-label="Назад">←</button>
+      <button class="vid-btn" onclick="vidScroll(1)" aria-label="Вперед">→</button>
+    </div>
+    <div class="vid-slider" id="vidSlider">
+      <div class="video-thumb" onclick="playVideo(this)">
+        <video src="/assets/videos/legalization.mp4" poster="/assets/posters/legalization.jpg" preload="none" playsinline controls></video>
+        <div class="video-overlay">
+          <div class="video-play">▶</div>
+          <div class="video-thumb-lbl">Легалізація в Польщі</div>
+        </div>
+      </div>
+      <div class="video-thumb" onclick="playVideo(this)">
+        <video src="/assets/videos/toys.mp4" poster="/assets/posters/toys.jpg" preload="none" playsinline controls></video>
+        <div class="video-overlay">
+          <div class="video-play">▶</div>
+          <div class="video-thumb-lbl">Інтернет-магазин іграшок</div>
+        </div>
+      </div>
+      <div class="video-thumb" onclick="playVideo(this)">
+        <video src="/assets/videos/colorist.mp4" poster="/assets/posters/colorist.jpg" preload="none" playsinline controls></video>
+        <div class="video-overlay">
+          <div class="video-play">▶</div>
+          <div class="video-thumb-lbl">Колорист</div>
+        </div>
+      </div>
+      <div class="video-thumb" onclick="playVideo(this)">
+        <video src="/assets/videos/marta.mp4" poster="/assets/posters/marta.jpg" preload="none" playsinline controls></video>
+        <div class="video-overlay">
+          <div class="video-play">▶</div>
+          <div class="video-thumb-lbl">Марта — фотограф, Канада</div>
+        </div>
+      </div>
+      <div class="video-thumb" onclick="playVideo(this)">
+        <video src="/assets/videos/kitchen.mp4" poster="/assets/posters/kitchen.jpg" preload="none" playsinline controls></video>
+        <div class="video-overlay">
+          <div class="video-play">▶</div>
+          <div class="video-thumb-lbl">Ремонт кухонь, Канада</div>
+        </div>
+      </div>
+      <div class="video-thumb" onclick="playVideo(this)">
+        <video src="/assets/videos/realtor.mp4" poster="/assets/posters/realtor.jpg" preload="none" playsinline controls></video>
+        <div class="video-overlay">
+          <div class="video-play">▶</div>
+          <div class="video-thumb-lbl">Рієлтор, Торонто</div>
+        </div>
+      </div>
+      <div class="video-thumb" onclick="playVideo(this)">
+        <video src="/assets/videos/photostudio.mp4" poster="/assets/posters/photostudio.jpg" preload="none" playsinline controls></video>
+        <div class="video-overlay">
+          <div class="video-play">▶</div>
+          <div class="video-thumb-lbl">Фотостудія, Торонто</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ════ 6. FOOTER CTA ════ -->
 <section id="footer-cta">
   <div class="footer-cta">
@@ -495,6 +573,39 @@ function submitLeadForm(){
   document.getElementById('leadFormBox').style.display='none';
   document.getElementById('leadOk').style.display='block';
 }
+</script>
+
+<script>
+function playVideo(thumb){
+  var vid=thumb.querySelector('video');
+  if(!vid) return;
+  if(thumb.classList.contains('playing')){
+    vid.pause();
+    thumb.classList.remove('playing');
+  } else {
+    document.querySelectorAll('.video-thumb.playing').forEach(function(t){
+      t.querySelector('video').pause();
+      t.classList.remove('playing');
+    });
+    vid.play();
+    thumb.classList.add('playing');
+  }
+}
+function vidScroll(dir){
+  var s=document.getElementById('vidSlider');
+  if(s) s.scrollBy({left:dir*194,behavior:'smooth'});
+}
+document.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('.video-thumb video').forEach(function(vid){
+    vid.addEventListener('play',function(){
+      document.querySelectorAll('.video-thumb video').forEach(function(other){
+        if(other!==vid){other.pause();other.closest('.video-thumb').classList.remove('playing');}
+      });
+      vid.closest('.video-thumb').classList.add('playing');
+    });
+    vid.addEventListener('pause',function(){vid.closest('.video-thumb').classList.remove('playing')});
+  });
+});
 </script>
 
 <!-- SECTION:END -->
