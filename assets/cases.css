@@ -69,7 +69,7 @@ h1 em{font:italic 600 1.14em/1 var(--f-serif);text-transform:none;letter-spacing
 .case-body ul,.case-body ol{margin:0 0 18px;padding-left:1.3em;color:#D6CFC5;display:grid;gap:8px}
 .case-body li>ul,.case-body li>ol{margin:8px 0 0}
 .case-body hr{border:0;border-top:1px solid var(--line);margin:32px 0}
-.case-body blockquote{border-left:2px solid var(--orange);padding-left:18px;margin:22px 0;color:var(--ink)}
+.case-body blockquote{font:italic 600 1.35em/1.4 var(--f-serif);color:var(--ink);margin:28px 0}
 .case-body img{border-radius:12px;border:1px solid var(--line);cursor:zoom-in;margin:8px 0 16px;background:var(--bg2)}
 .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:18px;margin:10px 0 18px}
 .col>*:first-child{margin-top:0}
