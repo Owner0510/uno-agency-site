@@ -154,6 +154,14 @@ h2 em,h1 em{font:italic 600 1.14em/1 var(--f-serif);text-transform:none;letter-s
   .case,.case:nth-child(3n+2),.case:nth-child(3n){padding:28px 0;border-left:0}
 }
 .all-cases{display:flex;justify-content:center;margin-top:clamp(32px,4vw,52px)}
+.case .go{margin-top:auto;padding-top:8px;font-size:13px;color:var(--ember);transition:transform .25s}
+.case:hover .go{transform:translateX(4px)}
+.case:hover h3{color:var(--ember)}
+.paper .case .go{color:var(--orange)}
+.cta-band{display:flex;flex-direction:column;align-items:flex-start}
+.cta-band h2{max-width:24ch;hyphens:manual}
+.cta-band .pill{margin-top:34px}
+.deal .you{color:var(--ink)}
 .foot-note{margin-top:22px;font-size:13.5px;color:var(--ink2);max-width:70ch}
 
 /* light variants of dark-first blocks */
@@ -300,10 +308,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 
   <div class="wrap">
     <a class="logo" href="#hero" aria-label="UNO Agency, на початок">UNO <i>Agency</i></a>
     <nav aria-label="Основна навігація"><ul class="nav-links">
-      <li><a href="#cases">Кейси</a></li>
-      <li><a href="#video">Відгуки</a></li>
       <li><a href="#services">Послуги</a></li>
       <li><a href="#team">Команда</a></li>
+      <li><a href="#cases">Кейси</a></li>
+      <li><a href="#reviews">Відгуки</a></li>
       <li><a href="#faq">Питання</a></li>
     </ul></nav>
     <div class="nav-r">
@@ -335,98 +343,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 
     <div><b>70%</b><span>клієнтів приходять за рекомендацією</span></div>
   </div></div>
 </section>
-
-<section id="cases" class="sec paper">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <p class="kick">Кейси</p>
-      <h2>Результати, які можна <em>виміряти</em></h2>
-    </div>
-
-    <article class="feat rv">
-      <div class="feat-l">
-        <p class="tag">Meta Ads · Beauty · Канада</p>
-        <h3>Перманентний макіяж — салон у Канаді</h3>
-        <div class="bignum" aria-label="Витрати 1104 долари, заробіток 29225 доларів">
-          <span class="from">$1,104</span><span class="arrow" aria-hidden="true">→</span><span class="to">$29,225</span>
-        </div>
-        <p class="bignum-cap">витрати на рекламу → заробіток салону</p>
-        <div class="chips">
-          <span class="chip"><b>169</b>запитів</span>
-          <span class="chip"><b>42</b>покупки</span>
-          <span class="chip"><b>×26</b>окупність</span>
-        </div>
-        <p class="foot-note" style="margin-top:26px">Відмовились від трафіку і конверсій на сайт, зробили ставку на ціль «Повідомлення».</p>
-      </div>
-      <div class="feat-r"><span>Тут буде скрін Ads Manager із заретушованими назвами</span></div>
-    </article>
-
-    <div class="cases">
-      <article class="case rv">
-        <p class="tag">Meta Ads · E-commerce · Україна</p>
-        <h3>Магазин дитячих іграшок</h3>
-        <div class="num"><s>$24,780 →</s><em>$379,564</em></div>
-        <p>Два роки системної роботи: аналіз аудиторій, A/B тести креативів, масштабування переможних зв'язок.</p>
-        <div class="st"><span><b>14,468</b> покупок</span><span><b>$1.71</b> за покупку</span></div>
-      </article>
-      <article class="case rv">
-        <p class="tag">Meta Ads · Lead Gen · США</p>
-        <h3>Cool Cat Fence — встановлення парканів</h3>
-        <div class="num"><s>$18,931 →</s><em>$93,941</em></div>
-        <p>Штат Вашингтон. Замінили хаотичні бусти на рекламну систему з прогнозованою ціною заявки.</p>
-        <div class="st"><span><b>496</b> лідів</span><span><b>$37.08</b> за ліда</span></div>
-      </article>
-      <article class="case rv">
-        <p class="tag">Meta Ads · Нерухомість · Україна</p>
-        <h3>Продаж котеджів</h3>
-        <div class="num"><s>$1,684 →</s><em>$210,000</em></div>
-        <p>Довгий цикл рішення: воронка від першого прогріву до звернення, виключно через Meta Ads.</p>
-        <div class="st"><span><b>298</b> лідів</span><span><b>2</b> продажі</span><span><b>$842</b> за продаж</span></div>
-      </article>
-      <article class="case rv">
-        <p class="tag">Meta Ads · E-commerce · Україна</p>
-        <h3>Дизайн-радіатори та рушникосушки</h3>
-        <div class="num"><s>$5,130 →</s><em>₴2,090,534</em></div>
-        <p>Найдовша співпраця в портфоліо, 44 місяці. Проєкт із нульовими результатами став масштабованим бізнесом.</p>
-        <div class="st"><span><b>1,371</b> лідів</span><span><b>$3.74</b> за ліда</span></div>
-      </article>
-      <article class="case rv">
-        <p class="tag">Meta Ads · Beauty · Канада</p>
-        <h3>HairHub — салон краси, Торонто</h3>
-        <div class="num"><em>$41,664</em> <s>бюджет</s></div>
-        <p>Стабільний потік записів: сегментація холодної аудиторії, ретаргетинг, постійне тестування форматів.</p>
-        <div class="st"><span><b>5,864</b> переписок</span><span><b>$7.10</b> за переписку</span><span>LTV клієнта <b>29 міс</b></span></div>
-      </article>
-      <article class="case rv">
-        <p class="tag">Meta Ads · E-commerce · Україна</p>
-        <h3>Товари для нарощення та ламінування вій</h3>
-        <div class="num"><em>$23,296</em> <s>бюджет</s></div>
-        <p>Профматеріали для б'юті-майстрів. Ключ — ретаргетинг лояльних клієнтів і повторні покупки.</p>
-        <div class="st"><span><b>8,892</b> запитів</span><span><b>$2.62</b> за запит</span></div>
-      </article>
-    </div>
-    <div class="all-cases rv"><a class="pill" href="/cases/">Дивитись усі <!--cases-count-->49<!--/cases-count--> кейсів <span class="ar" aria-hidden="true">↗</span></a></div>
-  </div>
-</section>
-
-<section id="video" class="sec">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <p class="kick">Відеовідгуки</p>
-      <h2>Клієнти <em>розповідають</em> самі</h2>
-    </div>
-    <div class="vids rv" role="list" aria-label="Відеовідгуки клієнтів">
-      <figure class="vid" role="listitem"><button class="vid-box" data-src="../assets/videos/legalization.mp4" aria-label="Відтворити відгук: Легалізація в Польщі"><img src="../assets/posters/legalization.jpg" alt="" loading="lazy" width="720" height="1280"/><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Легалізація в Польщі</figcaption></figure>
-      <figure class="vid" role="listitem"><button class="vid-box" data-src="../assets/videos/toys.mp4" aria-label="Відтворити відгук: Інтернет-магазин іграшок"><img src="../assets/posters/toys.jpg" alt="" loading="lazy" width="720" height="1280"/><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Інтернет-магазин іграшок</figcaption></figure>
-      <figure class="vid" role="listitem"><button class="vid-box" data-src="../assets/videos/colorist.mp4" aria-label="Відтворити відгук: Колорист"><img src="../assets/posters/colorist.jpg" alt="" loading="lazy" width="720" height="1280"/><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Колорист</figcaption></figure>
-      <figure class="vid" role="listitem"><button class="vid-box" data-src="../assets/videos/marta.mp4" aria-label="Відтворити відгук: Марта, фотограф, Канада"><img src="../assets/posters/marta.jpg" alt="" loading="lazy" width="720" height="1280"/><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Марта — фотограф, Канада</figcaption></figure>
-      <figure class="vid" role="listitem"><button class="vid-box" data-src="../assets/videos/kitchen.mp4" aria-label="Відтворити відгук: Ремонт кухонь, Канада"><img src="../assets/posters/kitchen.jpg" alt="" loading="lazy" width="720" height="1280"/><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Ремонт кухонь, Канада</figcaption></figure>
-      <figure class="vid" role="listitem"><button class="vid-box" data-src="../assets/videos/realtor.mp4" aria-label="Відтворити відгук: Рієлтор, Торонто"><img src="../assets/posters/realtor.jpg" alt="" loading="lazy" width="720" height="1280"/><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Рієлтор, Торонто</figcaption></figure>
-      <figure class="vid" role="listitem"><button class="vid-box" data-src="../assets/videos/photostudio.mp4" aria-label="Відтворити відгук: Фотостудія, Торонто"><img src="../assets/posters/photostudio.jpg" alt="" loading="lazy" width="720" height="1280"/><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Фотостудія, Торонто</figcaption></figure>
-    </div>
-  </div>
-</section>
-
 <section id="services" class="sec paper">
   <div class="wrap">
     <div class="sec-head rv">
@@ -441,7 +357,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 
     </div>
   </div>
 </section>
-
 <section id="why" class="sec tone">
   <div class="wrap">
     <div class="sec-head rv">
@@ -456,14 +371,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 
       <div class="rv"><h3>Від локального бізнесу до e-commerce</h3><p>Досвід у 50+ нішах: салони краси, ресторани, будівництво, нерухомість, авто та детейлінг, онлайн-освіта, інтернет-магазини, особисті бренди та інші.</p></div>
       <div class="rv"><h3>Фокус на прибутку, а не на лайках</h3><p>Відстежуємо ROAS, вартість заявки чи покупки та реальну виручку. Ми заробляємо тоді — коли заробляє ваш бізнес.</p></div>
     </div>
-    <div class="deal rv">
-      <div class="you"><p class="tag">З вас</p><h3>Продукт або послуга, яка користується попитом</h3><p>Якщо людям потрібне те, що ви пропонуєте — ми знайдемо цих людей і приведемо до вас.</p></div>
-      <div class="us"><p class="tag">З нас</p><h3>Продажі та заявки в необмеженій кількості у&nbsp;KPI</h3></div>
-    </div>
   </div>
 </section>
-
-
 <section id="team" class="sec paper">
   <div class="wrap">
     <div class="sec-head rv">
@@ -493,7 +402,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 
     </div>
   </div>
 </section>
-
 <section id="process" class="sec">
   <div class="wrap">
     <div class="sec-head rv">
@@ -509,7 +417,86 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 
     </ol>
   </div>
 </section>
+<section class="sec paper">
+  <div class="wrap">
+    <div class="deal rv">
+      <div class="you"><p class="tag">З вас</p><h3>Продукт або послуга, яка користується попитом</h3><p>Якщо людям потрібне те, що ви пропонуєте — ми знайдемо цих людей і приведемо до вас.</p></div>
+      <div class="us"><p class="tag">З нас</p><h3>Продажі та заявки в необмеженій кількості у&nbsp;KPI</h3></div>
+    </div>
+  </div>
+</section>
+<section id="cases" class="sec">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="kick">Кейси</p>
+      <h2>Результати, які можна <em>виміряти</em></h2>
+    </div>
 
+    <article class="feat rv">
+      <div class="feat-l">
+        <p class="tag">Meta Ads · Beauty · Канада</p>
+        <h3>Перманентний макіяж — салон у Канаді</h3>
+        <div class="bignum" aria-label="Витрати 1104 долари, заробіток 29225 доларів">
+          <span class="from">$1,104</span><span class="arrow" aria-hidden="true">→</span><span class="to">$29,225</span>
+        </div>
+        <p class="bignum-cap">витрати на рекламу → заробіток салону</p>
+        <div class="chips">
+          <span class="chip"><b>169</b>запитів</span>
+          <span class="chip"><b>42</b>покупки</span>
+          <span class="chip"><b>×26</b>окупність</span>
+        </div>
+        <p class="foot-note" style="margin-top:26px">Відмовились від трафіку і конверсій на сайт, зробили ставку на ціль «Повідомлення».</p>
+      </div>
+      <div class="feat-r"><span>Тут буде скрін Ads Manager із заретушованими назвами</span></div>
+    </article>
+
+    <div class="cases">
+      <a class="case rv" href="/cases/prodazh-dytyachykh-ihrashok/">
+        <p class="tag">Meta Ads · E-commerce · Україна</p>
+        <h3>Магазин дитячих іграшок</h3>
+        <div class="num"><s>$24,780 →</s><em>$379,564</em></div>
+        <p>Два роки системної роботи: аналіз аудиторій, A/B тести креативів, масштабування переможних зв'язок.</p>
+        <div class="st"><span><b>14,468</b> покупок</span><span><b>$1.71</b> за покупку</span></div>
+      <span class="go">Дивитись кейс →</span></a>
+      <a class="case rv" href="/cases/cool-cat-fence-vstanovlennya-parkaniv/">
+        <p class="tag">Meta Ads · Lead Gen · США</p>
+        <h3>Cool Cat Fence — встановлення парканів</h3>
+        <div class="num"><s>$18,931 →</s><em>$93,941</em></div>
+        <p>Штат Вашингтон. Замінили хаотичні бусти на рекламну систему з прогнозованою ціною заявки.</p>
+        <div class="st"><span><b>496</b> лідів</span><span><b>$37.08</b> за ліда</span></div>
+      <span class="go">Дивитись кейс →</span></a>
+      <a class="case rv" href="/cases/prodazh-kotedzhiv-na-sumu-210-000/">
+        <p class="tag">Meta Ads · Нерухомість · Україна</p>
+        <h3>Продаж котеджів</h3>
+        <div class="num"><s>$1,684 →</s><em>$210,000</em></div>
+        <p>Довгий цикл рішення: воронка від першого прогріву до звернення, виключно через Meta Ads.</p>
+        <div class="st"><span><b>298</b> лідів</span><span><b>2</b> продажі</span><span><b>$842</b> за продаж</span></div>
+      <span class="go">Дивитись кейс →</span></a>
+      <a class="case rv" href="/cases/dyzayn-radiatory-i-rushnykosushky/">
+        <p class="tag">Meta Ads · E-commerce · Україна</p>
+        <h3>Дизайн-радіатори та рушникосушки</h3>
+        <div class="num"><s>$5,130 →</s><em>₴2,090,534</em></div>
+        <p>Найдовша співпраця в портфоліо, 44 місяці. Проєкт із нульовими результатами став масштабованим бізнесом.</p>
+        <div class="st"><span><b>1,371</b> лідів</span><span><b>$3.74</b> за ліда</span></div>
+      <span class="go">Дивитись кейс →</span></a>
+      <a class="case rv" href="/cases/salon-hairhub/">
+        <p class="tag">Meta Ads · Beauty · Канада</p>
+        <h3>HairHub — салон краси, Торонто</h3>
+        <div class="num"><em>$41,664</em> <s>бюджет</s></div>
+        <p>Стабільний потік записів: сегментація холодної аудиторії, ретаргетинг, постійне тестування форматів.</p>
+        <div class="st"><span><b>5,864</b> переписок</span><span><b>$7.10</b> за переписку</span><span>LTV клієнта <b>29 міс</b></span></div>
+      <span class="go">Дивитись кейс →</span></a>
+      <a class="case rv" href="/cases/prodazh-tovariv-dlya-naroshchennya-ta-laminuvannya-viy/">
+        <p class="tag">Meta Ads · E-commerce · Україна</p>
+        <h3>Товари для нарощення та ламінування вій</h3>
+        <div class="num"><em>$23,296</em> <s>бюджет</s></div>
+        <p>Профматеріали для б'юті-майстрів. Ключ — ретаргетинг лояльних клієнтів і повторні покупки.</p>
+        <div class="st"><span><b>8,892</b> запитів</span><span><b>$2.62</b> за запит</span></div>
+      <span class="go">Дивитись кейс →</span></a>
+    </div>
+    <div class="all-cases rv"><a class="pill" href="/cases/">Дивитись усі <!--cases-count-->49<!--/cases-count--> кейсів <span class="ar" aria-hidden="true">↗</span></a></div>
+  </div>
+</section>
 <section id="reviews" class="sec paper">
   <div class="wrap">
     <div class="sec-head rv">
@@ -525,7 +512,30 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 
     </div>
   </div>
 </section>
-
+<section id="cta" class="sec">
+  <div class="wrap cta-band rv">
+    <h2>Безкоштовна консультація для вашого <em>бізнесу</em></h2>
+    <p class="lead">Проаналізуємо вашу нішу та конкурентів, підберемо інструменти, які підійдуть саме для вашого бізнесу</p>
+    <a class="pill lg" href="#contact">Залишити заявку <span class="ar" aria-hidden="true">↗</span></a>
+  </div>
+</section>
+<section id="video" class="sec paper">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="kick">Відеовідгуки</p>
+      <h2>Клієнти <em>розповідають</em> самі</h2>
+    </div>
+    <div class="vids rv" role="list" aria-label="Відеовідгуки клієнтів">
+      <figure class="vid" role="listitem"><button class="vid-box" data-src="../assets/videos/legalization.mp4" aria-label="Відтворити відгук: Легалізація в Польщі"><img src="../assets/posters/legalization.jpg" alt="" loading="lazy" width="720" height="1280"/><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Легалізація в Польщі</figcaption></figure>
+      <figure class="vid" role="listitem"><button class="vid-box" data-src="../assets/videos/toys.mp4" aria-label="Відтворити відгук: Інтернет-магазин іграшок"><img src="../assets/posters/toys.jpg" alt="" loading="lazy" width="720" height="1280"/><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Інтернет-магазин іграшок</figcaption></figure>
+      <figure class="vid" role="listitem"><button class="vid-box" data-src="../assets/videos/colorist.mp4" aria-label="Відтворити відгук: Колорист"><img src="../assets/posters/colorist.jpg" alt="" loading="lazy" width="720" height="1280"/><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Колорист</figcaption></figure>
+      <figure class="vid" role="listitem"><button class="vid-box" data-src="../assets/videos/marta.mp4" aria-label="Відтворити відгук: Марта, фотограф, Канада"><img src="../assets/posters/marta.jpg" alt="" loading="lazy" width="720" height="1280"/><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Марта — фотограф, Канада</figcaption></figure>
+      <figure class="vid" role="listitem"><button class="vid-box" data-src="../assets/videos/kitchen.mp4" aria-label="Відтворити відгук: Ремонт кухонь, Канада"><img src="../assets/posters/kitchen.jpg" alt="" loading="lazy" width="720" height="1280"/><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Ремонт кухонь, Канада</figcaption></figure>
+      <figure class="vid" role="listitem"><button class="vid-box" data-src="../assets/videos/realtor.mp4" aria-label="Відтворити відгук: Рієлтор, Торонто"><img src="../assets/posters/realtor.jpg" alt="" loading="lazy" width="720" height="1280"/><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Рієлтор, Торонто</figcaption></figure>
+      <figure class="vid" role="listitem"><button class="vid-box" data-src="../assets/videos/photostudio.mp4" aria-label="Відтворити відгук: Фотостудія, Торонто"><img src="../assets/posters/photostudio.jpg" alt="" loading="lazy" width="720" height="1280"/><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Фотостудія, Торонто</figcaption></figure>
+    </div>
+  </div>
+</section>
 <section class="sec">
   <div class="wrap">
     <div class="ref rv">
@@ -537,7 +547,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 
     </div>
   </div>
 </section>
-
 <section id="faq" class="sec paper">
   <div class="wrap">
     <div class="sec-head rv">
@@ -553,13 +562,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 
     </div>
   </div>
 </section>
-
 <section id="contact" class="sec">
   <div class="wrap c-grid">
     <div class="rv">
       <p class="kick">Контакти</p>
-      <h2>Безкоштовна консультація для вашого <em>бізнесу</em></h2>
-      <p class="lead">Проаналізуємо вашу нішу та конкурентів, підберемо інструменти, які підійдуть саме для вашого бізнесу. Зв'яжемося протягом 24 годин.</p>
+      <h2>Залишити <em>заявку</em></h2>
+      <p class="lead">Напишіть нам — зв'яжемося протягом 24 годин.</p>
       <div class="c-links">
         <a href="https://t.me/hatlan_serhii" target="_blank" rel="noopener">Telegram</a>
         <a href="https://www.instagram.com/the.uno.agency/" target="_blank" rel="noopener">Instagram</a>
