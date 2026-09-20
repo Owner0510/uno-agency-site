@@ -150,24 +150,18 @@ h2 em,h1 em{font:italic 600 1.14em/1 var(--f-serif);text-transform:none;letter-s
 @media (max-width:420px){.nav-r .pill{display:none}}
 
 /* hero */
-#hero{min-height:min(100svh,880px);display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;isolation:isolate;background:linear-gradient(183deg,#0E0F10 42%,#7A2F0C 100%)}
-.sun{position:absolute;z-index:-2;left:80%;bottom:-58%;width:min(110%,900px);aspect-ratio:1;translate:-50% 0;border-radius:50%;
-  background:radial-gradient(99% 99% at 30% 30%,#17181A 0%,#FFE3C8 100%);mix-blend-mode:luminosity;
-  box-shadow:0 0 110px 34px rgba(255,150,90,.5),inset 0 0 80px 44px rgba(255,255,255,.32);will-change:transform}
-@media (prefers-reduced-motion:no-preference){.sun{animation:spin 70s linear infinite}}
-@keyframes spin{to{rotate:1turn}}
-.grain{position:absolute;inset:0;z-index:-1;opacity:.5;pointer-events:none;
+#hero{min-height:min(100svh,880px);display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;isolation:isolate;background:var(--bg)}
+.grain{position:absolute;inset:0;z-index:-1;opacity:.28;pointer-events:none;
   background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 9 -4.2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E")}
 .hero-body{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:clamp(24px,4vw,64px);align-items:end;padding-top:clamp(120px,15vh,170px);padding-bottom:0}
 .hero-copy{padding-bottom:clamp(40px,6vh,72px)}
-.hero-photo{justify-self:end;width:min(100%,470px);margin:0;aspect-ratio:900/1141}
+.hero-photo{justify-self:end;width:min(100%,520px);margin:0;aspect-ratio:900/1141}
 .hero-photo img{width:100%;height:100%;object-fit:cover;
   -webkit-mask-image:radial-gradient(ellipse 50% 50% at 50% 46%,#000 56%,transparent 100%);
   mask-image:radial-gradient(ellipse 50% 50% at 50% 46%,#000 56%,transparent 100%)}
 @media (max-width:860px){
   .hero-body{grid-template-columns:minmax(0,1fr);gap:8px}
   .hero-photo{justify-self:center;width:min(74%,340px)}
-  .sun{left:50%}
 }
 #hero h1{font-size:clamp(26px,3.5vw,50px);line-height:1.08;text-transform:uppercase;max-width:19em}
 #hero h1 .ln{display:block}
@@ -405,8 +399,6 @@ input[aria-invalid=true],select[aria-invalid=true]{border-color:#FF9A85}
 }
 .kpi{align-content:start}
 h1,h2{hyphens:manual}
-/* CTA band echoes the hero sun */
-#cta{background:radial-gradient(70% 140% at 88% 130%,rgba(255,138,76,.26),transparent 62%),var(--bg)}
 </style>
 </head>
 <body>
@@ -431,7 +423,7 @@ h1,h2{hyphens:manual}
 <main id="main" tabindex="-1">
 
 <section id="hero">
-  <div class="sun" aria-hidden="true"></div><div class="grain" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
   <div class="wrap hero-body">
     <div class="hero-copy">
     <h1><span class="ln">Залучаємо клієнтів</span> <span class="ln">та збільшуємо <em>продажі</em></span> <span class="ln">через рекламу та контент в&nbsp;соціальних мережах</span></h1>
@@ -731,11 +723,9 @@ h1,h2{hyphens:manual}
   function onScroll(){nav.classList.toggle('solid',scrollY>24)}
   onScroll();
 
-  /* hero sun parallax (transform only, skipped for reduced motion) */
-  var sun=d.querySelector('.sun'),ticking=false;
+  var ticking=false;
   function frame(){
     ticking=false;
-    if(!reduce&&scrollY<900)sun.style.transform='translateY('+(scrollY*.12).toFixed(1)+'px)';
     var m=d.getElementById('mCta'),c=d.getElementById('contact').getBoundingClientRect();
     m.classList.toggle('show',scrollY>500&&c.top>innerHeight*.7);
   }
