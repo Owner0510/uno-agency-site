@@ -85,17 +85,27 @@ h2 em,h1 em{font:italic 600 1.14em/1 var(--f-serif);text-transform:none;letter-s
 
 /* hero */
 #hero{min-height:min(100svh,880px);display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;isolation:isolate;background:linear-gradient(183deg,#0E0F10 42%,#7A2F0C 100%)}
-.sun{position:absolute;z-index:-2;left:50%;bottom:-62%;width:min(150%,1180px);aspect-ratio:1;translate:-50% 0;border-radius:50%;
+.sun{position:absolute;z-index:-2;left:80%;bottom:-58%;width:min(110%,900px);aspect-ratio:1;translate:-50% 0;border-radius:50%;
   background:radial-gradient(99% 99% at 30% 30%,#17181A 0%,#FFE3C8 100%);mix-blend-mode:luminosity;
   box-shadow:0 0 110px 34px rgba(255,150,90,.5),inset 0 0 80px 44px rgba(255,255,255,.32);will-change:transform}
 @media (prefers-reduced-motion:no-preference){.sun{animation:spin 70s linear infinite}}
 @keyframes spin{to{rotate:1turn}}
 .grain{position:absolute;inset:0;z-index:-1;opacity:.5;pointer-events:none;
   background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 9 -4.2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E")}
-.hero-body{padding-top:clamp(130px,17vh,190px);padding-bottom:clamp(40px,6vh,72px)}
-#hero h1{font-size:clamp(30px,5.4vw,70px);line-height:1.03;text-transform:uppercase;max-width:14em}
+.hero-body{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:clamp(24px,4vw,64px);align-items:end;padding-top:clamp(120px,15vh,170px);padding-bottom:0}
+.hero-copy{padding-bottom:clamp(40px,6vh,72px)}
+.hero-photo{justify-self:end;width:min(100%,470px);margin:0;aspect-ratio:900/1141}
+.hero-photo img{width:100%;height:100%;object-fit:cover;
+  -webkit-mask-image:radial-gradient(ellipse 50% 50% at 50% 46%,#000 56%,transparent 100%);
+  mask-image:radial-gradient(ellipse 50% 50% at 50% 46%,#000 56%,transparent 100%)}
+@media (max-width:860px){
+  .hero-body{grid-template-columns:minmax(0,1fr);gap:8px}
+  .hero-photo{justify-self:center;width:min(74%,340px)}
+  .sun{left:50%}
+}
+#hero h1{font-size:clamp(30px,4.5vw,64px);line-height:1.03;text-transform:uppercase;max-width:14em}
 #hero h1 .ln{display:block}
-.hero-sub{max-width:52ch;color:var(--ink2);margin:26px 0 38px;font-size:clamp(16px,1.5vw,19px)}
+.hero-sub{max-width:52ch;color:#D6CFC5;margin:26px 0 38px;font-size:clamp(16px,1.5vw,19px)}
 .hero-cta{display:flex;flex-wrap:wrap;gap:14px}
 .proof{border-top:1px solid var(--line);background:linear-gradient(0deg,rgba(14,15,16,.9),rgba(14,15,16,.55));backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
 .proof .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:20px 32px;padding-block:24px}
@@ -145,6 +155,22 @@ h2 em,h1 em{font:italic 600 1.14em/1 var(--f-serif);text-transform:none;letter-s
 }
 .foot-note{margin-top:22px;font-size:13.5px;color:var(--ink2);max-width:70ch}
 
+/* light variants of dark-first blocks */
+.paper .cases{border-color:var(--line-p)}
+.paper .case{border-color:var(--line-p)}
+.paper .tag{color:var(--paper-ink2)}
+.paper .case .num s{color:var(--paper-ink2)}
+.paper .case .num em{color:var(--orange)}
+.paper .case p,.paper .case .st{color:var(--paper-ink2)}
+.paper .case .st b{color:var(--paper-ink)}
+.paper .feat{color:var(--ink)}
+.paper .feat .tag{color:var(--ink2)}
+.paper .svc,.paper .svc-row{border-color:var(--line-p)}
+.paper .svc-row p{color:var(--paper-ink2)}
+.paper .svc-go{color:var(--orange)}
+.paper .foot-note{color:var(--paper-ink2)}
+.paper .feat .foot-note{color:var(--ink2)}
+
 /* videos */
 .vids{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:18px;scrollbar-width:thin;scrollbar-color:var(--orange) transparent}
 @media (max-width:760px){.vids{margin-inline:calc(var(--gut)*-1);padding-inline:var(--gut)}}
@@ -157,7 +183,6 @@ h2 em,h1 em{font:italic 600 1.14em/1 var(--f-serif);text-transform:none;letter-s
 .play svg{width:20px;height:20px;fill:#fff;margin-left:3px}
 .vid-box.on::after,.vid-box.on .play{display:none}
 .vid figcaption{margin-top:12px;font-size:14px;line-height:1.35}
-.paper .vid figcaption{color:var(--paper-ink)}
 
 /* services */
 .svc{border-top:1px solid var(--line)}
@@ -176,7 +201,7 @@ h2 em,h1 em{font:italic 600 1.14em/1 var(--f-serif);text-transform:none;letter-s
 @media (max-width:900px){.why{grid-template-columns:minmax(0,1fr)}}
 
 /* split */
-.deal{display:grid;grid-template-columns:1fr 1fr;border-radius:18px;overflow:hidden;border:1px solid var(--line)}
+.deal{margin-top:clamp(48px,6vw,80px);display:grid;grid-template-columns:1fr 1fr;border-radius:18px;overflow:hidden;border:1px solid var(--line)}
 .deal>div{padding:clamp(28px,4vw,56px)}
 .deal .you{background:var(--card)}
 .deal .us{background:var(--orange);color:#fff}
@@ -292,6 +317,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 
 <section id="hero">
   <div class="sun" aria-hidden="true"></div><div class="grain" aria-hidden="true"></div>
   <div class="wrap hero-body">
+    <div class="hero-copy">
     <p class="kick">Meta · TikTok · SMM для українського бізнесу в Канаді, США та ЄС</p>
     <h1><span class="ln">Реклама, що приносить</span> <span class="ln"><em>продажі</em>,</span> <span class="ln">а не лайки</span></h1>
     <p class="hero-sub">Meta Ads, TikTok Ads та SMM для бізнесів по всьому світу. Залишайте заявку — отримаєте безкоштовну консультацію.</p>
@@ -299,6 +325,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 
       <a class="pill" href="#contact">Залишити заявку <span class="ar" aria-hidden="true">↗</span></a>
       <a class="ghost" href="#cases">Переглянути кейси</a>
     </div>
+    </div>
+    <figure class="hero-photo"><picture><source srcset="../assets/team-hero.webp" type="image/webp"/><img src="../assets/team-hero.jpg" alt="Юлія та Сергій Гатлан, засновники UNO Agency" width="900" height="1141" fetchpriority="high" decoding="async"/></picture></figure>
   </div>
   <div class="proof"><div class="wrap">
     <div><b>$2M+</b><span>рекламного бюджету під управлінням</span></div>
@@ -307,7 +335,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 
   </div></div>
 </section>
 
-<section id="cases" class="sec">
+<section id="cases" class="sec paper">
   <div class="wrap">
     <div class="sec-head rv">
       <p class="kick">Кейси</p>
@@ -379,7 +407,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 
   </div>
 </section>
 
-<section id="video" class="sec paper">
+<section id="video" class="sec">
   <div class="wrap">
     <div class="sec-head rv">
       <p class="kick">Відеовідгуки</p>
@@ -397,7 +425,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 
   </div>
 </section>
 
-<section id="services" class="sec">
+<section id="services" class="sec paper">
   <div class="wrap">
     <div class="sec-head rv">
       <p class="kick">Послуги</p>
@@ -426,17 +454,13 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 
       <div class="rv"><h3>Від локального бізнесу до e-commerce</h3><p>Досвід у 50+ нішах: салони краси, ресторани, будівництво, нерухомість, авто та детейлінг, онлайн-освіта, інтернет-магазини, особисті бренди та інші.</p></div>
       <div class="rv"><h3>Фокус на прибутку, а не на лайках</h3><p>Відстежуємо ROAS, вартість заявки чи покупки та реальну виручку. Ми заробляємо тоді — коли заробляє ваш бізнес.</p></div>
     </div>
-  </div>
-</section>
-
-<section class="sec">
-  <div class="wrap">
     <div class="deal rv">
       <div class="you"><p class="tag">З вас</p><h3>Продукт або послуга, яка користується попитом</h3><p>Якщо людям потрібне те, що ви пропонуєте — ми знайдемо цих людей і приведемо до вас.</p></div>
       <div class="us"><p class="tag">З нас</p><h3>Продажі та заявки в необмеженій кількості у&nbsp;KPI</h3></div>
     </div>
   </div>
 </section>
+
 
 <section id="team" class="sec paper">
   <div class="wrap">
