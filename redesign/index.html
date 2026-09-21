@@ -148,6 +148,20 @@ h2 em,h1 em{font:italic 600 1.14em/1 var(--f-serif);text-transform:none;letter-s
 .lang:hover{color:var(--ink)}
 @media (max-width:900px){.nav-links{display:none}}
 @media (max-width:420px){.nav-r .pill{display:none}}
+.burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:38px;height:38px;padding:0;background:none;border:0;cursor:pointer}
+.burger span{display:block;width:20px;height:2px;background:var(--ink);transition:transform .2s,opacity .2s}
+.burger[aria-expanded=true] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded=true] span:nth-child(2){opacity:0}
+.burger[aria-expanded=true] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.m-nav{display:none;flex-direction:column;padding:8px var(--gut) calc(18px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);background:rgba(14,15,16,.97)}
+.m-nav:not([hidden]){display:flex}
+.m-nav a{padding:14px 0;font-size:16px;border-bottom:1px solid var(--line)}
+.m-nav a:last-child{border-bottom:0;color:var(--ink2)}
+@media (max-width:760px){
+  .nav-links{display:none}
+  .burger{display:flex}
+}
+
 
 /* hero */
 #hero{min-height:min(100svh,880px);display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;isolation:isolate;background:var(--bg)}
@@ -416,8 +430,18 @@ h1,h2{hyphens:manual}
     <div class="nav-r">
       <a class="lang" href="/eng/" hreflang="en" lang="en">EN</a>
       <a class="pill sm" href="#contact">Залишити заявку <span class="ar" aria-hidden="true">↗</span></a>
+      <button class="burger" id="burger" aria-expanded="false" aria-controls="mNav" aria-label="Відкрити меню">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
+  <nav class="m-nav" id="mNav" aria-label="Мобільна навігація" hidden>
+    <a href="#services">Послуги</a>
+    <a href="#cases">Кейси</a>
+    <a href="#team">Команда</a>
+    <a href="#contact">Контакти</a>
+    <a href="/eng/" hreflang="en" lang="en">EN</a>
+  </nav>
 </header>
 
 <main id="main" tabindex="-1">
@@ -620,13 +644,13 @@ h1,h2{hyphens:manual}
       <h2>Відео відгуки наших клієнтів</h2>
     </div>
     <div class="vids rv" role="list" aria-label="Відеовідгуки клієнтів">
-      <figure class="vid" role="listitem"><button class="vid-box" data-src="/assets/videos/legalization.mp4" aria-label="Відтворити відгук: Легалізація в Польщі"><img src="/assets/posters/legalization.jpg" alt="" loading="lazy" width="720" height="1280"/><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Легалізація в Польщі</figcaption></figure>
-      <figure class="vid" role="listitem"><button class="vid-box" data-src="/assets/videos/toys.mp4" aria-label="Відтворити відгук: Інтернет-магазин іграшок"><img src="/assets/posters/toys.jpg" alt="" loading="lazy" width="720" height="1280"/><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Інтернет-магазин іграшок</figcaption></figure>
-      <figure class="vid" role="listitem"><button class="vid-box" data-src="/assets/videos/colorist.mp4" aria-label="Відтворити відгук: Колорист"><img src="/assets/posters/colorist.jpg" alt="" loading="lazy" width="720" height="1280"/><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Колорист</figcaption></figure>
-      <figure class="vid" role="listitem"><button class="vid-box" data-src="/assets/videos/marta.mp4" aria-label="Відтворити відгук: Марта, фотограф, Канада"><img src="/assets/posters/marta.jpg" alt="" loading="lazy" width="720" height="1280"/><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Марта — фотограф, Канада</figcaption></figure>
-      <figure class="vid" role="listitem"><button class="vid-box" data-src="/assets/videos/kitchen.mp4" aria-label="Відтворити відгук: Ремонт кухонь, Канада"><img src="/assets/posters/kitchen.jpg" alt="" loading="lazy" width="720" height="1280"/><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Ремонт кухонь, Канада</figcaption></figure>
-      <figure class="vid" role="listitem"><button class="vid-box" data-src="/assets/videos/realtor.mp4" aria-label="Відтворити відгук: Рієлтор, Торонто"><img src="/assets/posters/realtor.jpg" alt="" loading="lazy" width="720" height="1280"/><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Рієлтор, Торонто</figcaption></figure>
-      <figure class="vid" role="listitem"><button class="vid-box" data-src="/assets/videos/photostudio.mp4" aria-label="Відтворити відгук: Фотостудія, Торонто"><img src="/assets/posters/photostudio.jpg" alt="" loading="lazy" width="720" height="1280"/><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Фотостудія, Торонто</figcaption></figure>
+      <figure class="vid" role="listitem"><button class="vid-box" data-src="/assets/videos/web/legalization.mp4" aria-label="Відтворити відгук: Легалізація в Польщі"><img src="/assets/posters/legalization.jpg" alt="" loading="lazy" width="720" height="1280"/><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Легалізація в Польщі</figcaption></figure>
+      <figure class="vid" role="listitem"><button class="vid-box" data-src="/assets/videos/web/toys.mp4" aria-label="Відтворити відгук: Інтернет-магазин іграшок"><img src="/assets/posters/toys.jpg" alt="" loading="lazy" width="720" height="1280"/><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Інтернет-магазин іграшок</figcaption></figure>
+      <figure class="vid" role="listitem"><button class="vid-box" data-src="/assets/videos/web/colorist.mp4" aria-label="Відтворити відгук: Колорист"><img src="/assets/posters/colorist.jpg" alt="" loading="lazy" width="720" height="1280"/><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Колорист</figcaption></figure>
+      <figure class="vid" role="listitem"><button class="vid-box" data-src="/assets/videos/web/marta.mp4" aria-label="Відтворити відгук: Марта, фотограф, Канада"><img src="/assets/posters/marta.jpg" alt="" loading="lazy" width="720" height="1280"/><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Марта — фотограф, Канада</figcaption></figure>
+      <figure class="vid" role="listitem"><button class="vid-box" data-src="/assets/videos/web/kitchen.mp4" aria-label="Відтворити відгук: Ремонт кухонь, Канада"><img src="/assets/posters/kitchen.jpg" alt="" loading="lazy" width="720" height="1280"/><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Ремонт кухонь, Канада</figcaption></figure>
+      <figure class="vid" role="listitem"><button class="vid-box" data-src="/assets/videos/web/realtor.mp4" aria-label="Відтворити відгук: Рієлтор, Торонто"><img src="/assets/posters/realtor.jpg" alt="" loading="lazy" width="720" height="1280"/><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Рієлтор, Торонто</figcaption></figure>
+      <figure class="vid" role="listitem"><button class="vid-box" data-src="/assets/videos/web/photostudio.mp4" aria-label="Відтворити відгук: Фотостудія, Торонто"><img src="/assets/posters/photostudio.jpg" alt="" loading="lazy" width="720" height="1280"/><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Фотостудія, Торонто</figcaption></figure>
     </div>
   </div>
 </section>
@@ -738,6 +762,18 @@ h1,h2{hyphens:manual}
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -6% 0px',threshold:.06});
     d.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
   }
+
+  /* mobile menu */
+  var burger=d.getElementById('burger'),mnav=d.getElementById('mNav');
+  function closeMenu(){burger.setAttribute('aria-expanded','false');mnav.hidden=true}
+  burger.addEventListener('click',function(){
+    var open=burger.getAttribute('aria-expanded')==='true';
+    burger.setAttribute('aria-expanded',String(!open));
+    mnav.hidden=open;
+    if(!open)mnav.querySelector('a').focus();
+  });
+  mnav.addEventListener('click',function(e){if(e.target.tagName==='A')closeMenu()});
+  d.addEventListener('keydown',function(e){if(e.key==='Escape'&&!mnav.hidden){closeMenu();burger.focus()}});
 
   /* video: the player replaces the poster button (no <video> nested in a <button>) */
   d.querySelectorAll('.vid-box').forEach(function(b){
