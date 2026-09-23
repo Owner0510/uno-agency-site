@@ -131,6 +131,7 @@ h2 em,h1 em{font:italic 600 1.14em/1 var(--f-serif);text-transform:none;letter-s
 .pill .ar{display:inline-block;transition:transform .25s}
 .pill:hover .ar{transform:translate(3px,-3px)}
 .pill.sm{padding:11px 18px;font-size:12px}
+.pill.lg{padding:22px 40px;font-size:15px}
 .ghost{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:999px;padding:16px 28px;font:500 13.5px/1 var(--f-body);letter-spacing:.07em;text-transform:uppercase;transition:border-color .2s,background .2s}
 .ghost:hover{border-color:rgba(245,239,231,.45);background:rgba(245,239,231,.05)}
 
@@ -283,13 +284,9 @@ h2 em,h1 em{font:italic 600 1.14em/1 var(--f-serif);text-transform:none;letter-s
 .steps{list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;counter-reset:s;border-top:1px solid var(--line)}
 .steps li{counter-increment:s;padding:26px 22px 0 0;position:relative}
 .steps li+li{padding-left:22px;border-left:1px solid var(--line)}
-.steps li::before{content:counter(s,decimal-leading-zero);display:block;font:300 14px/1 var(--f-display);color:var(--ember);letter-spacing:.08em;margin-bottom:18px}
+.steps li::before{content:counter(s,decimal-leading-zero)}
 .steps h3{font:400 19px/1.25 var(--f-display);margin-bottom:10px}
 .steps p{font-size:14.5px;color:var(--ink2);line-height:1.55}
-@media (max-width:1000px){
-  .steps{grid-template-columns:minmax(0,1fr)}
-  .steps li,.steps li+li{padding:24px 0;border-left:0;border-bottom:1px solid var(--line)}
-}
 
 /* reviews */
 .revs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:22px}
