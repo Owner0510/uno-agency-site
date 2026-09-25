@@ -490,6 +490,15 @@ h1,h2{hyphens:manual}
 #reviews .rev q{color:var(--ink)}
 #reviews .rev cite{color:var(--ink2)}
 #reviews .rev cite b{color:var(--ink)}
+/* footer is a light band so the page alternates dark/light to the very end */
+footer{background:var(--paper);color:var(--paper-ink2);border-top:0}
+footer .foot-in .logo{color:var(--paper-ink)}
+footer .logo i{color:var(--orange-ink)}
+footer .foot-legal a:hover,footer .foot-links a:hover{color:var(--paper-ink)}
+footer .foot-req{color:var(--paper-ink2);border-top-color:var(--line-p)}
+footer .ref{background:rgba(23,24,26,.05);border-color:var(--line-p)}
+footer .ref .t{color:var(--paper-ink)}
+footer .ref p{color:var(--paper-ink2)}
 .car-nav{position:absolute;right:0;bottom:0;display:flex;gap:10px}
 .car-btn{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:transparent;color:inherit;font-size:18px;line-height:1;cursor:pointer;transition:background .2s,color .2s,border-color .2s,opacity .2s}
 .paper .car-btn{border-color:var(--line-p)}
