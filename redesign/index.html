@@ -272,13 +272,14 @@ h2 em,h1 em{font:italic 600 1.14em/1 var(--f-serif);text-transform:none;letter-s
 
 /* why */
 .why{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
-.why>div{padding:44px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:background .25s}
+.why>div{padding:22px 36px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:background .25s}
 .why>div:nth-child(3n){border-right:0}
 .why>div:nth-last-child(-n+3){border-bottom:0}
 .why>div:hover{background:rgba(255,255,255,.04)}
-.why-ic{display:grid;place-items:center;width:48px;height:48px;margin-bottom:24px;border-radius:12px;background:rgba(215,90,31,.16);font-size:22px;line-height:1}
-.why h3{font:500 19px/1.3 var(--f-display);letter-spacing:-.005em;margin-bottom:12px}
-.why p{color:var(--ink2);font-size:15.5px}
+.why-ic{display:grid;place-items:center;width:44px;height:44px;margin-bottom:16px;border-radius:12px;background:rgba(215,90,31,.16);font-size:20px;line-height:1}
+.why h3{font:500 19px/1.3 var(--f-display);letter-spacing:-.005em;margin-bottom:8px}
+.why p{color:var(--ink2);font-size:15px;line-height:1.55}
+#why .sec-head{margin-bottom:24px;max-width:none}
 @media (max-width:900px){.why{grid-template-columns:minmax(0,1fr)}.why>div{padding:32px 0;border-right:0}.why>div:nth-last-child(-n+3){border-bottom:1px solid var(--line)}.why>div:last-child{border-bottom:0}}
 
 /* split */
