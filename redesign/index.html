@@ -271,10 +271,15 @@ h2 em,h1 em{font:italic 600 1.14em/1 var(--f-serif);text-transform:none;letter-s
 @media (max-width:1100px){.svc-row{grid-template-columns:44px minmax(0,1fr) auto;column-gap:16px}.svc-row p{grid-column:2/4;margin-left:0}.svc-go{grid-row:1;grid-column:3}.svc-row h3{align-self:center}.svc-ic{margin-top:0}}
 
 /* why */
-.why{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:44px 40px}
-.why h3{font:400 19px/1.3 var(--f-display);letter-spacing:-.005em;margin-bottom:10px;padding-top:16px;border-top:2px solid var(--orange)}
+.why{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.why>div{padding:44px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:background .25s}
+.why>div:nth-child(3n){border-right:0}
+.why>div:nth-last-child(-n+3){border-bottom:0}
+.why>div:hover{background:rgba(255,255,255,.04)}
+.why-ic{display:grid;place-items:center;width:48px;height:48px;margin-bottom:24px;border-radius:12px;background:rgba(215,90,31,.16);font-size:22px;line-height:1}
+.why h3{font:500 19px/1.3 var(--f-display);letter-spacing:-.005em;margin-bottom:12px}
 .why p{color:var(--ink2);font-size:15.5px}
-@media (max-width:900px){.why{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:900px){.why{grid-template-columns:minmax(0,1fr)}.why>div{padding:32px 0;border-right:0}.why>div:nth-last-child(-n+3){border-bottom:1px solid var(--line)}.why>div:last-child{border-bottom:0}}
 
 /* split */
 .deal{margin-top:clamp(48px,6vw,80px);display:grid;grid-template-columns:1fr 1fr;border-radius:18px;overflow:hidden;border:1px solid var(--line)}
@@ -421,12 +426,6 @@ input[aria-invalid=true],select[aria-invalid=true]{border-color:#FF9A85}
 /* process: outline numerals, stack earlier */
 .steps li::before{font:300 44px/1 var(--f-display);color:transparent;-webkit-text-stroke:1px var(--ember);letter-spacing:0;margin-bottom:22px}
 @media (max-width:1100px){.steps{grid-template-columns:minmax(0,1fr)}.steps li,.steps li+li{padding:24px 0;border-left:0;border-bottom:1px solid var(--line)}}
-/* why: heading stays beside the six points on wide screens */
-@media (min-width:960px){
-  #why .wrap{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.6fr);gap:0 clamp(40px,6vw,88px);align-items:start}
-  #why .sec-head{position:sticky;top:96px;margin-bottom:0}
-  #why .why{grid-template-columns:repeat(2,minmax(0,1fr))}
-}
 .kpi{align-content:start}
 h1,h2{hyphens:manual}
 </style>
@@ -502,12 +501,12 @@ h1,h2{hyphens:manual}
       <h2>Маркетинг, який базується на <em>цифрах</em></h2>
     </div>
     <div class="why">
-      <div class="rv"><h3>70%+ клієнтів — за рекомендацією</h3><p>Найкраща оцінка нашої роботи — коли клієнти рекомендують нас своїм партнерам і знайомим.</p></div>
-      <div class="rv"><h3>Канада, США, Європа, Україна, Австралія та інші</h3><p>Маємо досвід роботи з різними рекламними ринками та аудиторіями — від Північної Америки до Азії. Знаємо, чим відрізняється поведінка покупців у різних країнах.</p></div>
-      <div class="rv"><h3>Реклама та контент — єдина система</h3><p>Не окремі послуги, а скоординований маркетинг із єдиним вектором росту для вашого бізнесу.</p></div>
-      <div class="rv"><h3>Прозора звітність і доступ до даних</h3><p>Щоденні, щотижневі і щомісячні звіти, доступ до рекламних кабінетів і чіткі відповіді на питання «куди йдуть гроші».</p></div>
-      <div class="rv"><h3>Від локального бізнесу до e-commerce</h3><p>Досвід у 50+ нішах: салони краси, ресторани, будівництво, нерухомість, авто та детейлінг, онлайн-освіта, інтернет-магазини, особисті бренди та інші.</p></div>
-      <div class="rv"><h3>Фокус на прибутку, а не на лайках</h3><p>Відстежуємо ROAS, вартість заявки чи покупки та реальну виручку. Ми заробляємо тоді — коли заробляє ваш бізнес.</p></div>
+      <div class="rv"><span class="why-ic" aria-hidden="true">📈</span><h3>70%+ клієнтів — за рекомендацією</h3><p>Найкраща оцінка нашої роботи — коли клієнти рекомендують нас своїм партнерам і знайомим.</p></div>
+      <div class="rv"><span class="why-ic" aria-hidden="true">🌍</span><h3>Канада, США, Європа, Україна, Австралія та інші</h3><p>Маємо досвід роботи з різними рекламними ринками та аудиторіями — від Північної Америки до Азії. Знаємо, чим відрізняється поведінка покупців у різних країнах.</p></div>
+      <div class="rv"><span class="why-ic" aria-hidden="true">🔗</span><h3>Реклама та контент — єдина система</h3><p>Не окремі послуги, а скоординований маркетинг із єдиним вектором росту для вашого бізнесу.</p></div>
+      <div class="rv"><span class="why-ic" aria-hidden="true">📋</span><h3>Прозора звітність і доступ до даних</h3><p>Щоденні, щотижневі і щомісячні звіти, доступ до рекламних кабінетів і чіткі відповіді на питання «куди йдуть гроші».</p></div>
+      <div class="rv"><span class="why-ic" aria-hidden="true">🏪</span><h3>Від локального бізнесу до e-commerce</h3><p>Досвід у 50+ нішах: салони краси, ресторани, будівництво, нерухомість, авто та детейлінг, онлайн-освіта, інтернет-магазини, особисті бренди та інші.</p></div>
+      <div class="rv"><span class="why-ic" aria-hidden="true">💰</span><h3>Фокус на прибутку, а не на лайках</h3><p>Відстежуємо ROAS, вартість заявки чи покупки та реальну виручку. Ми заробляємо тоді — коли заробляє ваш бізнес.</p></div>
     </div>
   </div>
 </section>
