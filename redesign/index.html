@@ -141,6 +141,7 @@ h2 em,h1 em{font:italic 600 1.14em/1 var(--f-serif);text-transform:none;letter-s
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
 .logo{font:600 17px/1 var(--f-display);letter-spacing:-.01em}
 .logo i{font-style:normal;color:var(--ember)}
+.nav .logo{font-size:clamp(17px,1.5vw,22px)}
 .nav-links{display:flex;gap:30px;list-style:none;font-size:14px;color:var(--ink2)}
 .nav-links a{transition:color .2s}
 .nav-links a:hover{color:var(--ink)}
@@ -189,12 +190,12 @@ h2 em,h1 em{font:italic 600 1.14em/1 var(--f-serif);text-transform:none;letter-s
 @media (max-width:640px){.proof .wrap{grid-template-columns:1fr 1fr}.proof .wrap>div:last-child{grid-column:1/-1}}
 /* desktop: first screen = headline + CTA + proof numbers, no dead space */
 @media (min-width:861px){
-  #hero{min-height:0;justify-content:flex-start}
-  .hero-body{padding-top:clamp(92px,12vh,112px)}
+  #hero{min-height:100svh;justify-content:flex-start}
+  .hero-body{flex:1;align-content:start;padding-top:clamp(92px,12vh,112px)}
   .hero-copy{padding-bottom:clamp(20px,3vh,36px)}
   #hero h1{font-size:clamp(26px,min(3.5vw,6.4vh),50px)}
   .hero-sub{margin:22px 0 30px}
-  .hero-photo{width:min(100%,440px,max(240px,calc((100svh - 280px)*.789)))}
+  .hero-photo{width:min(100%,440px,max(240px,calc((100svh - 245px)*.789)))}
 }
 @media (prefers-reduced-motion:no-preference){
   #hero h1 .ln{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
