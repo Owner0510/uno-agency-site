@@ -456,7 +456,7 @@ h1,h2{hyphens:manual}
 
 /* sliders for cases and reviews (as on the main site): the block fits one screen, the rest is a swipe/arrow away */
 .sec-head{position:relative}
-#cases .sec-head,#reviews .sec-head{max-width:none}
+#cases .sec-head,#reviews .sec-head,#video .sec-head{max-width:none}
 .car-nav{position:absolute;right:0;bottom:0;display:flex;gap:10px}
 .car-btn{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:transparent;color:inherit;font-size:18px;line-height:1;cursor:pointer;transition:background .2s,color .2s,border-color .2s,opacity .2s}
 .paper .car-btn{border-color:var(--line-p)}
@@ -701,8 +701,9 @@ h1,h2{hyphens:manual}
   <div class="wrap">
     <div class="sec-head rv">
       <h2>Відео відгуки наших клієнтів</h2>
+      <div class="car-nav" data-car="#vidsTrack" role="group" aria-label="Гортання відеовідгуків"><button class="car-btn" type="button" data-dir="-1" aria-label="Назад">←</button><button class="car-btn" type="button" data-dir="1" aria-label="Далі">→</button></div>
     </div>
-    <div class="vids rv" role="list" aria-label="Відеовідгуки клієнтів">
+    <div class="vids rv" id="vidsTrack" role="list" aria-label="Відеовідгуки клієнтів">
       <figure class="vid" role="listitem"><button class="vid-box" data-src="/assets/videos/web/legalization.mp4" aria-label="Відтворити відгук: Легалізація в Польщі"><img src="/assets/posters/legalization.jpg" alt="" loading="lazy" width="720" height="1280"/><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Легалізація в Польщі</figcaption></figure>
       <figure class="vid" role="listitem"><button class="vid-box" data-src="/assets/videos/web/toys.mp4" aria-label="Відтворити відгук: Інтернет-магазин іграшок"><img src="/assets/posters/toys.jpg" alt="" loading="lazy" width="720" height="1280"/><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Інтернет-магазин іграшок</figcaption></figure>
       <figure class="vid" role="listitem"><button class="vid-box" data-src="/assets/videos/web/colorist.mp4" aria-label="Відтворити відгук: Колорист"><img src="/assets/posters/colorist.jpg" alt="" loading="lazy" width="720" height="1280"/><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Колорист</figcaption></figure>
@@ -904,7 +905,7 @@ h1,h2{hyphens:manual}
     var t=document.querySelector(nav.dataset.car); if(!t) return;
     var prev=nav.querySelector('[data-dir="-1"]'), next=nav.querySelector('[data-dir="1"]');
     function step(){var c=t.firstElementChild; if(!c) return 300; var g=parseFloat(getComputedStyle(t).columnGap)||20; return c.getBoundingClientRect().width+g}
-    function upd(){prev.disabled=t.scrollLeft<=2; next.disabled=t.scrollLeft+t.clientWidth>=t.scrollWidth-2}
+    function upd(){prev.disabled=t.scrollLeft<=10; next.disabled=t.scrollLeft+t.clientWidth>=t.scrollWidth-10}
     nav.addEventListener('click',function(e){var b=e.target.closest('button'); if(!b||b.disabled) return; t.scrollBy({left:b.dataset.dir*step(),behavior:'smooth'}); setTimeout(upd,120); setTimeout(upd,600)});
     t.addEventListener('scroll',upd,{passive:true}); t.addEventListener('scrollend',upd); window.addEventListener('resize',upd); upd();
   });
