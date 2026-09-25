@@ -388,7 +388,6 @@ select option{color:#111}
 footer{padding:36px 0;border-top:1px solid var(--line);font-size:13.5px;color:var(--ink2);background:var(--bg2)}
 @media (max-width:760px){footer{padding-bottom:90px}}
 footer .wrap{display:block}
-footer .ref{margin-bottom:36px}
 .foot-in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px}
 .foot-in .logo{color:var(--ink)}
 .foot-legal,.foot-links{display:flex;flex-wrap:wrap;gap:8px 22px}
@@ -490,6 +489,10 @@ h1,h2{hyphens:manual}
 #reviews .rev q{color:var(--ink)}
 #reviews .rev cite{color:var(--ink2)}
 #reviews .rev cite b{color:var(--ink)}
+/* referral card on the light band before the footer */
+#partners .ref{background:rgba(23,24,26,.05);border-color:var(--line-p)}
+#partners .ref .t{color:var(--paper-ink)}
+#partners .ref p{color:var(--paper-ink2)}
 .car-nav{position:absolute;right:0;bottom:0;display:flex;gap:10px}
 .car-btn{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:transparent;color:inherit;font-size:18px;line-height:1;cursor:pointer;transition:background .2s,color .2s,border-color .2s,opacity .2s}
 .paper .car-btn{border-color:var(--line-p)}
@@ -848,16 +851,20 @@ h1,h2{hyphens:manual}
   </div>
 </section>
 
+<section id="partners" class="sec paper">
+  <div class="wrap">
+    <div class="ref rv">
+      <div>
+        <p class="t">Знаєте бізнес, якому потрібна реклама?</p>
+        <p>Наші топ-партнери заробляють до $1,370 на місяць — просто за одне знайомство. Один дзвінок від вас, решту беремо на себе.</p>
+      </div>
+      <a class="pill" href="https://t.me/hatlan_serhii" target="_blank" rel="noopener"><svg class="ci" viewBox="0 0 24 24" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>Написати в Telegram <span class="ar" aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer><div class="wrap">
-  <div class="ref rv">
-    <div>
-      <p class="t">Знаєте бізнес, якому потрібна реклама?</p>
-      <p>Наші топ-партнери заробляють до $1,370 на місяць — просто за одне знайомство. Один дзвінок від вас, решту беремо на себе.</p>
-    </div>
-    <a class="pill" href="https://t.me/hatlan_serhii" target="_blank" rel="noopener"><svg class="ci" viewBox="0 0 24 24" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>Написати в Telegram <span class="ar" aria-hidden="true">↗</span></a>
-  </div>
   <div class="foot-in">
     <span class="logo">UNO <i>Agency</i></span>
     <span class="foot-copy">© 2026 UNO Agency</span>
