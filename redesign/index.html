@@ -389,7 +389,6 @@ footer{padding:36px 0;border-top:1px solid var(--line);font-size:13.5px;color:va
 @media (max-width:760px){footer{padding-bottom:90px}}
 footer .wrap{display:block}
 footer .ref{margin-bottom:36px}
-#faq{border-top:1px solid var(--line-p)}
 .foot-in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px}
 .foot-in .logo{color:var(--ink)}
 .foot-legal,.foot-links{display:flex;flex-wrap:wrap;gap:8px 22px}
@@ -485,6 +484,12 @@ h1,h2{hyphens:manual}
 .stats .rec b{font-size:clamp(18px,1.9vw,24px);line-height:1.25}
 .stats span{display:block;margin-top:4px;font-size:13px;line-height:1.35;color:var(--ink2)}
 @media (max-width:900px){.stats{grid-template-columns:1fr 1fr}.stats .rec{grid-column:1/-1;border-left:0;border-top:1px solid var(--line);padding-left:0}}
+#reviews .rev{border-color:var(--line);background:rgba(255,255,255,.03)}
+#reviews .stars{color:var(--ember)}
+#reviews .res{color:var(--ember);background:rgba(255,138,76,.12)}
+#reviews .rev q{color:var(--ink)}
+#reviews .rev cite{color:var(--ink2)}
+#reviews .rev cite b{color:var(--ink)}
 .car-nav{position:absolute;right:0;bottom:0;display:flex;gap:10px}
 .car-btn{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:transparent;color:inherit;font-size:18px;line-height:1;cursor:pointer;transition:background .2s,color .2s,border-color .2s,opacity .2s}
 .paper .car-btn{border-color:var(--line-p)}
@@ -773,14 +778,7 @@ h1,h2{hyphens:manual}
     </div>
   </div>
 </section>
-<section id="cta" class="sec">
-  <div class="wrap cta-band rv">
-    <h2>Безкоштовна консультація для вашого <em>бізнесу</em></h2>
-    <p class="lead">Проаналізуємо вашу нішу та конкурентів, підберемо інструменти, які підійдуть саме для вашого бізнесу</p>
-    <a class="pill lg" href="#contact">Залишити заявку <span class="ar" aria-hidden="true">↗</span></a>
-  </div>
-</section>
-<section id="reviews" class="sec paper">
+<section id="reviews" class="sec">
   <div class="wrap">
     <div class="sec-head rv">
       <p class="kick">Відгуки</p>
@@ -815,9 +813,9 @@ h1,h2{hyphens:manual}
 <section id="contact" class="sec">
   <div class="wrap c-grid">
     <div class="rv">
-      <p class="kick">Контакти</p>
+      <p class="kick">Безкоштовна консультація для вашого бізнесу</p>
       <h2>Залишити <em>заявку</em></h2>
-      <p class="lead">Напишіть нам — зв'яжемося протягом 24 годин</p>
+      <p class="lead">Проаналізуємо вашу нішу та конкурентів, підберемо інструменти, які підійдуть саме для вашого бізнесу. Напишіть нам — зв'яжемося протягом 24 годин.</p>
       <div class="c-links">
         <a href="https://t.me/hatlan_serhii" target="_blank" rel="noopener"><svg class="ci" viewBox="0 0 24 24" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>Telegram</a>
         <a href="https://www.instagram.com/the.uno.agency/" target="_blank" rel="noopener"><svg class="ci" viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>Instagram</a>
