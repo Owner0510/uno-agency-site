@@ -193,9 +193,9 @@ h2 em,h1 em{font:italic 600 1.14em/1 var(--f-serif);text-transform:none;letter-s
   #hero{min-height:100svh;justify-content:flex-start}
   .hero-body{flex:1;align-content:start;padding-top:clamp(92px,12vh,112px)}
   .hero-copy{padding-bottom:clamp(20px,3vh,36px)}
-  #hero h1{font-size:clamp(26px,min(3.5vw,6.4vh),50px)}
-  .hero-sub{margin:22px 0 30px}
-  .hero-photo{width:min(100%,440px,max(240px,calc((100svh - 245px)*.789)))}
+  #hero h1{font-size:clamp(26px,min(3.5vw,6.4vh),50px);line-height:1.12}
+  .hero-sub{margin:clamp(18px,4vh,28px) 0 clamp(26px,5.4vh,38px)}
+  .hero-photo{justify-self:center;width:min(100%,440px,max(240px,calc((100svh - 245px)*.789)))}
 }
 @media (prefers-reduced-motion:no-preference){
   #hero h1 .ln{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
