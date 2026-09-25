@@ -292,6 +292,18 @@ h2 em,h1 em{font:italic 600 1.14em/1 var(--f-serif);text-transform:none;letter-s
 .deal p{margin-top:16px;opacity:.85;font-size:16px}
 @media (max-width:760px){.deal{grid-template-columns:minmax(0,1fr)}}
 .wrap>.deal:first-child{margin-top:0}
+/* deal: light "З вас" panel + orange "З нас" panel with an arrow on the seam (as on the main site) */
+.deal{position:relative;border:1px solid var(--line-p);border-radius:16px}
+.deal>div{padding:clamp(32px,4.4vw,56px)}
+.deal .you{background:rgba(23,24,26,.05);color:var(--paper-ink)}
+.deal .you .tag{color:var(--orange)}
+.deal .you .t{color:var(--paper-ink);font-weight:500}
+.deal .you p:not(.tag):not(.t){color:var(--paper-ink2);font-size:15.5px;line-height:1.6;margin-top:12px}
+.deal .us{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.deal .us .t{font-weight:500;color:#fff}
+.deal .us .tag{color:rgba(255,255,255,.8)}
+.deal::after{content:"\2192";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:var(--paper);border:2px solid var(--line-p);display:grid;place-items:center;font-size:18px;line-height:1;color:var(--orange)}
+@media (max-width:760px){.deal::after{display:none}.deal .us{align-items:flex-start;text-align:left}}
 
 /* team */
 .team{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
