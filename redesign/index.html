@@ -272,7 +272,10 @@ h2 em,h1 em{font:italic 600 1.14em/1 var(--f-serif);text-transform:none;letter-s
   .svc-row h3{font-size:clamp(22px,2.2vw,30px)}
 }
 .svc-ic{display:grid;place-items:center;width:44px;height:44px;margin-top:-4px;border:1px solid var(--line);border-radius:12px;color:var(--ember);transition:background .25s,color .25s,border-color .25s}
-.svc-ic svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.svc-ic svg,.why-ic svg,.st-ic svg,svg.ci{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.svc-ic svg,.why-ic svg,.st-ic svg{width:22px;height:22px}
+svg.ci{width:18px;height:18px;flex:none;margin-right:10px;vertical-align:-3px}
+.c-links a,.pill{display:inline-flex;align-items:center}
 .paper .svc-ic{border-color:var(--line-p);color:var(--orange)}
 .svc-row:hover .svc-ic{background:var(--orange);border-color:var(--orange);color:#fff}
 @media (max-width:1100px){.svc-row{grid-template-columns:44px minmax(0,1fr) auto;column-gap:16px}.svc-row p{grid-column:2/4;margin-left:0}.svc-go{grid-row:1;grid-column:3}.svc-row h3{align-self:center}.svc-ic{margin-top:0}}
@@ -283,7 +286,8 @@ h2 em,h1 em{font:italic 600 1.14em/1 var(--f-serif);text-transform:none;letter-s
 .why>div:nth-child(3n){border-right:0}
 .why>div:nth-last-child(-n+3){border-bottom:0}
 .why>div:hover{background:rgba(255,255,255,.04)}
-.why-ic{display:grid;place-items:center;width:44px;height:44px;margin-bottom:16px;border-radius:12px;background:rgba(215,90,31,.16);font-size:20px;line-height:1}
+.why-ic{display:grid;place-items:center;width:44px;height:44px;margin-bottom:16px;border-radius:12px;border:1px solid var(--line);color:var(--ember);transition:background .25s,color .25s,border-color .25s}
+.why>div:hover .why-ic,.steps li:hover .st-ic{background:var(--orange);border-color:var(--orange);color:#fff}
 .why h3{font:500 19px/1.3 var(--f-display);letter-spacing:-.005em;margin-bottom:8px}
 .why p{color:var(--ink2);font-size:15px;line-height:1.55}
 #why .sec-head{margin-bottom:24px;max-width:none}
@@ -328,8 +332,8 @@ h2 em,h1 em{font:italic 600 1.14em/1 var(--f-serif);text-transform:none;letter-s
 .steps{list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px;counter-reset:s}
 .steps li{counter-increment:s;position:relative;padding:32px 24px 36px;border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.02);transition:border-color .25s,background .25s}
 .steps li:hover{border-color:rgba(245,239,231,.3);background:rgba(255,255,255,.045)}
-.steps li::before{content:counter(s,decimal-leading-zero);position:absolute;top:36px;right:24px;font:500 14px/1 var(--f-display);letter-spacing:.08em;color:var(--ember)}
-.st-ic{display:block;font-size:30px;line-height:1;margin-bottom:26px}
+.steps li::before{content:counter(s,decimal-leading-zero);position:absolute;top:47px;right:24px;font:500 14px/1 var(--f-display);letter-spacing:.08em;color:var(--ember)}
+.st-ic{display:grid;place-items:center;width:44px;height:44px;margin-bottom:26px;border:1px solid var(--line);border-radius:12px;color:var(--ember);transition:background .25s,color .25s,border-color .25s}
 .steps h3{font:500 18px/1.25 var(--f-display);margin-bottom:12px;hyphens:manual}
 .steps p{font-size:14.5px;color:var(--ink2);line-height:1.55}
 
@@ -522,12 +526,12 @@ h1,h2{hyphens:manual}
       <h2>Маркетинг, який базується на <em>цифрах</em></h2>
     </div>
     <div class="why">
-      <div class="rv"><span class="why-ic" aria-hidden="true">📈</span><h3>70%+ клієнтів — за рекомендацією</h3><p>Найкраща оцінка нашої роботи — коли клієнти рекомендують нас своїм партнерам і знайомим.</p></div>
-      <div class="rv"><span class="why-ic" aria-hidden="true">🌍</span><h3>Канада, США, Європа, Україна, Австралія та інші</h3><p>Маємо досвід роботи з різними рекламними ринками та аудиторіями — від Північної Америки до Азії. Знаємо, чим відрізняється поведінка покупців у різних країнах.</p></div>
-      <div class="rv"><span class="why-ic" aria-hidden="true">🔗</span><h3>Реклама та контент — єдина система</h3><p>Не окремі послуги, а скоординований маркетинг із єдиним вектором росту для вашого бізнесу.</p></div>
-      <div class="rv"><span class="why-ic" aria-hidden="true">📋</span><h3>Прозора звітність і доступ до даних</h3><p>Щоденні, щотижневі і щомісячні звіти, доступ до рекламних кабінетів і чіткі відповіді на питання «куди йдуть гроші».</p></div>
-      <div class="rv"><span class="why-ic" aria-hidden="true">🏪</span><h3>Від локального бізнесу до e-commerce</h3><p>Досвід у 50+ нішах: салони краси, ресторани, будівництво, нерухомість, авто та детейлінг, онлайн-освіта, інтернет-магазини, особисті бренди та інші.</p></div>
-      <div class="rv"><span class="why-ic" aria-hidden="true">💰</span><h3>Фокус на прибутку, а не на лайках</h3><p>Відстежуємо ROAS, вартість заявки чи покупки та реальну виручку. Ми заробляємо тоді — коли заробляє ваш бізнес.</p></div>
+      <div class="rv"><span class="why-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><h3>70%+ клієнтів — за рекомендацією</h3><p>Найкраща оцінка нашої роботи — коли клієнти рекомендують нас своїм партнерам і знайомим.</p></div>
+      <div class="rv"><span class="why-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span><h3>Канада, США, Європа, Україна, Австралія та інші</h3><p>Маємо досвід роботи з різними рекламними ринками та аудиторіями — від Північної Америки до Азії. Знаємо, чим відрізняється поведінка покупців у різних країнах.</p></div>
+      <div class="rv"><span class="why-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span><h3>Реклама та контент — єдина система</h3><p>Не окремі послуги, а скоординований маркетинг із єдиним вектором росту для вашого бізнесу.</p></div>
+      <div class="rv"><span class="why-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></span><h3>Прозора звітність і доступ до даних</h3><p>Щоденні, щотижневі і щомісячні звіти, доступ до рекламних кабінетів і чіткі відповіді на питання «куди йдуть гроші».</p></div>
+      <div class="rv"><span class="why-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span><h3>Від локального бізнесу до e-commerce</h3><p>Досвід у 50+ нішах: салони краси, ресторани, будівництво, нерухомість, авто та детейлінг, онлайн-освіта, інтернет-магазини, особисті бренди та інші.</p></div>
+      <div class="rv"><span class="why-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg></span><h3>Фокус на прибутку, а не на лайках</h3><p>Відстежуємо ROAS, вартість заявки чи покупки та реальну виручку. Ми заробляємо тоді — коли заробляє ваш бізнес.</p></div>
     </div>
   </div>
 </section>
@@ -567,11 +571,11 @@ h1,h2{hyphens:manual}
       <h2>Від договору до масштабування</h2>
     </div>
     <ol class="steps">
-      <li class="rv"><span class="st-ic" aria-hidden="true">📝</span><h3>Укладаємо договір</h3><p>Фіксуємо цілі, бюджет, строки та зони відповідальності. Прозорі умови роботи з першого дня.</p></li>
-      <li class="rv"><span class="st-ic" aria-hidden="true">🔍</span><h3>Аудит</h3><p>Вивчаємо бізнес, ринок, конкурентів та поточну маркетингову ситуацію. Знаходимо точки росту.</p></li>
-      <li class="rv"><span class="st-ic" aria-hidden="true">🗺️</span><h3>Стратегія</h3><p>Формуємо план залучення клієнтів: аудиторія, офери, канали, формати та ключові метрики.</p></li>
-      <li class="rv"><span class="st-ic" aria-hidden="true">🚀</span><h3>Запуск</h3><p>Для реклами — налаштовуємо кабінет, запускаємо тести, перші дані вже через тиждень. Для SMM — готуємо перший контент, вивчаємо реакцію аудиторії та будуємо стратегію наступного місяця.</p></li>
-      <li class="rv"><span class="st-ic" aria-hidden="true">📈</span><h3>Масштабування</h3><p>Оптимізуємо кампанії та контент на основі даних. Масштабуємо те, що працює, відключаємо те, що не дає результату.</p></li>
+      <li class="rv"><span class="st-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span><h3>Укладаємо договір</h3><p>Фіксуємо цілі, бюджет, строки та зони відповідальності. Прозорі умови роботи з першого дня.</p></li>
+      <li class="rv"><span class="st-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span><h3>Аудит</h3><p>Вивчаємо бізнес, ринок, конкурентів та поточну маркетингову ситуацію. Знаходимо точки росту.</p></li>
+      <li class="rv"><span class="st-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg></span><h3>Стратегія</h3><p>Формуємо план залучення клієнтів: аудиторія, офери, канали, формати та ключові метрики.</p></li>
+      <li class="rv"><span class="st-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></span><h3>Запуск</h3><p>Для реклами — налаштовуємо кабінет, запускаємо тести, перші дані вже через тиждень. Для SMM — готуємо перший контент, вивчаємо реакцію аудиторії та будуємо стратегію наступного місяця.</p></li>
+      <li class="rv"><span class="st-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span><h3>Масштабування</h3><p>Оптимізуємо кампанії та контент на основі даних. Масштабуємо те, що працює, відключаємо те, що не дає результату.</p></li>
     </ol>
   </div>
 </section>
@@ -697,7 +701,7 @@ h1,h2{hyphens:manual}
         <p class="t">Знаєте бізнес, якому потрібна реклама?</p>
         <p>Наші топ-партнери заробляють до $1,370 на місяць — просто за одне знайомство. Один дзвінок від вас, решту беремо на себе.</p>
       </div>
-      <a class="pill" href="https://t.me/hatlan_serhii" target="_blank" rel="noopener">✈ Написати в Telegram <span class="ar" aria-hidden="true">↗</span></a>
+      <a class="pill" href="https://t.me/hatlan_serhii" target="_blank" rel="noopener"><svg class="ci" viewBox="0 0 24 24" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>Написати в Telegram <span class="ar" aria-hidden="true">↗</span></a>
     </div>
   </div>
 </section>
@@ -724,9 +728,9 @@ h1,h2{hyphens:manual}
       <h2>Залишити <em>заявку</em></h2>
       <p class="lead">Напишіть нам — зв'яжемося протягом 24 годин</p>
       <div class="c-links">
-        <a href="https://t.me/hatlan_serhii" target="_blank" rel="noopener">✈ Telegram</a>
-        <a href="https://www.instagram.com/the.uno.agency/" target="_blank" rel="noopener">◎ Instagram</a>
-        <a href="https://wa.me/message/HRJDQK3UE6F3F1" target="_blank" rel="noopener">✆ WhatsApp</a>
+        <a href="https://t.me/hatlan_serhii" target="_blank" rel="noopener"><svg class="ci" viewBox="0 0 24 24" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>Telegram</a>
+        <a href="https://www.instagram.com/the.uno.agency/" target="_blank" rel="noopener"><svg class="ci" viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>Instagram</a>
+        <a href="https://wa.me/message/HRJDQK3UE6F3F1" target="_blank" rel="noopener"><svg class="ci" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>WhatsApp</a>
       </div>
     </div>
     <form id="leadForm" class="rv" novalidate>
