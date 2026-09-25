@@ -187,6 +187,15 @@ h2 em,h1 em{font:italic 600 1.14em/1 var(--f-serif);text-transform:none;letter-s
 .proof b{display:block;font:500 clamp(26px,3.6vw,44px)/1.05 var(--f-display);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
 .proof span{display:block;font-size:13.5px;line-height:1.4;color:var(--ink2);margin-top:6px;max-width:22ch}
 @media (max-width:640px){.proof .wrap{grid-template-columns:1fr 1fr}.proof .wrap>div:last-child{grid-column:1/-1}}
+/* desktop: first screen = headline + CTA + proof numbers, no dead space */
+@media (min-width:861px){
+  #hero{min-height:0;justify-content:flex-start}
+  .hero-body{padding-top:clamp(92px,12vh,112px)}
+  .hero-copy{padding-bottom:clamp(20px,3vh,36px)}
+  #hero h1{font-size:clamp(26px,min(3.5vw,6.4vh),50px)}
+  .hero-sub{margin:22px 0 30px}
+  .hero-photo{width:min(100%,440px,max(240px,calc((100svh - 280px)*.789)))}
+}
 @media (prefers-reduced-motion:no-preference){
   #hero h1 .ln{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
   #hero h1 .ln:nth-child(2){animation-delay:.09s}
