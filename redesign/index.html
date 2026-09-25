@@ -260,6 +260,15 @@ h2 em,h1 em{font:italic 600 1.14em/1 var(--f-serif);text-transform:none;letter-s
 .svc-go{font-size:26px;color:var(--ember);transition:transform .25s}
 .svc-row:hover .svc-go{transform:translate(4px,-4px)}
 @media (max-width:760px){.svc-row{grid-template-columns:minmax(0,1fr) auto}.svc-row p{grid-column:1/2}.svc-go{grid-row:1;grid-column:2}}
+/* services: icon tile from the main site, kept inside the row layout */
+.svc-row{grid-template-columns:44px minmax(0,.9fr) minmax(0,1.6fr) auto;column-gap:20px}
+.svc-row p{margin-left:20px}
+.svc-row h3{hyphens:manual}
+.svc-ic{display:grid;place-items:center;width:44px;height:44px;margin-top:-4px;border:1px solid var(--line);border-radius:12px;color:var(--ember);transition:background .25s,color .25s,border-color .25s}
+.svc-ic svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.paper .svc-ic{border-color:var(--line-p);color:var(--orange)}
+.svc-row:hover .svc-ic{background:var(--orange);border-color:var(--orange);color:#fff}
+@media (max-width:1100px){.svc-row{grid-template-columns:44px minmax(0,1fr) auto;column-gap:16px}.svc-row p{grid-column:2/4;margin-left:0}.svc-go{grid-row:1;grid-column:3}.svc-row h3{align-self:center}.svc-ic{margin-top:0}}
 
 /* why */
 .why{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:44px 40px}
@@ -479,10 +488,10 @@ h1,h2{hyphens:manual}
       <h2>Що ми робимо для вашого бізнесу</h2>
     </div>
     <div class="svc">
-      <a class="svc-row rv" href="#contact" data-svc="Таргетована реклама" aria-labelledby="st1"><h3 id="st1">Meta ADS</h3><p>Таргетована реклама в Facebook та Instagram. Запускаємо, тестуємо та масштабуємо кампанії для стабільного потоку заявок і продажів — під будь-яку ціль і нішу.</p><span class="svc-go" aria-hidden="true">↗</span></a>
-      <a class="svc-row rv" href="#contact" data-svc="Таргетована реклама" aria-labelledby="st2"><h3 id="st2">TikTok ADS</h3><p>Таргетована реклама в TikTok для виходу на нову аудиторію. Нативні відеоформати, тестування, оптимізація та щотижнева звітність.</p><span class="svc-go" aria-hidden="true">↗</span></a>
-      <a class="svc-row rv" href="#contact" data-svc="SMM" aria-labelledby="st3"><h3 id="st3">SMM — повне ведення та упаковка</h3><p>Ведення Instagram, TikTok та Facebook з нуля або перезапуск акаунту. Стратегія, Reels, сторіз, пости, UGC, інфлюенс-маркетинг, аналітика.</p><span class="svc-go" aria-hidden="true">↗</span></a>
-      <a class="svc-row rv" href="#contact" data-svc="SMM" aria-labelledby="st4"><h3 id="st4">SMM — супровід</h3><p>Для тих, хто веде соцмережі самостійно. Розробляємо стратегію, контент-план, сценарії для Reels, даємо рекомендації та контролюємо результат.</p><span class="svc-go" aria-hidden="true">↗</span></a>
+      <a class="svc-row rv" href="#contact" data-svc="Таргетована реклама" aria-labelledby="st1"><span class="svc-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></span><h3 id="st1">Meta ADS</h3><p>Таргетована реклама в Facebook та Instagram. Запускаємо, тестуємо та масштабуємо кампанії для стабільного потоку заявок і продажів — під будь-яку ціль і нішу.</p><span class="svc-go" aria-hidden="true">↗</span></a>
+      <a class="svc-row rv" href="#contact" data-svc="Таргетована реклама" aria-labelledby="st2"><span class="svc-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m22 8-6 4 6 4V8Z"/><rect x="2" y="6" width="14" height="12" rx="2" ry="2"/></svg></span><h3 id="st2">TikTok ADS</h3><p>Таргетована реклама в TikTok для виходу на нову аудиторію. Нативні відеоформати, тестування, оптимізація та щотижнева звітність.</p><span class="svc-go" aria-hidden="true">↗</span></a>
+      <a class="svc-row rv" href="#contact" data-svc="SMM" aria-labelledby="st3"><span class="svc-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.376 3.622a1 1 0 0 1 3.002 3.002L7.368 18.635a2 2 0 0 1-.855.506l-2.872.838a.5.5 0 0 1-.62-.62l.838-2.872a2 2 0 0 1 .506-.854z"/></svg></span><h3 id="st3">SMM — повне ведення та упаковка</h3><p>Ведення Instagram, TikTok та Facebook з нуля або перезапуск акаунту. Стратегія, Reels, сторіз, пости, UGC, інфлюенс-маркетинг, аналітика.</p><span class="svc-go" aria-hidden="true">↗</span></a>
+      <a class="svc-row rv" href="#contact" data-svc="SMM" aria-labelledby="st4"><span class="svc-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span><h3 id="st4">SMM — супровід</h3><p>Для тих, хто веде соцмережі самостійно. Розробляємо стратегію, контент-план, сценарії для Reels, даємо рекомендації та контролюємо результат.</p><span class="svc-go" aria-hidden="true">↗</span></a>
     </div>
   </div>
 </section>
