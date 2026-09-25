@@ -1599,17 +1599,6 @@ document.addEventListener('DOMContentLoaded',()=>{
 });
 
 
-// Вертикальний скрол над слайдерами → передаємо сторінці
-['revSlider','vidSlider'].forEach(id=>{
-  const el=document.getElementById(id);
-  if(!el) return;
-  el.addEventListener('wheel',function(e){
-    if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){
-      e.preventDefault();
-      window.scrollBy({top:e.deltaY,behavior:'auto'});
-    }
-  },{passive:false});
-});
 // ── REVEAL ON SCROLL ──
 const io=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
