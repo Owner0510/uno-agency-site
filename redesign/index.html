@@ -461,6 +461,19 @@ h1,h2{hyphens:manual}
 /* sliders for cases and reviews (as on the main site): the block fits one screen, the rest is a swipe/arrow away */
 .sec-head{position:relative}
 #cases .sec-head,#reviews .sec-head,#video .sec-head{max-width:none}
+/* creatives + approach */
+#creatives .sec-head,#approach .sec-head{max-width:none}
+#creatives .sec-head .lead{max-width:60ch}
+.cr .vid{flex-basis:clamp(170px,17vw,210px)}
+.cr-still{cursor:default}
+.cr-still::after{display:none}
+.appr{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.appr>div{padding:clamp(24px,3vw,36px);border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.02)}
+.appr h3{font-size:clamp(20px,2vw,24px);margin-bottom:16px}
+.appr ul{list-style:none;display:grid;gap:14px}
+.appr li{position:relative;padding-left:26px;color:var(--ink2);line-height:1.55}
+.appr li::before{content:"—";position:absolute;left:0;color:var(--ember)}
+@media (max-width:760px){.appr{grid-template-columns:minmax(0,1fr)}}
 .car-nav{position:absolute;right:0;bottom:0;display:flex;gap:10px}
 .car-btn{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:transparent;color:inherit;font-size:18px;line-height:1;cursor:pointer;transition:background .2s,color .2s,border-color .2s,opacity .2s}
 .paper .car-btn{border-color:var(--line-p)}
@@ -678,6 +691,54 @@ h1,h2{hyphens:manual}
 
   </div>
 </section>
+<section id="creatives" class="sec paper">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="kick">Креативи</p>
+      <h2>Понад 3 000 креативів <em>за 7 років</em></h2>
+      <p class="lead">Шукаємо, що працює саме для вашого бізнесу: тестуємо формати, офери й візуали, а переможні розвиваємо.</p>
+      <div class="car-nav" data-car="#crTrack" role="group" aria-label="Гортання креативів"><button class="car-btn" type="button" data-dir="-1" aria-label="Назад">←</button><button class="car-btn" type="button" data-dir="1" aria-label="Далі">→</button></div>
+    </div>
+    <div class="vids cr rv" id="crTrack" role="list" aria-label="Приклади рекламних креативів">
+      <figure class="vid" role="listitem"><button class="vid-box" data-src="/assets/creatives/hairhub-red.mp4" aria-label="Відтворити креатив: HairHub, салон краси"><img src="/assets/creatives/hairhub-red.jpg" alt="" loading="lazy" width="720" height="1280"/><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>HairHub — салон краси, Торонто</figcaption></figure>
+      <figure class="vid" role="listitem"><div class="vid-box cr-still"><img src="/assets/creatives/sushihub.jpg" alt="Рекламний креатив SushiHub: 3 причини обрати SushiHub у Торонто" loading="lazy" width="720" height="1280"/></div><figcaption>SushiHub — доставка суші, Торонто</figcaption></figure>
+      <figure class="vid" role="listitem"><div class="vid-box cr-still"><img src="/assets/creatives/hairhub-fall.jpg" alt="Рекламний креатив HairHub: осінні відтінки волосся" loading="lazy" width="720" height="1280"/></div><figcaption>HairHub — салон краси, Торонто</figcaption></figure>
+      <figure class="vid" role="listitem"><div class="vid-box cr-still"><img src="/assets/creatives/tattoo-kamloops.jpg" alt="Рекламний креатив тату-майстра: гостьові сесії в Камлупсі" loading="lazy" width="720" height="1280"/></div><figcaption>Тату-майстер, Камлупс (Канада)</figcaption></figure>
+      <figure class="vid" role="listitem"><button class="vid-box" data-src="/assets/creatives/painting.mp4" aria-label="Відтворити креатив: малярні та ремонтні роботи"><img src="/assets/creatives/painting.jpg" alt="" loading="lazy" width="720" height="1280"/><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Малярні та ремонтні роботи</figcaption></figure>
+      <figure class="vid" role="listitem"><button class="vid-box" data-src="/assets/creatives/fence.mp4" aria-label="Відтворити креатив: встановлення парканів"><img src="/assets/creatives/fence.jpg" alt="" loading="lazy" width="720" height="1280"/><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Встановлення парканів, США</figcaption></figure>
+      <figure class="vid" role="listitem"><div class="vid-box cr-still"><img src="/assets/creatives/legalis.jpg" alt="Рекламний креатив: оформлення карти побиту в Польщі" loading="lazy" width="720" height="1280"/></div><figcaption>Легалізація в Польщі</figcaption></figure>
+      <figure class="vid" role="listitem"><div class="vid-box cr-still"><img src="/assets/creatives/arthome-swim.jpg" alt="Рекламний креатив Art Home: уроки плавання" loading="lazy" width="720" height="1280"/></div><figcaption>Art Home — уроки плавання, Варшава</figcaption></figure>
+      <figure class="vid" role="listitem"><button class="vid-box" data-src="/assets/creatives/arthome-breakdance.mp4" aria-label="Відтворити креатив: Art Home, брейк-данс для дітей"><img src="/assets/creatives/arthome-breakdance.jpg" alt="" loading="lazy" width="720" height="1280"/><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Art Home — брейк-данс для дітей, Варшава</figcaption></figure>
+      <figure class="vid" role="listitem"><div class="vid-box cr-still"><img src="/assets/creatives/isf.jpg" alt="Рекламний креатив ISF: 14 днів плану безкоштовного харчування" loading="lazy" width="720" height="1280"/></div><figcaption>ISF — застосунок для харчування</figcaption></figure>
+      <figure class="vid" role="listitem"><div class="vid-box cr-still"><img src="/assets/creatives/ukrinvest.jpg" alt="Рекламний креатив Укрінвест Клубу: капітал працює у валюті" loading="lazy" width="720" height="1280"/></div><figcaption>Укрінвест Клуб — інвестиції в нерухомість</figcaption></figure>
+    </div>
+  </div>
+</section>
+<section id="approach" class="sec">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="kick">Наш підхід</p>
+      <h2>Беремо в роботу лише тих, кому можемо <em>дати результат</em></h2>
+      <p class="lead">Нам не цікаво брати гроші за роботу, яка не дасть вам зростання. Тому перед стартом чесно оцінюємо проєкт.</p>
+    </div>
+    <div class="appr rv">
+      <div>
+        <h3>Реклама</h3>
+        <ul>
+          <li>Розбираємо продукт, нішу й воронку: чи окупиться реклама.</li>
+          <li>Якщо ні, скажемо до старту, а не після злитого бюджету.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>SMM</h3>
+        <ul>
+          <li>Дивимось, що є показати, і як перетворити це на контент, який продає.</li>
+          <li>Ведемо повністю або супроводжуємо: стратегія, контент-план, контроль.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 <section id="video" class="sec paper">
   <div class="wrap">
     <div class="sec-head rv">
@@ -840,12 +901,12 @@ h1,h2{hyphens:manual}
   d.addEventListener('keydown',function(e){if(e.key==='Escape'&&!mnav.hidden){closeMenu();burger.focus()}});
 
   /* video: the player replaces the poster button (no <video> nested in a <button>) */
-  d.querySelectorAll('.vid-box').forEach(function(b){
+  d.querySelectorAll('button.vid-box').forEach(function(b){
     b.addEventListener('click',function(){
       var w=d.createElement('div');w.className='vid-box on';
       var v=d.createElement('video');
       v.src=b.dataset.src;v.controls=true;v.autoplay=true;v.playsInline=true;v.preload='metadata';
-      v.setAttribute('aria-label',(b.getAttribute('aria-label')||'').replace('Відтворити відгук: ','Відгук: '));
+      v.setAttribute('aria-label',(b.getAttribute('aria-label')||'').replace('Відтворити відгук: ','Відгук: ').replace('Відтворити креатив: ','Креатив: '));
       w.appendChild(v);b.replaceWith(w);
       d.querySelectorAll('.vid-box video').forEach(function(o){if(o!==v)o.pause()});
       v.focus();var pr=v.play();if(pr&&pr.catch)pr.catch(function(){});
