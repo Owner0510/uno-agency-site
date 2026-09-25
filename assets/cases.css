@@ -17,6 +17,9 @@ button{font:inherit;color:inherit}
 .wrap{width:100%;max-width:calc(var(--W) + var(--gut)*2);margin:0 auto;padding-inline:var(--gut)}
 
 /* header */
+.skip{position:absolute;left:8px;top:-60px;z-index:400;background:var(--orange);color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;transition:top .15s}
+.skip:focus{top:8px}
+main:focus{outline:none}
 .nav{position:fixed;inset:0 0 auto 0;z-index:100;background:rgba(14,15,16,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
 .logo{font:600 17px/1 var(--f-display);letter-spacing:-.01em}

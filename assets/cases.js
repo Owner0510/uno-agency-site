@@ -22,18 +22,37 @@
     var lb = d.createElement('div');
     lb.className = 'lb';
     lb.setAttribute('role', 'dialog');
+    lb.setAttribute('aria-modal', 'true');
     lb.setAttribute('aria-label', 'Збільшений скріншот');
+    lb.tabIndex = -1;
     var big = d.createElement('img');
     big.alt = '';
     lb.appendChild(big);
     d.body.appendChild(lb);
-    var close = function () { lb.classList.remove('on'); };
-    body.addEventListener('click', function (e) {
-      var t = e.target;
-      if (t.tagName !== 'IMG') return;
+    var opener = null;
+    var close = function () {
+      if (!lb.classList.contains('on')) return;
+      lb.classList.remove('on');
+      if (opener) { opener.focus(); opener = null; }
+    };
+    var open = function (t) {
+      opener = t;
       big.src = t.currentSrc || t.src;
       big.alt = t.alt;
       lb.classList.add('on');
+      lb.focus();
+    };
+    /* screenshots are focusable buttons so the lightbox works from the keyboard */
+    body.querySelectorAll('img').forEach(function (im) {
+      im.tabIndex = 0;
+      im.setAttribute('role', 'button');
+      im.setAttribute('aria-label', 'Збільшити: ' + (im.alt || 'скріншот'));
+    });
+    body.addEventListener('click', function (e) {
+      if (e.target.tagName === 'IMG') open(e.target);
+    });
+    body.addEventListener('keydown', function (e) {
+      if ((e.key === 'Enter' || e.key === ' ') && e.target.tagName === 'IMG') { e.preventDefault(); open(e.target); }
     });
     lb.addEventListener('click', close);
     d.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });

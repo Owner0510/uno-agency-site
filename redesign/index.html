@@ -439,6 +439,7 @@ h2{font-size:clamp(24px,3.3vw,44px)}
 input,select{border-color:rgba(245,239,231,.5)}
 input:focus-visible,select:focus-visible{outline:2px solid var(--ember);outline-offset:2px;border-color:var(--ember)}
 input[aria-invalid=true],select[aria-invalid=true]{border-color:#FF9A85}
+.fld{display:grid;gap:6px}
 .ferr{display:block;font-size:13px;line-height:1.35;color:#FF9A85;letter-spacing:0}
 .ferr[hidden]{display:none}
 .msg{display:block;padding:0;border:0;margin:0}
@@ -572,7 +573,7 @@ h1,h2{hyphens:manual}
       <div class="rv"><span class="why-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><h3>70%+ клієнтів — за рекомендацією</h3><p>Найкраща оцінка нашої роботи — коли клієнти рекомендують нас своїм партнерам і знайомим.</p></div>
       <div class="rv"><span class="why-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span><h3>Канада, США, Європа, Україна, Австралія та інші</h3><p>Маємо досвід роботи з різними рекламними ринками та аудиторіями — від Північної Америки до Азії. Знаємо, чим відрізняється поведінка покупців у різних країнах.</p></div>
       <div class="rv"><span class="why-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span><h3>Реклама та контент — єдина система</h3><p>Не окремі послуги, а скоординований маркетинг із єдиним вектором росту для вашого бізнесу.</p></div>
-      <div class="rv"><span class="why-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></span><h3>Прозора звітність і доступ до даних</h3><p>Щоденні, щотижневі і щомісячні звіти, доступ до рекламних кабінетів і чіткі відповіді на питання «куди йдуть гроші».</p></div>
+      <div class="rv"><span class="why-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></span><h3>Прозора звітність і доступ до даних</h3><p>Щоденні, щотижневі і щомісячні звіти, доступ до рекламних кабінетів і чіткі відповіді на питання «куди йдуть гроші». Звіти — з AI-автоматизацією.</p></div>
       <div class="rv"><span class="why-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span><h3>Від локального бізнесу до e-commerce</h3><p>Досвід у 50+ нішах: салони краси, ресторани, будівництво, нерухомість, авто та детейлінг, онлайн-освіта, інтернет-магазини, особисті бренди та інші.</p></div>
       <div class="rv"><span class="why-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg></span><h3>Фокус на прибутку, а не на лайках</h3><p>Відстежуємо ROAS, вартість заявки чи покупки та реальну виручку. Ми заробляємо тоді — коли заробляє ваш бізнес.</p></div>
     </div>
@@ -719,7 +720,7 @@ h1,h2{hyphens:manual}
       <figure class="vid" role="listitem"><div class="vid-box cr-still"><img src="/assets/creatives/hairhub-fall.jpg" alt="Рекламний креатив HairHub: осінні відтінки волосся" loading="lazy" width="720" height="1280"/></div><figcaption>HairHub — салон краси, Торонто</figcaption></figure>
       <figure class="vid" role="listitem"><div class="vid-box cr-still"><img src="/assets/creatives/tattoo-kamloops.jpg" alt="Рекламний креатив тату-майстра: гостьові сесії в Камлупсі" loading="lazy" width="720" height="1280"/></div><figcaption>Тату-майстер, Камлупс (Канада)</figcaption></figure>
       <figure class="vid" role="listitem"><button class="vid-box" data-src="/assets/creatives/painting.mp4" aria-label="Відтворити креатив: фарбування будинків, Торонто"><img src="/assets/creatives/painting.jpg" alt="" loading="lazy" width="720" height="1280"/><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Фарбування будинків, Торонто та GTA</figcaption></figure>
-      <figure class="vid" role="listitem"><button class="vid-box" data-src="/assets/creatives/fence.mp4" aria-label="Відтворити креатив: встановлення парканів"><img src="/assets/creatives/fence.jpg" alt="" loading="lazy" width="720" height="1280"/><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Встановлення парканів, США</figcaption></figure>
+      <figure class="vid" role="listitem"><button class="vid-box" data-src="/assets/creatives/fence.mp4" aria-label="Відтворити креатив: Cool Cat Fence, встановлення парканів"><img src="/assets/creatives/fence.jpg" alt="" loading="lazy" width="720" height="1280"/><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Cool Cat Fence — встановлення парканів, США</figcaption></figure>
       <figure class="vid" role="listitem"><div class="vid-box cr-still"><img src="/assets/creatives/legalis.jpg" alt="Рекламний креатив: оформлення карти побиту в Польщі" loading="lazy" width="720" height="1280"/></div><figcaption>Легалізація в Польщі</figcaption></figure>
       <figure class="vid" role="listitem"><div class="vid-box cr-still"><img src="/assets/creatives/arthome-swim.jpg" alt="Рекламний креатив Art Home: уроки плавання" loading="lazy" width="720" height="1280"/></div><figcaption>Art Home — уроки плавання, Барселона</figcaption></figure>
       <figure class="vid" role="listitem"><button class="vid-box" data-src="/assets/creatives/arthome-breakdance.mp4" aria-label="Відтворити креатив: Art Home, брейк-данс для дітей"><img src="/assets/creatives/arthome-breakdance.jpg" alt="" loading="lazy" width="720" height="1280"/><span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span></button><figcaption>Art Home — брейк-данс для дітей, Варшава</figcaption></figure>
@@ -833,27 +834,23 @@ h1,h2{hyphens:manual}
       </div>
     </div>
     <form id="leadForm" class="rv" novalidate>
-      <label for="fName"><span>Ім'я <span class="req" aria-hidden="true">*</span></span>
-        <input id="fName" name="name" type="text" autocomplete="name" placeholder="Юлія Кожумяка" required aria-describedby="fName-err"/>
-        <span class="ferr" id="fName-err" hidden></span>
-      </label>
-      <label for="fPhone"><span>Номер телефону <span class="req" aria-hidden="true">*</span></span>
-        <input id="fPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+380 50 000 0000" required aria-describedby="fPhone-err"/>
-        <span class="ferr" id="fPhone-err" hidden></span>
-      </label>
-      <label for="fTg"><span>Ваш Телеграм (нік або номер телефону) <span class="req" aria-hidden="true">*</span></span>
-        <input id="fTg" name="tg" type="text" autocomplete="off" placeholder="@username або +380..." required aria-describedby="fTg-err"/>
-        <span class="ferr" id="fTg-err" hidden></span>
-      </label>
-      <label for="fSvc"><span>Яка послуга Вас цікавить? <span class="req" aria-hidden="true">*</span></span>
+      <div class="fld"><label for="fName"><span>Ім'я <span class="req" aria-hidden="true">*</span></span>
+        <input id="fName" name="name" type="text" autocomplete="name" placeholder="Юлія Кожумяка" required aria-describedby="fName-err"/></label>
+        <span class="ferr" aria-live="polite" id="fName-err" hidden></span></div>
+      <div class="fld"><label for="fPhone"><span>Номер телефону <span class="req" aria-hidden="true">*</span></span>
+        <input id="fPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+380 50 000 0000" required aria-describedby="fPhone-err"/></label>
+        <span class="ferr" aria-live="polite" id="fPhone-err" hidden></span></div>
+      <div class="fld"><label for="fTg"><span>Ваш Телеграм (нік або номер телефону) <span class="req" aria-hidden="true">*</span></span>
+        <input id="fTg" name="tg" type="text" autocomplete="off" placeholder="@username або +380..." required aria-describedby="fTg-err"/></label>
+        <span class="ferr" aria-live="polite" id="fTg-err" hidden></span></div>
+      <div class="fld"><label for="fSvc"><span>Яка послуга Вас цікавить? <span class="req" aria-hidden="true">*</span></span>
         <select id="fSvc" name="service" required aria-describedby="fSvc-err">
           <option value="">— Оберіть послугу —</option>
           <option>Таргетована реклама</option>
           <option>SMM</option>
           <option>Таргетована реклама + SMM</option>
-        </select>
-        <span class="ferr" id="fSvc-err" hidden></span>
-      </label>
+        </select></label>
+        <span class="ferr" aria-live="polite" id="fSvc-err" hidden></span></div>
       <div class="hp" aria-hidden="true"><label for="hpField">Не заповнювати<input id="hpField" name="hp" tabindex="-1" autocomplete="off"/></label></div>
       <button class="pill" id="fBtn" type="submit">Залишити заявку <span class="ar" aria-hidden="true">↗</span></button>
       <p class="note">Натискаючи кнопку, ви погоджуєтесь з обробкою персональних даних</p>
