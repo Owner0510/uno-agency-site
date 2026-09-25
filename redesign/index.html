@@ -264,6 +264,12 @@ h2 em,h1 em{font:italic 600 1.14em/1 var(--f-serif);text-transform:none;letter-s
 .svc-row{grid-template-columns:44px minmax(0,.9fr) minmax(0,1.6fr) auto;column-gap:20px}
 .svc-row p{margin-left:20px}
 .svc-row h3{hyphens:manual}
+/* desktop: heading + all four services fit one screen */
+@media (min-width:1101px){
+  #services .sec-head{max-width:none;margin-bottom:28px}
+  .svc-row{padding:22px 0}
+  .svc-row h3{font-size:clamp(22px,2.2vw,30px)}
+}
 .svc-ic{display:grid;place-items:center;width:44px;height:44px;margin-top:-4px;border:1px solid var(--line);border-radius:12px;color:var(--ember);transition:background .25s,color .25s,border-color .25s}
 .svc-ic svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .paper .svc-ic{border-color:var(--line-p);color:var(--orange)}
