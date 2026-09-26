@@ -399,6 +399,8 @@ footer .wrap{display:block}
 .m-cta{position:fixed;left:var(--gut);right:var(--gut);bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:90;display:none;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.45);transform:translateY(140%);transition:transform .3s}
 .m-cta.show{transform:none}
 @media (max-width:760px){.m-cta{display:inline-flex}}
+/* soft scrim so text scrolling under the floating CTA fades instead of looking glued to it */
+@media (max-width:760px){html.mcta-on::after{content:"";position:fixed;left:0;right:0;bottom:0;height:calc(120px + env(safe-area-inset-bottom,0px));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);-webkit-mask-image:linear-gradient(0deg,#000 40%,transparent 100%);mask-image:linear-gradient(0deg,#000 40%,transparent 100%);pointer-events:none;z-index:89}}
 
 /* reveal (enhancement only: content is visible without JS) */
 .js .rv{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
@@ -889,7 +891,9 @@ h1,h2,#why h3{hyphens:manual}
   function frame(){
     ticking=false;
     var m=d.getElementById('mCta'),c=d.getElementById('contact').getBoundingClientRect();
-    m.classList.toggle('show',scrollY>500&&c.top>innerHeight*.7);
+    var show=scrollY>500&&c.top>innerHeight*.7;
+    m.classList.toggle('show',show);
+    root.classList.toggle('mcta-on',show);
   }
   addEventListener('scroll',function(){onScroll();if(!ticking){ticking=true;requestAnimationFrame(frame)}},{passive:true});
   frame();
