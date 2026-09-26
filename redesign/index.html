@@ -477,13 +477,13 @@ h1,h2,#why h3{hyphens:manual}
 .appr li::before{content:"—";position:absolute;left:0;color:var(--ember)}
 @media (max-width:760px){.appr{grid-template-columns:minmax(0,1fr)}}
 /* cases stats strip */
-.stats{display:grid;grid-template-columns:1fr 1fr 2.2fr;margin:-8px 0 16px;border-block:1px solid var(--line)}
-.stats>div{padding:10px 24px;border-left:1px solid var(--line)}
-.stats>div:first-child{padding-left:0;border-left:0}
+.stats{display:grid;grid-template-columns:1fr 1fr 2.2fr;margin:0 0 12px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.025)}
+.stats>div{padding:13px 24px;border-left:1px solid var(--line)}
+.stats>div:first-child{border-left:0}
 .stats b{display:block;font:300 clamp(22px,2.3vw,30px)/1.15 var(--f-display);letter-spacing:-.01em;color:var(--ember);font-variant-numeric:tabular-nums}
 .stats .rec b{font-size:clamp(18px,1.9vw,24px);line-height:1.25}
 .stats span{display:block;margin-top:4px;font-size:13px;line-height:1.35;color:var(--ink2)}
-@media (max-width:900px){.stats{grid-template-columns:1fr 1fr}.stats .rec{grid-column:1/-1;border-left:0;border-top:1px solid var(--line);padding-left:0}}
+@media (max-width:900px){.stats{grid-template-columns:1fr 1fr}.stats .rec{grid-column:1/-1;border-left:0;border-top:1px solid var(--line);padding-left:24px}}
 #reviews .rev{border-color:var(--line);background:rgba(255,255,255,.03)}
 #reviews .stars{color:var(--ember)}
 #reviews .res{color:var(--ember);background:rgba(255,138,76,.12)}
