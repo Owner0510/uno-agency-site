@@ -897,6 +897,9 @@ h1,h2,#why h3{hyphens:manual}
   }
   addEventListener('scroll',function(){onScroll();if(!ticking){ticking=true;requestAnimationFrame(frame)}},{passive:true});
   frame();
+  /* a direct #anchor link can land here before any scroll event fires; re-check shortly after load so the CTA/scrim state isn't stuck at its pre-jump value */
+  setTimeout(frame,50);setTimeout(frame,350);
+  addEventListener('pageshow',frame);
 
   /* reveal on scroll */
   if('IntersectionObserver' in window&&!reduce){
