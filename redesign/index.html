@@ -130,7 +130,7 @@ h2 em,h1 em{font:italic 600 1.14em/1 var(--f-serif);text-transform:none;letter-s
 .pill:hover{background:var(--orange-h)}
 .pill .ar{display:inline-block;transition:transform .25s}
 .pill:hover .ar{transform:translate(3px,-3px)}
-.pill.sm{padding:11px 18px;font-size:12px}
+.pill.sm{padding:14px 18px;font-size:12px}
 .pill.lg{padding:22px 40px;font-size:15px}
 .ghost{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:999px;padding:16px 28px;font:500 13.5px/1 var(--f-body);letter-spacing:.07em;text-transform:uppercase;transition:border-color .2s,background .2s}
 .ghost:hover{border-color:rgba(245,239,231,.45);background:rgba(245,239,231,.05)}
@@ -411,12 +411,11 @@ h2{font-size:clamp(24px,3.3vw,44px)}
 .proof b{font-weight:400}
 .paper h2 em,.stars{color:var(--orange-ink)}
 .nav.solid{background:rgba(14,15,16,.94)}
-.nav-r .pill{display:inline-flex}
 .lang{padding:12px 14px}
 .logo{display:inline-block;padding:14px 0}
-.foot-legal a,.foot-links a{display:inline-block;padding:11px 0}
+.foot-legal a,.foot-links a{display:inline-block;padding:12px 0}
 .foot-req{color:rgba(245,239,231,.62)}
-@media (max-width:420px){.nav-r{gap:8px}.nav-r .pill .ar{display:none}.pill.sm{padding:11px 13px;font-size:11px;letter-spacing:.05em}.lang{padding:12px 10px}}
+@media (max-width:420px){.nav-r{gap:8px}.nav-r .pill .ar{display:none}.pill.sm{padding:14px 13px}.lang{padding:12px 12px}}
 /* cases: rows line up across a grid row */
 .cases{row-gap:0}
 .case{display:grid;grid-template-rows:subgrid;grid-row:span 5;row-gap:14px}
@@ -451,13 +450,13 @@ input[aria-invalid=true],select[aria-invalid=true]{border-color:#FF9A85}
 @media (max-width:760px){.vids{padding-top:8px;margin-top:-8px}}
 .vid-box.on{cursor:default}
 /* sticky mobile CTA: out of the tab order while hidden */
-.m-cta{padding:14px 26px;transition:transform .3s,visibility .3s}
+.m-cta{padding:15px 26px;transition:transform .3s,visibility .3s}
 .m-cta:not(.show){visibility:hidden}
 /* process: outline numerals, stack earlier */
 @media (max-width:1100px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.steps li:last-child{grid-column:1/-1}}
 @media (max-width:640px){.steps{grid-template-columns:minmax(0,1fr)}}
 .kpi{align-content:start}
-h1,h2{hyphens:manual}
+h1,h2,#why h3{hyphens:manual}
 
 /* sliders for cases and reviews (as on the main site): the block fits one screen, the rest is a swipe/arrow away */
 .sec-head{position:relative}
