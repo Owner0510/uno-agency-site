@@ -242,7 +242,7 @@ main:focus{outline:none}
 
 /* videos */
 .vids{display:flex;gap:16px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;padding-bottom:18px;scrollbar-width:thin;scrollbar-color:var(--orange) transparent}
-@media (max-width:760px){.vids{margin-inline:calc(var(--gut)*-1);padding-inline:var(--gut)}}
+@media (max-width:760px){.vids{margin-inline:calc(var(--gut)*-1);scroll-padding-inline:var(--gut)}.vids>:first-child{margin-inline-start:var(--gut)}.vids>:last-child{margin-inline-end:var(--gut)}}
 .vid{flex:0 0 clamp(190px,21vw,240px);scroll-snap-align:start}
 .vid-box{position:relative;aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:#000;cursor:pointer;border:0;width:100%;display:block;padding:0}
 .vid-box img,.vid-box video{width:100%;height:100%;object-fit:cover}
