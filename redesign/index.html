@@ -425,9 +425,6 @@ h2{font-size:clamp(24px,3.3vw,44px)}
 .case .tag{font:500 12px/1.4 var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
 .kpi{margin-top:0}
 .case .go{margin-top:0}
-.case:last-child:nth-child(3n+2){grid-column:span 2}
-.case:last-child:nth-child(3n+2) .kpi{grid-template-columns:repeat(4,minmax(0,1fr))}
-@media (max-width:900px){.case:last-child:nth-child(3n+2){grid-column:auto}.case:last-child:nth-child(3n+2) .kpi{grid-template-columns:repeat(2,minmax(0,1fr))}}
 /* deal + referral text blocks */
 .deal .tag{font:500 12px/1.4 var(--f-body);letter-spacing:.1em;text-transform:uppercase}
 .deal .us .tag{opacity:1;color:#fff}
@@ -507,7 +504,9 @@ h1,h2,#why h3{hyphens:manual}
 .cases>.case .kpi{margin-top:auto;grid-template-columns:repeat(3,minmax(0,1fr))}
 @media (max-width:480px){.cases>.case .kpi{grid-template-columns:repeat(2,minmax(0,1fr))}.cases>.case .kpi .wide{grid-column:1/-1}}
 .cases>.case .kpi .wide{grid-column:span 2}
-.cases>.case:last-child:nth-child(3n+2) .kpi{grid-template-columns:repeat(3,minmax(0,1fr))}
+/* a KPI item left alone in the grid's last row should fill it, not sit in one cell with dead space beside it — fill-d/fill-m pick the breakpoint where that item is actually the odd one out */
+@media (min-width:481px){.cases>.case .kpi>.fill-d{grid-column:1/-1}}
+@media (max-width:480px){.cases>.case .kpi>.fill-m{grid-column:1/-1}}
 .revs>.rev{flex:0 0 min(400px,84vw);scroll-snap-align:start;grid-column:auto}
 .car-nav{align-items:center}
 @media (max-width:700px){.car-nav{position:static;margin-top:16px}}
@@ -671,14 +670,14 @@ h1,h2,#why h3{hyphens:manual}
         <p class="tag">💇 Meta Ads · Beauty · Canada 🇨🇦</p>
         <h3 id="ct2">HairHub — салон краси, Торонто</h3>
         <p>Стабільний потік нових клієнтів на запис. Масштабування через сегментацію холодної аудиторії, ретаргетинг і постійне тестування форматів.</p>
-        <div class="kpi"><div><span>Бюджет</span><b>$41,664</b></div><div><span>Переписок</span><b>5,864</b></div><div><span>Ціна переписки</span><b>$7.10</b></div><div><span>LTV клієнта</span><b class="acc">29 міс</b></div></div>
+        <div class="kpi"><div><span>Бюджет</span><b>$41,664</b></div><div><span>Переписок</span><b>5,864</b></div><div><span>Ціна переписки</span><b>$7.10</b></div><div class="fill-d"><span>LTV клієнта</span><b class="acc">29 міс</b></div></div>
         <span class="go">Дивитись кейс →</span>
       </a>
       <a class="case rv" href="/cases/prodazh-kotedzhiv-na-sumu-210-000/" aria-labelledby="ct3">
         <p class="tag">🏘 Meta Ads · Нерухомість · Україна 🇺🇦</p>
         <h3 id="ct3">Продаж котеджів — нерухомість в Україні</h3>
         <p>Нерухомість — довгий цикл рішення. Побудували воронку від першого прогріву до фінального звернення: виключно через Meta Ads.</p>
-        <div class="kpi"><div><span>Бюджет</span><b>$1,684</b></div><div><span>Лідів</span><b>298</b></div><div><span>Ціна ліда</span><b>$5.65</b></div><div><span>Продажів</span><b>2</b></div><div class="wide"><span>Ціна 1 продажу</span><b>$842</b></div><div class="wide"><span>Сума продажів</span><b class="acc">$210,000</b></div></div>
+        <div class="kpi"><div><span>Бюджет</span><b>$1,684</b></div><div><span>Лідів</span><b>298</b></div><div><span>Ціна ліда</span><b>$5.65</b></div><div><span>Продажів</span><b>2</b></div><div><span>Ціна 1 продажу</span><b>$842</b></div><div><span>Сума продажів</span><b class="acc">$210,000</b></div></div>
         <span class="go">Дивитись кейс →</span>
       </a>
       <a class="case rv" href="/cases/cool-cat-fence-vstanovlennya-parkaniv/" aria-labelledby="ct4">
@@ -692,7 +691,7 @@ h1,h2,#why h3{hyphens:manual}
         <p class="tag">🚲 Meta Ads · E-commerce · USA 🇺🇸</p>
         <h3 id="ct5">Biky — преміальні дитячі велосипеди, США</h3>
         <p>Магазин на Shopify, середній чек $400. У проєкт зайшли три команди — залишились тільки ми, бо показали найкращий результат.</p>
-        <div class="kpi"><div><span>Бюджет</span><b>$19,946</b></div><div><span>Покупок</span><b>127</b></div><div><span>ROAS</span><b class="acc">254%</b></div><div><span>Кампаній</span><b>22</b></div></div>
+        <div class="kpi"><div><span>Бюджет</span><b>$19,946</b></div><div><span>Покупок</span><b>127</b></div><div><span>ROAS</span><b class="acc">254%</b></div><div class="fill-d"><span>Кампаній</span><b>22</b></div></div>
         <span class="go">Дивитись кейс →</span>
       </a>
       <a class="case rv" href="/cases/mikrobleydynh/" aria-labelledby="ct6">
@@ -706,14 +705,14 @@ h1,h2,#why h3{hyphens:manual}
         <p class="tag">📚 Meta Ads · EdTech · Польща 🇵🇱</p>
         <h3 id="ct7">Школа англійської мови — Польща</h3>
         <p>Старт з нуля — без сайту, сторінок і кабінету. Відео «з лицем» + безкоштовний перший урок = найкращий лід-магніт для мовних шкіл.</p>
-        <div class="kpi"><div><span>Бюджет</span><b>$3,919</b></div><div><span>Лідів</span><b>1,124</b></div><div class="wide"><span>Ціна ліда</span><b class="acc">$3.48</b></div></div>
+        <div class="kpi"><div><span>Бюджет</span><b>$3,919</b></div><div><span>Лідів</span><b>1,124</b></div><div class="fill-m"><span>Ціна ліда</span><b class="acc">$3.48</b></div></div>
         <span class="go">Дивитись кейс →</span>
       </a>
       <a class="case rv" href="/cases/lehalizaciya-v-polshchi/" aria-labelledby="ct8">
         <p class="tag">⚖️ Meta Ads · Юридичні послуги · Польща 🇵🇱</p>
         <h3 id="ct8">Легалізація в Польщі</h3>
         <p>Надконкурентна ніша: 76 кампаній, заявки з лід-форм одразу йдуть у відділ продажів. Клієнт повернувся до нас після іншого таргетолога.</p>
-        <div class="kpi"><div><span>Бюджет</span><b>$3,535</b></div><div><span>Заявок</span><b>593</b></div><div class="wide"><span>Ціна заявки</span><b class="acc">$5.96</b></div></div>
+        <div class="kpi"><div><span>Бюджет</span><b>$3,535</b></div><div><span>Заявок</span><b>593</b></div><div class="fill-m"><span>Ціна заявки</span><b class="acc">$5.96</b></div></div>
         <span class="go">Дивитись кейс →</span>
       </a>
     </div>
