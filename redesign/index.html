@@ -400,8 +400,6 @@ footer .wrap{display:block}
 .m-cta{position:fixed;left:var(--gut);right:var(--gut);bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:90;display:none;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.45);transform:translateY(140%);transition:transform .3s}
 .m-cta.show{transform:none}
 @media (max-width:760px){.m-cta{display:inline-flex}}
-/* thin edge strip carrying the section colour under the CTA, so iOS Safari's own bottom bar tints to the page instead of to the orange button */
-@media (max-width:760px){html.mcta-on::before{content:"";position:fixed;left:0;right:0;bottom:0;height:6px;background:var(--edge,#0E0F10);pointer-events:none;z-index:91}}
 
 /* reveal (enhancement only: content is visible without JS) */
 .js .rv{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
@@ -901,11 +899,6 @@ h1,h2,#why h3{hyphens:manual}
     var m=d.getElementById('mCta'),c=d.getElementById('contact').getBoundingClientRect();
     var show=scrollY>500&&c.top>innerHeight*.7;
     m.classList.toggle('show',show);
-    root.classList.toggle('mcta-on',show);
-    /* iOS Safari tints its bottom bar from the colour at the screen edge; feed it the section colour instead of the orange CTA */
-    if(show){var e=d.elementFromPoint(innerWidth/2,innerHeight-3),bg;
-      while(e&&(bg=getComputedStyle(e).backgroundColor)&&/^rgba\(.*, ?0\)$|^transparent$/.test(bg))e=e.parentElement;
-      if(bg)root.style.setProperty('--edge',bg)}
   }
   addEventListener('scroll',function(){onScroll();if(!ticking){ticking=true;requestAnimationFrame(frame)}},{passive:true});
   frame();
