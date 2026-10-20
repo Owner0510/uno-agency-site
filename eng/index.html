@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 
 <!-- ═══ SEO: Primary ═══ -->
-<title>UNO Agency — Таргетована реклама та SMM для українського бізнесу в Канаді, США, ЄС</title>
-<meta name="description" content="UNO Agency — маркетингова агенція для українських бізнесів у Канаді, США, Великій Британії та ЄС. Meta Ads, TikTok Ads, SMM. Залучаємо клієнтів і збільшуємо продажі. Консультація безкоштовно."/>
-<meta name="keywords" content="таргетована реклама Канада, SMM для бізнесу, Meta Ads, TikTok Ads, реклама Facebook для українців, маркетингова агенція Канада, Ukrainian marketing agency Canada, SMM агенція, реклама Instagram, реклама для малого бізнесу"/>
+<title>UNO Agency — Meta Ads, TikTok Ads &amp; SMM for Ukrainian Businesses Abroad</title>
+<meta name="description" content="UNO Agency is a marketing agency for Ukrainian-owned businesses in Canada, the USA, the UK and the EU. Meta Ads, TikTok Ads, SMM. We bring in clients and grow your sales. Free consultation."/>
+<meta name="keywords" content="Ukrainian marketing agency Canada, Meta Ads, TikTok Ads, SMM agency, Facebook ads for Ukrainian businesses, Instagram marketing, targeted advertising Canada, UNO Agency"/>
 <meta name="author" content="UNO Agency"/>
 <meta name="robots" content="index, follow"/>
 <meta name="facebook-domain-verification" content="z9747o5qzc8ax1ng9guebd01wlsybh" />
@@ -19,19 +19,19 @@
 <!-- ═══ SEO: Open Graph (Facebook, Telegram, WhatsApp) ═══ -->
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://uno-agency.com/eng/"/>
-<meta property="og:title" content="UNO Agency — Таргетована реклама та SMM для українського бізнесу"/>
-<meta property="og:description" content="Залучаємо клієнтів і збільшуємо продажі через Meta Ads, TikTok Ads та SMM. Працюємо з бізнесами в Канаді, США, ЄС та Україні. Консультація безкоштовно."/>
+<meta property="og:title" content="UNO Agency — Meta Ads, TikTok Ads &amp; SMM for Ukrainian Businesses"/>
+<meta property="og:description" content="We bring in clients and grow sales through Meta Ads, TikTok Ads and SMM. Working with businesses in Canada, the USA, the EU and Ukraine. Free consultation."/>
 <meta property="og:image" content="https://uno-agency.com/team.jpg"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
 <meta property="og:site_name" content="UNO Agency"/>
-<meta property="og:locale" content="uk_UA"/>
-<meta property="og:locale:alternate" content="en_US"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:locale:alternate" content="uk_UA"/>
 
 <!-- ═══ SEO: Twitter Card ═══ -->
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="UNO Agency — Таргетована реклама та SMM"/>
-<meta name="twitter:description" content="Meta Ads, TikTok Ads, SMM для українських бізнесів у Канаді, США, ЄС та Україні."/>
+<meta name="twitter:title" content="UNO Agency — Meta Ads, TikTok Ads &amp; SMM"/>
+<meta name="twitter:description" content="Meta Ads, TikTok Ads and SMM for Ukrainian businesses in Canada, the USA, the EU and Ukraine."/>
 <meta name="twitter:image" content="https://uno-agency.com/team.jpg"/>
 
 <!-- ═══ SEO: Schema.org ═══ -->
@@ -1259,7 +1259,7 @@ src="https://www.facebook.com/tr?id=1307400098210403&ev=PageView&noscript=1"
           <div class="f-group">
             <label class="f-label uk" for="fName">Ім'я <span style="color:var(--o)">*</span></label>
             <label class="f-label en" for="fName">Name <span style="color:var(--o)">*</span></label>
-            <input type="text" id="fName" placeholder="Юлія Кожумяка" required oninput="this.value=this.value.replace(/[^a-zA-Zа-яА-ЯіІїЇєЄґҐёЁ'\- ]/g,'')"/>
+            <input type="text" id="fName" placeholder="Юлія Кожумяка" required oninput="this.value=this.value.replace(/[^a-zA-Zа-яА-ЯіІїЇєЄґҐёЁ'’ʼ\- ]/g,'')"/>
           </div>
           <div class="f-group">
             <label class="f-label uk" for="fPhone">Номер телефону <span style="color:var(--o)">*</span></label>
@@ -1347,7 +1347,7 @@ src="https://www.facebook.com/tr?id=1307400098210403&ev=PageView&noscript=1"
         <div class="f-group">
           <label class="f-label uk" for="mName">Ім'я <span style="color:var(--o)">*</span></label>
           <label class="f-label en" for="mName">Name <span style="color:var(--o)">*</span></label>
-          <input type="text" id="mName" placeholder="Юлія Кожумяка" required oninput="this.value=this.value.replace(/[^a-zA-Zа-яА-ЯіІїЇєЄґҐёЁ'\- ]/g,'')"/>
+          <input type="text" id="mName" placeholder="Юлія Кожумяка" required oninput="this.value=this.value.replace(/[^a-zA-Zа-яА-ЯіІїЇєЄґҐёЁ'’ʼ\- ]/g,'')"/>
         </div>
         <div class="f-group">
           <label class="f-label uk" for="mPhone">Номер телефону <span style="color:var(--o)">*</span></label>
@@ -1481,24 +1481,30 @@ async function sendLead(name, phone, tg, email){
   // означала мовчки втрачену заявку.
   for (let attempt = 1; attempt <= 3; attempt++) {
     try {
-      const r = await fetch(url);
-      if (r.ok) return;
+      const ctl = new AbortController(), tm = setTimeout(()=>ctl.abort(), 10000);
+      const r = await fetch(url, {signal: ctl.signal}); clearTimeout(tm);
+      if (r.ok) return true;
       console.error('lead → Apps Script: HTTP', r.status, 'спроба', attempt);
     } catch(e){ console.error('lead → Apps Script:', e, 'спроба', attempt); }
     if (attempt < 3) await new Promise(res => setTimeout(res, attempt * 1500));
   }
   console.error('lead → Apps Script: ЗАЯВКА НЕ ДОСТАВЛЕНА після 3 спроб', {name, phone});
+  return false;
 }
 
-function submitModal(){
+let _sending=false;
+const LEAD_FAIL=isEn=>isEn?'Sorry, we could not send your request. Please message us on Telegram: @hatlan_serhii':'Не вдалося надіслати заявку. Напишіть нам у Telegram: @hatlan_serhii';
+async function submitModal(){
   const n=document.getElementById('mName').value.trim();
   const p=document.getElementById('mPhone').value.trim();
   const isEn=document.body.classList.contains('en-mode');
   const t=!isEn?(document.getElementById('mTg')?document.getElementById('mTg').value.trim():''):'';
   const e=isEn?(document.getElementById('mEmail')?document.getElementById('mEmail').value.trim():''):'';
   if(!n){alert(isEn?"Please enter your name":"Введіть ваше ім'я");return;}
-  if(!p||!/^[0-9+\-]{7,}$/.test(p.replace(/\s/g,''))||p.replace(/\D/g,'').length<7){alert(isEn?"Please enter a valid phone number (digits, + and - only, min 7 digits)":"Введіть коректний номер телефону (лише цифри, + та -, мін. 7 цифр)");return;}
-  sendLead(n,p,t,e);
+  if(!p||!/^[0-9+\-() ]+$/.test(p)||p.replace(/\D/g,'').length<7||p.replace(/\D/g,'').length>15){alert(isEn?"Please enter a valid phone number (7–15 digits; + - ( ) allowed)":"Введіть коректний номер телефону (лише цифри, + та -, мін. 7 цифр)");return;}
+  if(_sending) return; _sending=true;
+  const ok=await sendLead(n,p,t,e); _sending=false;
+  if(!ok){alert(LEAD_FAIL(isEn));return;}
   document.getElementById('modalFormBox').style.display='none';
   document.getElementById('modalOk').style.display='block';
 }
@@ -1551,15 +1557,17 @@ function toggleFaq(q){
 }
 
 // ── FORM ──
-function submitForm(){
+async function submitForm(){
   const n=document.getElementById('fName').value.trim();
   const p=document.getElementById('fPhone').value.trim();
   const isEn=document.body.classList.contains('en-mode');
   const t=!isEn?(document.getElementById('fTg')?document.getElementById('fTg').value.trim():''):'';
   const e=isEn?(document.getElementById('fEmail')?document.getElementById('fEmail').value.trim():''):'';
   if(!n){alert(isEn?'Please enter your name':'Введіть ваше ім\'я');return;}
-  if(!p||!/^[0-9+\-]{7,}$/.test(p.replace(/\s/g,''))||p.replace(/\D/g,'').length<7){alert(isEn?"Please enter a valid phone number (digits, + and - only, min 7 digits)":"Введіть коректний номер телефону (лише цифри, + та -, мін. 7 цифр)");return;}
-  sendLead(n,p,t,e);
+  if(!p||!/^[0-9+\-() ]+$/.test(p)||p.replace(/\D/g,'').length<7||p.replace(/\D/g,'').length>15){alert(isEn?"Please enter a valid phone number (7–15 digits; + - ( ) allowed)":"Введіть коректний номер телефону (лише цифри, + та -, мін. 7 цифр)");return;}
+  if(_sending) return; _sending=true;
+  const ok=await sendLead(n,p,t,e); _sending=false;
+  if(!ok){alert(LEAD_FAIL(isEn));return;}
   document.getElementById('formBox').style.display='none';
   document.getElementById('formOk').style.display='block';
 }

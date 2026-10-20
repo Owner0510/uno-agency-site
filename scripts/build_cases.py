@@ -68,9 +68,9 @@ def head(title, desc):
             f'</head>\n<body>\n')
 
 
-NAV = ('<header class="nav"><div class="wrap"><a class="logo" href="/redesign/" aria-label="UNO Agency, на головну">'
+NAV = ('<header class="nav"><div class="wrap"><a class="logo" href="/" aria-label="UNO Agency, на головну">'
        'UNO <i>Agency</i></a><div class="nav-r"><a href="/cases/">Усі кейси</a>'
-       '<a class="pill" href="/redesign/#contact">Заявка <span aria-hidden="true">↗</span></a></div></div></header>\n')
+       '<a class="pill" href="/#contact">Заявка <span aria-hidden="true">↗</span></a></div></div></header>\n')
 FOOT = ('<footer><div class="wrap">© UNO Agency · Meta Ads · TikTok Ads · SMM</div></footer>\n'
         '<script src="/assets/cases.js" defer></script>\n</body>\n</html>\n')
 
@@ -144,7 +144,7 @@ def main():
                 f'<div class="meta"><span><b>{CATS[c["cat"]]}</b></span>{meta}</div></section>'
                 f'<article class="wrap"><div class="case-body">{render_blocks(c["blocks"], img, c["title"])}</div>'
                 f'<div class="case-foot"><div class="pn">{pn}</div>'
-                f'<a class="pill lg" href="/redesign/#contact">Обговорити мій проєкт <span aria-hidden="true">↗</span></a>'
+                f'<a class="pill lg" href="/#contact">Обговорити мій проєкт <span aria-hidden="true">↗</span></a>'
                 f'</div></article></main>\n' + FOOT)
         d = cases_dir / c["slug"]
         d.mkdir(parents=True)
