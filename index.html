@@ -331,7 +331,7 @@ svg.ci{width:18px;height:18px;flex:none;margin-right:10px;vertical-align:-3px}
 .person li{padding-left:18px;position:relative}
 .person li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:1.5px;background:var(--orange)}
 @media (max-width:1020px){.team{grid-template-columns:minmax(0,1fr)}}
-@media (max-width:520px){.person{grid-template-columns:minmax(0,1fr)}.person img{max-width:220px}}
+@media (max-width:520px){.person{grid-template-columns:minmax(0,1fr)}.person img{max-width:none;aspect-ratio:4/5}}
 
 /* process — real sequence */
 .steps{list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px;counter-reset:s}
