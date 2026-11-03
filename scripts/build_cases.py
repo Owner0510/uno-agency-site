@@ -56,6 +56,9 @@ def good_cover(m):
     return m["h"] >= 300 and 0.5 <= m["w"] / m["h"] <= 2.5
 
 
+PIXEL = "<!-- Meta Pixel -->\n<script>\n!function(f,b,e,v,n,t,s)\n{if(f.fbq)return;n=f.fbq=function(){n.callMethod?\nn.callMethod.apply(n,arguments):n.queue.push(arguments)};\nif(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';\nn.queue=[];t=b.createElement(e);t.async=!0;\nt.src=v;s=b.getElementsByTagName(e)[0];\ns.parentNode.insertBefore(t,s)}(window, document,'script',\n'https://connect.facebook.net/en_US/fbevents.js');\nfbq('init', '1569509707400161');\nfbq('track', 'PageView');\n</script>\n<!-- End Meta Pixel -->\n"
+
+
 def head(title, desc):
     return (f'<!DOCTYPE html>\n<html lang="uk">\n<head>\n<meta charset="UTF-8"/>\n'
             f'<meta name="viewport" content="width=device-width,initial-scale=1"/>\n'
@@ -65,6 +68,7 @@ def head(title, desc):
             f'<link rel="preconnect" href="https://fonts.googleapis.com"/>\n'
             f'<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>\n'
             f'<link href="{FONTS}" rel="stylesheet"/>\n<link href="/assets/cases.css" rel="stylesheet"/>\n'
+            f'{PIXEL}'
             f'</head>\n<body>\n')
 
 

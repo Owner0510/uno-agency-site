@@ -26,6 +26,20 @@ a.p{background:var(--orange);color:#fff}
 a.g{border:1px solid var(--line);color:var(--ink)}
 a.btn:focus-visible{outline:2px solid var(--ember);outline-offset:3px}
 </style>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1569509707400161');
+fbq('track', 'PageView');
+</script>
+<!-- End Meta Pixel -->
 </head>
 <body>
 <main>
